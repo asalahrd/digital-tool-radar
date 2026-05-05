@@ -1,141 +1,392 @@
 import type { Product } from "@/lib/types"
+import Link from "next/link"
+
+const DEFAULT_BONUSES = [
+  {
+    name: "Quick-Start Checklist",
+    description: "Step-by-step checklist to get your first result within 24 hours of purchase.",
+    badge: "INSTANT ACCESS",
+  },
+  {
+    name: "Campaign Template Pack",
+    description: "Ready-to-use templates specifically designed for buyers of this product.",
+    badge: "INSTANT ACCESS",
+  },
+  {
+    name: "Custom Implementation Guide",
+    description: "A personalised action plan built around your specific business goals.",
+    badge: "READY IN 2 HRS",
+  },
+]
 
 export default function BonusPage({ product }: { product: Product }) {
-  const { landing } = product
+  const bonuses = product.landing?.bonuses?.length
+    ? product.landing.bonuses
+    : DEFAULT_BONUSES
+
+  const bullets = product.landing?.bullets?.length
+    ? product.landing.bullets
+    : [
+        "Get up and running in minutes, not days",
+        "Save hours of research with a pre-built setup",
+        "Exclusive bonuses you can't find anywhere else",
+      ]
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 px-4 text-center">
-        <span className="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">
-          Exclusive Bonus Offer — {product.launch_date}
-        </span>
-        <h1 className="text-3xl md:text-4xl font-extrabold mt-4 mb-4 leading-tight max-w-3xl mx-auto">
-          {landing.headline}
-        </h1>
-        <p className="text-lg text-slate-300 max-w-xl mx-auto mb-8">{landing.sub_headline}</p>
-        <ul className="text-left max-w-md mx-auto mb-8 space-y-3">
-          {landing.bullets.map((b, i) => (
-            <li key={i} className="flex items-start gap-3 text-slate-200">
-              <span className="text-green-400 font-bold mt-0.5">✓</span>
-              <span>{b}</span>
-            </li>
-          ))}
-        </ul>
-        <a
-          href={product.affiliate_link}
-          target="_blank"
-          rel="nofollow noopener"
-          className="inline-block bg-amber-500 hover:bg-amber-400 text-slate-900 font-black px-10 py-5 rounded-xl text-xl transition-all hover:scale-105 shadow-lg"
-        >
-          {landing.cta_text} →
-        </a>
-        <p className="text-slate-400 text-sm mt-4">⏰ {landing.urgency_line}</p>
-      </section>
+    <>
+      {/* ── Hero ── */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 80% at 50% -10%, rgba(0,212,146,0.12) 0%, transparent 65%)",
+          paddingTop: "4rem",
+          paddingBottom: "4rem",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
+        <div className="mx-auto px-5 text-center" style={{ maxWidth: 720 }}>
+          <span className="badge badge-green mb-5" style={{ display: "inline-flex" }}>
+            Exclusive Bonuses
+          </span>
 
-      <section className="max-w-2xl mx-auto px-4 py-12">
-        <h2 className="text-2xl font-extrabold text-slate-900 text-center mb-8">
-          🎁 Buy Through My Link — Get These Exclusive Extras
-        </h2>
-        <div className="space-y-4">
-          {landing.bonuses.map((bonus, i) => (
-            <div
-              key={i}
-              className="bg-white border-l-4 border-amber-400 rounded-xl p-5 shadow-sm flex gap-4"
-            >
-              <div className="text-3xl font-black text-amber-300 leading-none select-none">
-                #{i + 1}
-              </div>
-              <div>
-                {bonus.badge && (
-                  <span className="text-xs font-bold uppercase tracking-wide text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
-                    {bonus.badge}
-                  </span>
-                )}
-                <h3 className="font-bold text-slate-900 mt-1">{bonus.name}</h3>
-                <p className="text-slate-500 text-sm mt-1">{bonus.description}</p>
-              </div>
-            </div>
-          ))}
+          <h1
+            style={{
+              fontSize: "clamp(1.75rem, 5vw, 3rem)",
+              fontWeight: 900,
+              color: "#edf2f7",
+              lineHeight: 1.12,
+              letterSpacing: "-0.035em",
+              marginBottom: "1rem",
+            }}
+          >
+            {product.landing?.headline || `Get ${product.name} + My Exclusive Bonus Stack`}
+          </h1>
+
+          <p
+            style={{
+              fontSize: "1.1rem",
+              color: "#94a3b8",
+              lineHeight: 1.7,
+              marginBottom: "1.75rem",
+              maxWidth: 560,
+              margin: "0 auto 1.75rem",
+            }}
+          >
+            {product.landing?.sub_headline ||
+              `Buy ${product.name} through my link and get a hand-picked bonus stack designed to help you get results faster.`}
+          </p>
+
+          {/* Bullet points */}
+          <ul
+            className="text-left mx-auto mb-8"
+            style={{
+              maxWidth: 480,
+              listStyle: "none",
+              padding: 0,
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.65rem",
+            }}
+          >
+            {bullets.map((b, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span
+                  style={{
+                    minWidth: "1.2rem",
+                    height: "1.2rem",
+                    borderRadius: "50%",
+                    background: "rgba(0,212,146,0.15)",
+                    border: "1px solid rgba(0,212,146,0.35)",
+                    color: "#00d492",
+                    fontSize: "0.65rem",
+                    fontWeight: 900,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "0.15rem",
+                  }}
+                >
+                  &#10003;
+                </span>
+                <span style={{ fontSize: "0.975rem", color: "#94a3b8", lineHeight: 1.6 }}>
+                  {b}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <a
+            href={product.affiliate_link}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="btn-primary"
+            style={{ fontSize: "1.05rem", padding: "0.9rem 2.5rem" }}
+          >
+            {product.landing?.cta_text || `Get ${product.name} + My Bonuses`} &#8594;
+          </a>
+          <p style={{ fontSize: "0.78rem", color: "#4a5568", marginTop: "0.75rem" }}>
+            {product.landing?.urgency_line || "Bonuses expire at launch close"}
+          </p>
         </div>
       </section>
 
-      {product.otos.length > 0 && (
-        <section className="bg-slate-50 py-10 px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-xl font-bold text-slate-900 mb-4 text-center">
-              💰 Full OTO / Upsell Breakdown (No Surprises)
-            </h2>
-            <table className="w-full text-sm bg-white rounded-xl overflow-hidden shadow-sm">
-              <thead>
-                <tr className="bg-slate-100 text-left">
-                  <th className="px-4 py-3 text-slate-600">Upsell</th>
-                  <th className="px-4 py-3 text-slate-600">Price</th>
-                  <th className="px-4 py-3 text-slate-600">Worth It?</th>
-                </tr>
-              </thead>
-              <tbody>
-                {product.otos.map((oto, i) => (
-                  <tr key={i} className="border-t border-slate-100">
-                    <td className="px-4 py-3">
-                      <strong>{oto.name}</strong>
-                      <br />
-                      <span className="text-slate-500">{oto.description}</span>
-                    </td>
-                    <td className="px-4 py-3">{oto.price ?? "—"}</td>
-                    <td className="px-4 py-3 text-slate-500">Covered in review</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      {/* ── Stats row ── */}
+      <div
+        style={{
+          background: "rgba(255,255,255,0.02)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+      >
+        <div
+          className="mx-auto px-5 py-5 flex flex-wrap justify-center gap-8"
+          style={{ maxWidth: 900 }}
+        >
+          {[
+            { label: "Front-end Price", value: `$${product.price}`, color: "#edf2f7" },
+            { label: "Commission", value: `${product.commission}%`, color: "#00d492" },
+            { label: "Bonuses Included", value: `${bonuses.length}`, color: "#a78bfa" },
+            { label: "Vendor", value: product.vendor?.split(" and ")[0] || "Verified", color: "#edf2f7" },
+          ].map(({ label, value, color }) => (
+            <div key={label} className="text-center">
+              <p
+                style={{
+                  fontSize: "1.6rem",
+                  fontWeight: 900,
+                  color,
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1,
+                }}
+              >
+                {value}
+              </p>
+              <p style={{ fontSize: "0.72rem", color: "#4a5568", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginTop: "0.3rem" }}>
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-auto px-5 py-14" style={{ maxWidth: 860 }}>
+
+        {/* ── Bonus stack ── */}
+        <section className="mb-14">
+          <p className="section-label mb-3">Your Exclusive Bonuses</p>
+          <h2
+            style={{
+              fontSize: "1.5rem",
+              fontWeight: 800,
+              color: "#edf2f7",
+              marginBottom: "1.5rem",
+              letterSpacing: "-0.025em",
+            }}
+          >
+            Everything You Get When You Buy Today
+          </h2>
+          <div className="flex flex-col gap-4">
+            {bonuses.map((bonus, i) => (
+              <div key={i} className="bonus-card">
+                <div className="bonus-num">{i + 1}</div>
+                <div style={{ flex: 1 }}>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <p
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: 700,
+                        color: "#edf2f7",
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {bonus.name}
+                    </p>
+                    {bonus.badge && (
+                      <span className="badge badge-green" style={{ fontSize: "0.62rem" }}>
+                        {bonus.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.55 }}>
+                    {bonus.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
-      )}
 
-      <section className="bg-slate-900 text-white py-14 px-4 text-center">
-        <h2 className="text-2xl font-extrabold mb-3">Ready to Claim Your Bonuses?</h2>
-        <p className="text-slate-400 mb-8 max-w-md mx-auto">
-          Step 1 — Enter your email so we can deliver your bonuses.<br />
-          Step 2 — Click the button below to buy {product.name}.
-        </p>
-        <form
-          action={`https://app.convertkit.com/forms/${product.slug}/subscriptions`}
-          method="POST"
-          target="_blank"
-          className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6"
+        {/* ── Product features ── */}
+        {product.features?.length > 0 && (
+          <section className="mb-14">
+            <p className="section-label mb-3">What You&apos;re Buying</p>
+            <h2
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: 800,
+                color: "#edf2f7",
+                marginBottom: "1.25rem",
+                letterSpacing: "-0.025em",
+              }}
+            >
+              {product.name} Features
+            </h2>
+            <div
+              className="grid gap-3"
+              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))" }}
+            >
+              {product.features.slice(0, 8).map((feat, i) => {
+                const [title] = feat.split(" — ")
+                return (
+                  <div
+                    key={i}
+                    className="flex items-start gap-2.5 px-4 py-3 rounded-xl"
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#00d492",
+                        fontSize: "0.8rem",
+                        marginTop: "0.15rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      &#10003;
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.85rem",
+                        color: "#94a3b8",
+                        lineHeight: 1.5,
+                        fontWeight: 500,
+                      }}
+                    >
+                      {title}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* ── OTO section ── */}
+        {product.otos?.length > 0 && (
+          <section className="mb-14">
+            <p className="section-label mb-3">Full Funnel</p>
+            <h2
+              style={{
+                fontSize: "1.4rem",
+                fontWeight: 800,
+                color: "#edf2f7",
+                marginBottom: "1.25rem",
+                letterSpacing: "-0.025em",
+              }}
+            >
+              Upsells at a Glance
+            </h2>
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+            >
+              <table className="oto-table">
+                <thead style={{ background: "rgba(255,255,255,0.03)" }}>
+                  <tr>
+                    <th>Upsell</th>
+                    <th style={{ width: 90 }}>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product.otos.map((oto, i) => (
+                    <tr key={i}>
+                      <td>
+                        <p style={{ fontWeight: 700, color: "#edf2f7", marginBottom: "0.2rem", fontSize: "0.875rem" }}>
+                          {oto.name}
+                        </p>
+                        <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>
+                          {oto.description}
+                        </p>
+                      </td>
+                      <td>
+                        {oto.price ? (
+                          <span style={{ fontWeight: 700, color: "#edf2f7" }}>
+                            ${oto.price}
+                          </span>
+                        ) : (
+                          <span style={{ color: "#4a5568", fontSize: "0.8rem" }}>See page</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* ── Final CTA ── */}
+        <div
+          className="rounded-2xl p-8 text-center"
+          style={{
+            background:
+              "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, rgba(13,17,23,1) 70%)",
+            border: "1px solid rgba(0,212,146,0.2)",
+          }}
         >
-          <input
-            type="email"
-            name="email_address"
-            placeholder="Enter your email"
-            required
-            className="flex-1 px-4 py-3 rounded-lg text-slate-900 text-base focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+          <p className="section-label mb-3">Claim your bonuses</p>
+          <h3
+            style={{
+              fontSize: "1.6rem",
+              fontWeight: 900,
+              color: "#edf2f7",
+              marginBottom: "0.6rem",
+              letterSpacing: "-0.03em",
+            }}
           >
-            Secure My Bonuses
-          </button>
-        </form>
-        <a
-          href={product.affiliate_link}
-          target="_blank"
-          rel="nofollow noopener"
-          className="inline-block bg-white text-slate-900 font-black px-10 py-5 rounded-xl text-xl hover:bg-amber-50 transition-colors"
-        >
-          🛒 Buy {product.name} + Claim Bonuses →
-        </a>
-        <p className="text-slate-500 text-xs mt-4">
-          🔒 No spam. Unsubscribe anytime. {landing.urgency_line}.
-        </p>
-      </section>
+            {product.landing?.cta_text || `Get ${product.name} + Bonuses`}
+          </h3>
+          <p
+            style={{
+              color: "#7b8ea5",
+              fontSize: "0.95rem",
+              marginBottom: "1.75rem",
+              maxWidth: 460,
+              margin: "0 auto 1.75rem",
+            }}
+          >
+            Buy through my link, forward your receipt, and your bonuses will be in your inbox within 2 hours.
+          </p>
+          <a
+            href={product.affiliate_link}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            className="btn-primary"
+            style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
+          >
+            Get {product.name} + My Bonuses &#8594;
+          </a>
+          <p style={{ fontSize: "0.75rem", color: "#4a5568", marginTop: "0.75rem" }}>
+            {product.landing?.urgency_line || "Bonuses expire at launch close"}
+          </p>
+          <div style={{ marginTop: "1rem" }}>
+            <Link
+              href={`/${product.slug}-review`}
+              style={{
+                color: "#7b8ea5",
+                fontSize: "0.82rem",
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+              }}
+            >
+              Read the full review first
+            </Link>
+          </div>
+        </div>
 
-      <footer className="text-center py-6 text-xs text-slate-400">
-        <p>
-          Affiliate disclosure: This page contains affiliate links. I earn a commission at no extra cost to you.
-        </p>
-        <p className="mt-1">© {new Date().getFullYear()} Digital Tool Radar</p>
-      </footer>
-    </div>
+      </div>
+    </>
   )
 }
