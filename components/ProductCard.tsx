@@ -1,3 +1,5 @@
+"use client"
+
 import type { Product } from "@/lib/types"
 import Link from "next/link"
 
