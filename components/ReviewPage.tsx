@@ -140,7 +140,7 @@ export default function ReviewPage({ product }: { product: Product }) {
               <img
                 src={product.product_image}
                 alt={product.name + " screenshot"}
-                style={{ width: "100%", display: "block", maxHeight: 420, objectFit: "cover", objectPosition: "top" }}
+                style={{ width: "100%", display: "block", maxHeight: 420, objectFit: "contain", objectPosition: "center" }}
               />
             </div>
           )}
