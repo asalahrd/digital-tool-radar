@@ -2,35 +2,51 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Digital Tool Radar — Honest Reviews & Exclusive Bonuses",
+  title: "Digital Tool Radar - Honest Reviews & Exclusive Bonuses",
   description:
-    "Independent reviews and exclusive bonuses for the best digital marketing software launches. Find out what’s worth buying before you spend a cent.",
+    "Independent reviews and exclusive bonuses for the best digital marketing software launches.",
   metadataBase: new URL("https://digitaltoolradar.com"),
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <body>
-        {/* ── Navbar ── */}
         <header
-          className="sticky top-0 z-50 border-b"
           style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
             background: "rgba(8,11,16,0.96)",
             backdropFilter: "blur(14px)",
-            borderColor: "rgba(255,255,255,0.07)",
+            borderBottom: "1px solid rgba(255,255,255,0.07)",
           }}
         >
           <div
-            className="mx-auto px-5 flex items-center justify-between"
-            style={{ maxWidth: 1200, height: 60 }}
+            style={{
+              maxWidth: 1200,
+              margin: "0 auto",
+              padding: "0 1.25rem",
+              height: 60,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
           >
             <a
               href="/"
-              className="flex items-center gap-2.5 no-underline"
-              style={{ textDecoration: "none" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.6rem",
+                textDecoration: "none",
+              }}
             >
-              <span style={{ fontSize: "1.3rem", lineHeight: 1 }}>&#128225;</span>
+              <span style={{ fontSize: "1.25rem" }}>&#128225;</span>
               <span
                 style={{
                   fontWeight: 800,
@@ -39,11 +55,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   letterSpacing: "-0.02em",
                 }}
               >
-                Digital<span style={{ color: "#00d492" }}>Tool</span>Radar
+                Digital
+                <span style={{ color: "#00d492" }}>Tool</span>
+                Radar
               </span>
             </a>
-
-            <nav className="flex items-center gap-5">
+            <nav style={{ display: "flex", gap: "1.5rem" }}>
               <a
                 href="/"
                 style={{
@@ -74,17 +91,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main>{children}</main>
 
-        {/* ── Footer ── */}
         <footer
-          className="py-10 px-5 text-center"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.07)",
+            padding: "2.5rem 1.25rem",
+            textAlign: "center",
+            color: "#4a5568",
+            fontSize: "0.82rem",
+            lineHeight: 1.7,
+          }}
         >
-          <p style={{ color: "#4a5568", fontSize: "0.82rem", lineHeight: 1.7 }}>
-            © {new Date().getFullYear()} DigitalToolRadar · Independent reviews &amp; affiliate
-            bonuses
+          <p>
+            &copy; {new Date().getFullYear()} DigitalToolRadar &middot;
+            Independent reviews &amp; affiliate bonuses
             <br />
-            We may earn commissions when you buy through our links. This never affects
-            our editorial integrity.
+            We may earn commissions when you buy through our links.
           </p>
         </footer>
       </body>

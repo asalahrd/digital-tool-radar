@@ -20,33 +20,52 @@ const DEFAULT_BONUSES = [
 ]
 
 export default function BonusPage({ product }: { product: Product }) {
-  const bonuses = product.landing?.bonuses?.length
-    ? product.landing.bonuses
-    : DEFAULT_BONUSES
+  const bonuses =
+    product.landing && product.landing.bonuses && product.landing.bonuses.length > 0
+      ? product.landing.bonuses
+      : DEFAULT_BONUSES
 
-  const bullets = product.landing?.bullets?.length
-    ? product.landing.bullets
-    : [
-        "Get up and running in minutes, not days",
-        "Save hours of research with a pre-built setup",
-        "Exclusive bonuses you can't find anywhere else",
-      ]
+  const bullets =
+    product.landing && product.landing.bullets && product.landing.bullets.length > 0
+      ? product.landing.bullets
+      : [
+          "Get up and running in minutes, not days",
+          "Save hours with a pre-built action plan",
+          "Exclusive bonuses you can't find anywhere else",
+        ]
+
+  const headline =
+    product.landing && product.landing.headline
+      ? product.landing.headline
+      : "Get " + product.name + " + My Exclusive Bonus Stack"
+
+  const ctaText =
+    product.landing && product.landing.cta_text
+      ? product.landing.cta_text
+      : "Get " + product.name + " + My Bonuses"
+
+  const urgency =
+    product.landing && product.landing.urgency_line
+      ? product.landing.urgency_line
+      : "Bonuses expire at launch close"
 
   return (
     <>
-      {/* ── Hero ── */}
+      {/* Hero */}
       <section
-        className="relative overflow-hidden"
         style={{
           background:
             "radial-gradient(ellipse 100% 80% at 50% -10%, rgba(0,212,146,0.12) 0%, transparent 65%)",
-          paddingTop: "4rem",
-          paddingBottom: "4rem",
+          padding: "4.5rem 1.25rem",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
+          textAlign: "center",
         }}
       >
-        <div className="mx-auto px-5 text-center" style={{ maxWidth: 720 }}>
-          <span className="badge badge-green mb-5" style={{ display: "inline-flex" }}>
+        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+          <span
+            className="badge badge-green"
+            style={{ display: "inline-flex", marginBottom: "1.25rem" }}
+          >
             Exclusive Bonuses
           </span>
 
@@ -60,37 +79,36 @@ export default function BonusPage({ product }: { product: Product }) {
               marginBottom: "1rem",
             }}
           >
-            {product.landing?.headline || `Get ${product.name} + My Exclusive Bonus Stack`}
+            {headline}
           </h1>
 
           <p
             style={{
-              fontSize: "1.1rem",
+              fontSize: "1.05rem",
               color: "#94a3b8",
               lineHeight: 1.7,
-              marginBottom: "1.75rem",
-              maxWidth: 560,
+              maxWidth: 540,
               margin: "0 auto 1.75rem",
             }}
           >
-            {product.landing?.sub_headline ||
-              `Buy ${product.name} through my link and get a hand-picked bonus stack designed to help you get results faster.`}
+            Buy {product.name} through my link and get a hand-picked bonus stack
+            designed to help you get results faster.
           </p>
 
-          {/* Bullet points */}
           <ul
-            className="text-left mx-auto mb-8"
             style={{
-              maxWidth: 480,
               listStyle: "none",
               padding: 0,
+              maxWidth: 460,
+              margin: "0 auto 2rem",
               display: "flex",
               flexDirection: "column",
-              gap: "0.65rem",
+              gap: "0.6rem",
+              textAlign: "left",
             }}
           >
             {bullets.map((b, i) => (
-              <li key={i} className="flex items-start gap-3">
+              <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
                 <span
                   style={{
                     minWidth: "1.2rem",
@@ -99,24 +117,22 @@ export default function BonusPage({ product }: { product: Product }) {
                     background: "rgba(0,212,146,0.15)",
                     border: "1px solid rgba(0,212,146,0.35)",
                     color: "#00d492",
-                    fontSize: "0.65rem",
+                    fontSize: "0.6rem",
                     fontWeight: 900,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginTop: "0.15rem",
+                    marginTop: "0.2rem",
+                    flexShrink: 0,
                   }}
                 >
                   &#10003;
                 </span>
-                <span style={{ fontSize: "0.975rem", color: "#94a3b8", lineHeight: 1.6 }}>
-                  {b}
-                </span>
+                <span style={{ fontSize: "0.95rem", color: "#94a3b8", lineHeight: 1.6 }}>{b}</span>
               </li>
             ))}
           </ul>
 
-          {/* CTA */}
           <a
             href={product.affiliate_link}
             target="_blank"
@@ -124,15 +140,15 @@ export default function BonusPage({ product }: { product: Product }) {
             className="btn-primary"
             style={{ fontSize: "1.05rem", padding: "0.9rem 2.5rem" }}
           >
-            {product.landing?.cta_text || `Get ${product.name} + My Bonuses`} &#8594;
+            {ctaText} &rarr;
           </a>
-          <p style={{ fontSize: "0.78rem", color: "#4a5568", marginTop: "0.75rem" }}>
-            {product.landing?.urgency_line || "Bonuses expire at launch close"}
+          <p style={{ fontSize: "0.75rem", color: "#4a5568", marginTop: "0.6rem" }}>
+            {urgency}
           </p>
         </div>
       </section>
 
-      {/* ── Stats row ── */}
+      {/* Stats row */}
       <div
         style={{
           background: "rgba(255,255,255,0.02)",
@@ -140,19 +156,30 @@ export default function BonusPage({ product }: { product: Product }) {
         }}
       >
         <div
-          className="mx-auto px-5 py-5 flex flex-wrap justify-center gap-8"
-          style={{ maxWidth: 900 }}
+          style={{
+            maxWidth: 860,
+            margin: "0 auto",
+            padding: "1.25rem",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "2.5rem",
+          }}
         >
           {[
-            { label: "Front-end Price", value: `$${product.price}`, color: "#edf2f7" },
-            { label: "Commission", value: `${product.commission}%`, color: "#00d492" },
-            { label: "Bonuses Included", value: `${bonuses.length}`, color: "#a78bfa" },
-            { label: "Vendor", value: product.vendor?.split(" and ")[0] || "Verified", color: "#edf2f7" },
+            { label: "Front-end Price", value: "$" + product.price, color: "#edf2f7" },
+            { label: "Commission", value: product.commission + "%", color: "#00d492" },
+            { label: "Bonuses Included", value: String(bonuses.length), color: "#a78bfa" },
+            {
+              label: "Vendor",
+              value: product.vendor ? product.vendor.split(" and ")[0] : "Verified",
+              color: "#edf2f7",
+            },
           ].map(({ label, value, color }) => (
-            <div key={label} className="text-center">
+            <div key={label} style={{ textAlign: "center" }}>
               <p
                 style={{
-                  fontSize: "1.6rem",
+                  fontSize: "1.5rem",
                   fontWeight: 900,
                   color,
                   letterSpacing: "-0.03em",
@@ -161,7 +188,16 @@ export default function BonusPage({ product }: { product: Product }) {
               >
                 {value}
               </p>
-              <p style={{ fontSize: "0.72rem", color: "#4a5568", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginTop: "0.3rem" }}>
+              <p
+                style={{
+                  fontSize: "0.68rem",
+                  color: "#4a5568",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.07em",
+                  marginTop: "0.3rem",
+                }}
+              >
                 {label}
               </p>
             </div>
@@ -169,40 +205,25 @@ export default function BonusPage({ product }: { product: Product }) {
         </div>
       </div>
 
-      <div className="mx-auto px-5 py-14" style={{ maxWidth: 860 }}>
+      <div style={{ maxWidth: 820, margin: "0 auto", padding: "3.5rem 1.25rem" }}>
 
-        {/* ── Bonus stack ── */}
-        <section className="mb-14">
-          <p className="section-label mb-3">Your Exclusive Bonuses</p>
-          <h2
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: 800,
-              color: "#edf2f7",
-              marginBottom: "1.5rem",
-              letterSpacing: "-0.025em",
-            }}
-          >
+        {/* Bonus stack */}
+        <section style={{ marginBottom: "3rem" }}>
+          <p className="section-label" style={{ marginBottom: "0.5rem" }}>Your Exclusive Bonuses</p>
+          <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.025em" }}>
             Everything You Get When You Buy Today
           </h2>
-          <div className="flex flex-col gap-4">
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {bonuses.map((bonus, i) => (
               <div key={i} className="bonus-card">
                 <div className="bonus-num">{i + 1}</div>
                 <div style={{ flex: 1 }}>
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <p
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 700,
-                        color: "#edf2f7",
-                        lineHeight: 1.25,
-                      }}
-                    >
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.5rem", marginBottom: "0.35rem" }}>
+                    <p style={{ fontSize: "1rem", fontWeight: 700, color: "#edf2f7", lineHeight: 1.25 }}>
                       {bonus.name}
                     </p>
                     {bonus.badge && (
-                      <span className="badge badge-green" style={{ fontSize: "0.62rem" }}>
+                      <span className="badge badge-green" style={{ fontSize: "0.6rem" }}>
                         {bonus.badge}
                       </span>
                     )}
@@ -216,54 +237,40 @@ export default function BonusPage({ product }: { product: Product }) {
           </div>
         </section>
 
-        {/* ── Product features ── */}
-        {product.features?.length > 0 && (
-          <section className="mb-14">
-            <p className="section-label mb-3">What You&apos;re Buying</p>
-            <h2
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 800,
-                color: "#edf2f7",
-                marginBottom: "1.25rem",
-                letterSpacing: "-0.025em",
-              }}
-            >
+        {/* Features */}
+        {product.features && product.features.length > 0 && (
+          <section style={{ marginBottom: "3rem" }}>
+            <p className="section-label" style={{ marginBottom: "0.5rem" }}>What You&apos;re Buying</p>
+            <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.025em" }}>
               {product.name} Features
             </h2>
             <div
-              className="grid gap-3"
-              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))" }}
+              style={{
+                display: "grid",
+                gap: "0.6rem",
+                gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+              }}
             >
               {product.features.slice(0, 8).map((feat, i) => {
-                const [title] = feat.split(" — ")
+                const dashIdx = feat.indexOf(" — ")
+                const title = dashIdx > -1 ? feat.slice(0, dashIdx) : feat
                 return (
                   <div
                     key={i}
-                    className="flex items-start gap-2.5 px-4 py-3 rounded-xl"
                     style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.6rem",
+                      padding: "0.75rem 1rem",
+                      borderRadius: "0.75rem",
                       background: "rgba(255,255,255,0.03)",
                       border: "1px solid rgba(255,255,255,0.06)",
                     }}
                   >
-                    <span
-                      style={{
-                        color: "#00d492",
-                        fontSize: "0.8rem",
-                        marginTop: "0.15rem",
-                        fontWeight: 800,
-                      }}
-                    >
+                    <span style={{ color: "#00d492", fontWeight: 800, fontSize: "0.75rem", marginTop: "0.1rem" }}>
                       &#10003;
                     </span>
-                    <span
-                      style={{
-                        fontSize: "0.85rem",
-                        color: "#94a3b8",
-                        lineHeight: 1.5,
-                        fontWeight: 500,
-                      }}
-                    >
+                    <span style={{ fontSize: "0.82rem", color: "#94a3b8", lineHeight: 1.5 }}>
                       {title}
                     </span>
                   </div>
@@ -273,25 +280,14 @@ export default function BonusPage({ product }: { product: Product }) {
           </section>
         )}
 
-        {/* ── OTO section ── */}
-        {product.otos?.length > 0 && (
-          <section className="mb-14">
-            <p className="section-label mb-3">Full Funnel</p>
-            <h2
-              style={{
-                fontSize: "1.4rem",
-                fontWeight: 800,
-                color: "#edf2f7",
-                marginBottom: "1.25rem",
-                letterSpacing: "-0.025em",
-              }}
-            >
+        {/* OTO table */}
+        {product.otos && product.otos.length > 0 && (
+          <section style={{ marginBottom: "3rem" }}>
+            <p className="section-label" style={{ marginBottom: "0.5rem" }}>Full Funnel</p>
+            <h2 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.025em" }}>
               Upsells at a Glance
             </h2>
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{ border: "1px solid rgba(255,255,255,0.07)" }}
-            >
+            <div style={{ border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1rem", overflow: "hidden" }}>
               <table className="oto-table">
                 <thead style={{ background: "rgba(255,255,255,0.03)" }}>
                   <tr>
@@ -306,17 +302,15 @@ export default function BonusPage({ product }: { product: Product }) {
                         <p style={{ fontWeight: 700, color: "#edf2f7", marginBottom: "0.2rem", fontSize: "0.875rem" }}>
                           {oto.name}
                         </p>
-                        <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>
+                        <p style={{ fontSize: "0.78rem", color: "#7b8ea5", lineHeight: 1.5 }}>
                           {oto.description}
                         </p>
                       </td>
                       <td>
                         {oto.price ? (
-                          <span style={{ fontWeight: 700, color: "#edf2f7" }}>
-                            ${oto.price}
-                          </span>
+                          <strong style={{ color: "#edf2f7" }}>${oto.price}</strong>
                         ) : (
-                          <span style={{ color: "#4a5568", fontSize: "0.8rem" }}>See page</span>
+                          <span style={{ color: "#4a5568", fontSize: "0.78rem" }}>See page</span>
                         )}
                       </td>
                     </tr>
@@ -327,37 +321,23 @@ export default function BonusPage({ product }: { product: Product }) {
           </section>
         )}
 
-        {/* ── Final CTA ── */}
+        {/* Final CTA */}
         <div
-          className="rounded-2xl p-8 text-center"
           style={{
-            background:
-              "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, rgba(13,17,23,1) 70%)",
+            background: "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, #0d1117 70%)",
             border: "1px solid rgba(0,212,146,0.2)",
+            borderRadius: "1.25rem",
+            padding: "2.5rem",
+            textAlign: "center",
           }}
         >
-          <p className="section-label mb-3">Claim your bonuses</p>
-          <h3
-            style={{
-              fontSize: "1.6rem",
-              fontWeight: 900,
-              color: "#edf2f7",
-              marginBottom: "0.6rem",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            {product.landing?.cta_text || `Get ${product.name} + Bonuses`}
+          <p className="section-label" style={{ marginBottom: "0.5rem" }}>Claim your bonuses</p>
+          <h3 style={{ fontSize: "1.6rem", fontWeight: 900, color: "#edf2f7", marginBottom: "0.6rem", letterSpacing: "-0.03em" }}>
+            {ctaText}
           </h3>
-          <p
-            style={{
-              color: "#7b8ea5",
-              fontSize: "0.95rem",
-              marginBottom: "1.75rem",
-              maxWidth: 460,
-              margin: "0 auto 1.75rem",
-            }}
-          >
-            Buy through my link, forward your receipt, and your bonuses will be in your inbox within 2 hours.
+          <p style={{ color: "#7b8ea5", fontSize: "0.95rem", maxWidth: 440, margin: "0 auto 1.75rem" }}>
+            Buy through my link, forward your receipt, and your bonuses will be in your
+            inbox within 2 hours.
           </p>
           <a
             href={product.affiliate_link}
@@ -366,20 +346,15 @@ export default function BonusPage({ product }: { product: Product }) {
             className="btn-primary"
             style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
           >
-            Get {product.name} + My Bonuses &#8594;
+            {ctaText} &rarr;
           </a>
-          <p style={{ fontSize: "0.75rem", color: "#4a5568", marginTop: "0.75rem" }}>
-            {product.landing?.urgency_line || "Bonuses expire at launch close"}
+          <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>
+            {urgency}
           </p>
-          <div style={{ marginTop: "1rem" }}>
+          <div style={{ marginTop: "0.75rem" }}>
             <Link
-              href={`/${product.slug}-review`}
-              style={{
-                color: "#7b8ea5",
-                fontSize: "0.82rem",
-                textDecoration: "underline",
-                textUnderlineOffset: 3,
-              }}
+              href={"/" + product.slug + "-review"}
+              style={{ color: "#7b8ea5", fontSize: "0.8rem", textDecoration: "underline", textUnderlineOffset: 3 }}
             >
               Read the full review first
             </Link>
