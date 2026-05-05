@@ -164,7 +164,7 @@ export default function BonusPage({ product }: { product: Product }) {
               <img
                 src={product.product_image}
                 alt={product.name + " dashboard"}
-                style={{ width: "100%", display: "block", maxHeight: 380, objectFit: "cover", objectPosition: "top" }}
+                style={{ width: "100%", display: "block", maxHeight: 380, objectFit: "contain", objectPosition: "center" }}
               />
             </div>
           )}
