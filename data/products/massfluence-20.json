@@ -93,5 +93,11 @@
     "bonus_description": "Get exclusive bonuses with your Massfluence 2.0 purchase. Limited time — expires at launch close."
   },
   "script_url": "[GOOGLE_DOC_ERROR: RefreshError]",
-  "published_at": "2026-05-05T19:51:50.391987Z"
+  "published_at": "2026-05-05T19:51:50.391987Z",
+  "product_image": "https://massfluence.net/jv/images/aimockupnew2.png",
+  "screenshots": [
+    "https://massfluence.net/jv/images/aitribesstep3aa.png",
+    "https://massfluence.net/jv/images/aitribesstep2b1.png",
+    "https://massfluence.net/jv/images/aitribesstep2c-b.png"
+  ]
 }
