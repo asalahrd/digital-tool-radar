@@ -31,7 +31,7 @@ export default function BonusPage({ product }: { product: Product }) {
       : [
           "Get up and running in minutes, not days",
           "Save hours with a pre-built action plan",
-          "Exclusive bonuses you can't find anywhere else",
+          "Exclusive bonuses you can\'t find anywhere else",
         ]
 
   const headline =
@@ -56,7 +56,7 @@ export default function BonusPage({ product }: { product: Product }) {
         style={{
           background:
             "radial-gradient(ellipse 100% 80% at 50% -10%, rgba(0,212,146,0.12) 0%, transparent 65%)",
-          padding: "4.5rem 1.25rem",
+          padding: "4.5rem 1.25rem 3rem",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           textAlign: "center",
         }}
@@ -148,60 +148,54 @@ export default function BonusPage({ product }: { product: Product }) {
         </div>
       </section>
 
-      {/* Stats row */}
-      <div
-        style={{
-          background: "rgba(255,255,255,0.02)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 860,
-            margin: "0 auto",
-            padding: "1.25rem",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "2.5rem",
-          }}
-        >
-          {[
-            { label: "Front-end Price", value: "$" + product.price, color: "#edf2f7" },
-            { label: "Commission", value: product.commission + "%", color: "#00d492" },
-            { label: "Bonuses Included", value: String(bonuses.length), color: "#a78bfa" },
-            {
-              label: "Vendor",
-              value: product.vendor ? product.vendor.split(" and ")[0] : "Verified",
-              color: "#edf2f7",
-            },
-          ].map(({ label, value, color }) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              <p
-                style={{
-                  fontSize: "1.5rem",
-                  fontWeight: 900,
-                  color,
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1,
-                }}
-              >
-                {value}
-              </p>
-              <p
-                style={{
-                  fontSize: "0.68rem",
-                  color: "#4a5568",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.07em",
-                  marginTop: "0.3rem",
-                }}
-              >
-                {label}
-              </p>
+      {/* Product image + stats row */}
+      <div style={{ background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto", padding: "1.5rem 1.25rem" }}>
+          {product.product_image && (
+            <div
+              style={{
+                borderRadius: "1rem",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.08)",
+                marginBottom: "1.5rem",
+                boxShadow: "0 4px 30px rgba(0,0,0,0.4)",
+              }}
+            >
+              <img
+                src={product.product_image}
+                alt={product.name + " dashboard"}
+                style={{ width: "100%", display: "block", maxHeight: 380, objectFit: "cover", objectPosition: "top" }}
+              />
             </div>
-          ))}
+          )}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "2.5rem",
+            }}
+          >
+            {[
+              { label: "Front-end Price", value: "$" + product.price, color: "#edf2f7" },
+              { label: "Commission", value: product.commission + "%", color: "#00d492" },
+              { label: "Bonuses Included", value: String(bonuses.length), color: "#a78bfa" },
+              {
+                label: "Vendor",
+                value: product.vendor ? product.vendor.split(" and ")[0] : "Verified",
+                color: "#edf2f7",
+              },
+            ].map(({ label, value, color }) => (
+              <div key={label} style={{ textAlign: "center" }}>
+                <p style={{ fontSize: "1.5rem", fontWeight: 900, color, letterSpacing: "-0.03em", lineHeight: 1 }}>
+                  {value}
+                </p>
+                <p style={{ fontSize: "0.68rem", color: "#4a5568", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginTop: "0.3rem" }}>
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

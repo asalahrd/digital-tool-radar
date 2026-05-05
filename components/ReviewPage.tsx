@@ -9,6 +9,9 @@ function ArticleBody({ text }: { text: string }) {
     <div className="prose-dark">
       {blocks.map((block, i) => {
         const t = block.trim()
+        if (t === "[CTA_BUTTON]") {
+          return null
+        }
         if (t.startsWith("## ")) {
           return <h2 key={i}>{t.slice(3)}</h2>
         }
@@ -121,6 +124,26 @@ export default function ReviewPage({ product }: { product: Product }) {
           <p style={{ fontSize: "1.05rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "1.75rem" }}>
             {product.tagline}
           </p>
+
+          {/* Product image hero */}
+          {product.product_image && (
+            <div
+              style={{
+                borderRadius: "1rem",
+                overflow: "hidden",
+                border: "1px solid rgba(255,255,255,0.08)",
+                marginBottom: "1.75rem",
+                background: "#0d1117",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
+              }}
+            >
+              <img
+                src={product.product_image}
+                alt={product.name + " screenshot"}
+                style={{ width: "100%", display: "block", maxHeight: 420, objectFit: "cover", objectPosition: "top" }}
+              />
+            </div>
+          )}
 
           {/* CTA block */}
           <div
@@ -283,6 +306,29 @@ export default function ReviewPage({ product }: { product: Product }) {
               </section>
             )}
 
+            {/* Screenshots strip */}
+            {product.screenshots && product.screenshots.length > 0 && (
+              <section style={{ marginBottom: "3rem" }}>
+                <p className="section-label" style={{ marginBottom: "0.5rem" }}>Inside the Dashboard</p>
+                <div style={{ display: "flex", gap: "0.75rem", overflowX: "auto", paddingBottom: "0.5rem" }}>
+                  {product.screenshots.map((src, i) => (
+                    <img
+                      key={i}
+                      src={src}
+                      alt={"Screenshot " + (i + 1)}
+                      style={{
+                        height: 200,
+                        borderRadius: "0.75rem",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        flexShrink: 0,
+                        objectFit: "cover",
+                      }}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* Article */}
             {product.review_article && (
               <section style={{ marginBottom: "3rem" }}>
@@ -389,6 +435,20 @@ export default function ReviewPage({ product }: { product: Product }) {
                 padding: "1.25rem",
               }}
             >
+              {product.product_image && (
+                <img
+                  src={product.product_image}
+                  alt={product.name}
+                  style={{
+                    width: "100%",
+                    borderRadius: "0.6rem",
+                    marginBottom: "1rem",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                    objectFit: "cover",
+                    maxHeight: 130,
+                  }}
+                />
+              )}
               <p className="section-label" style={{ marginBottom: "0.6rem" }}>Quick Summary</p>
               <p style={{ fontSize: "1.05rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.25rem", lineHeight: 1.25 }}>
                 {product.name}
