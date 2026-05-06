@@ -48,5 +48,4 @@ export interface Product {
   product_image?: string
   screenshots?: string[]
   video_url?: string
-  video_url?: string
 }
