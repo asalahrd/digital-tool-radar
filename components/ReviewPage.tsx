@@ -391,7 +391,7 @@ export default function ReviewPage({ product }: { product: Product }) {
     },
   ]
 
-  const OTO_ROWS = product.oto_stack || []
+  const OTO_ROWS = product.otos || []
 
   return (
     <>
@@ -743,7 +743,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                   Key Features
                 </h2>
                 <div style={{ display: "grid", gap: "0.875rem" }}>
-                  {product.features.map((f: { name: string; description: string }, i: number) => (
+                  {product.features.map((feat: string, i: number) => (
                     <div
                       key={i}
                       style={{
@@ -774,10 +774,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                       >
                         {i + 1}
                       </span>
-                      <div>
-                        <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#edf2f7", marginBottom: "0.2rem" }}>{f.name}</p>
-                        <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.55 }}>{f.description}</p>
-                      </div>
+                      <p style={{ fontSize: "0.875rem", color: "#94a3b8", lineHeight: 1.55, marginTop: "0.2rem" }}>{feat}</p>
                     </div>
                   ))}
                 </div>
@@ -825,10 +822,10 @@ export default function ReviewPage({ product }: { product: Product }) {
             )}
 
             {/* ARTICLE BODY */}
-            {product.review_body && (
+            {product.review_article && (
               <section style={{ marginBottom: "2.5rem" }}>
                 <ArticleBody
-                  text={product.review_body}
+                  text={product.review_article}
                   productName={product.name}
                   affiliateLink={product.affiliate_link}
                 />
@@ -973,12 +970,12 @@ export default function ReviewPage({ product }: { product: Product }) {
                   Upsell Stack (OTOs)
                 </h2>
                 <div style={{ display: "grid", gap: "0.75rem" }}>
-                  {OTO_ROWS.map((oto: { name: string; price: string; description: string; recommended?: boolean }, i: number) => (
+                  {OTO_ROWS.map((oto: { name: string; price?: string; description: string }, i: number) => (
                     <div
                       key={i}
                       style={{
-                        background: oto.recommended ? "rgba(0,212,146,0.05)" : "rgba(255,255,255,0.02)",
-                        border: oto.recommended ? "1px solid rgba(0,212,146,0.18)" : "1px solid rgba(255,255,255,0.06)",
+                        background: "rgba(255,255,255,0.02)",
+                        border: "1px solid rgba(255,255,255,0.06)",
                         borderRadius: "0.875rem",
                         padding: "1.125rem 1.25rem",
                         display: "flex",
@@ -990,11 +987,11 @@ export default function ReviewPage({ product }: { product: Product }) {
                         style={{
                           fontSize: "0.65rem",
                           fontWeight: 800,
-                          color: oto.recommended ? "#00d492" : "#7b8ea5",
+                          color: "#7b8ea5",
                           textTransform: "uppercase",
                           letterSpacing: "0.05em",
-                          background: oto.recommended ? "rgba(0,212,146,0.1)" : "rgba(255,255,255,0.05)",
-                          border: oto.recommended ? "1px solid rgba(0,212,146,0.2)" : "1px solid rgba(255,255,255,0.08)",
+                          background: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(255,255,255,0.08)",
                           borderRadius: "0.375rem",
                           padding: "0.2rem 0.5rem",
                           whiteSpace: "nowrap",
@@ -1006,11 +1003,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.3rem" }}>
                           <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#edf2f7" }}>{oto.name}</p>
-                          {oto.recommended && (
-                            <span style={{ fontSize: "0.6rem", fontWeight: 700, color: "#00d492", background: "rgba(0,212,146,0.1)", border: "1px solid rgba(0,212,146,0.2)", borderRadius: "2rem", padding: "0.1rem 0.4rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                              Recommended
-                            </span>
-                          )}
+
                           <span style={{ fontSize: "0.8rem", color: "#7b8ea5", marginLeft: "auto" }}>{oto.price}</span>
                         </div>
                         <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>{oto.description}</p>
@@ -1313,7 +1306,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                   </div>
                 ))}
               </div>
-              {product.landing?.why_buy && product.landing.why_buy.length > 0 && (
+              {product.landing?.bullets && product.landing.why_buy.length > 0 && (
                 <div style={{ marginBottom: "1.25rem" }}>
                   <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "0.5rem" }}>
                     Why Buy
