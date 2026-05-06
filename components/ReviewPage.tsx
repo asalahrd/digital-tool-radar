@@ -184,9 +184,23 @@ export default function ReviewPage({ product }: { product: Product }) {
           /* Top sticky bar — hidden on mobile (bottom pill CTA handles it) */
           .sticky-bar { display: none !important; }
 
-          /* 2-col review layout → single column, hide sidebar */
-          .review-2col  { flex-direction: column !important; }
+          /* 2-col → single column.
+             align-items:stretch is the critical fix: without it, in column
+             flex direction the <main> sizes to content width, not viewport width,
+             causing everything inside to overflow and get clipped. */
+          .review-2col {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
           .review-aside { display: none !important; }
+
+          /* Force main to full width (belt + suspenders) */
+          .review-2col > main {
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+          }
 
           /* All hardcoded 2-col grids → single column */
           .review-pros-cons,
@@ -197,8 +211,12 @@ export default function ReviewPage({ product }: { product: Product }) {
           /* Mechanism callout — allow wrap on narrow screens */
           .review-mechanism { flex-wrap: wrap !important; gap: 0.35rem !important; }
 
-          /* Prevent any single element from blowing out the page width */
-          .review-2col > *, .review-old-new-row > * { min-width: 0; }
+          /* Safety net: nothing wider than its container */
+          * { max-width: 100%; box-sizing: border-box; }
+          img, video, iframe, svg { max-width: 100% !important; height: auto; }
+
+          /* Padding at bottom so content isn't hidden behind the sticky pill CTA */
+          body { padding-bottom: 90px !important; }
         }
 
         /* Sidebar CTA button — allow text wrap so nothing clips */
