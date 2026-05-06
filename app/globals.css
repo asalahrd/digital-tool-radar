@@ -225,6 +225,18 @@ body {
     box-shadow: 0 0 0 3px rgba(0,212,146,0.1);
   }
 
+  /* Fix: btn-primary inside prose-dark inherits green link color — override */
+  .prose-dark .btn-primary,
+  .prose-dark .btn-primary:hover { color: #031a10; text-decoration: none; }
+
+  /* Subscribe form input styles */
+  .subscribe-input::placeholder { color: #4a5568; }
+  .subscribe-input:focus {
+    outline: none;
+    border-color: rgba(0,212,146,0.4);
+    box-shadow: 0 0 0 3px rgba(0,212,146,0.1);
+  }
+
 
   /* OTO table */
   .oto-table { border-collapse: collapse; width: 100%; }
