@@ -285,6 +285,10 @@ export default function BonusPage({ product }: { product: Product }) {
       </div>
 
       {/* ── MAIN CONTENT ────────────────────────────────────────────────── */}
+
+      {/* ── VIDEO REVIEW ────────────────────────────────────────────────── */}
+      <VideoBlock videoUrl={product.video_url} productName={product.name} />
+
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "3.5rem 1.25rem" }}>
 
         {/* ── 3. QUICK DECISION BOX ──────────────────────────────────────── */}
