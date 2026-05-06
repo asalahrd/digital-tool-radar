@@ -1,5 +1,91 @@
 import type { Product } from "@/lib/types"
 import Link from "next/link"
+import SubscribeSection from "./SubscribeSection"
+
+function VideoBlock({
+  videoUrl,
+  productName,
+}: {
+  videoUrl?: string
+  productName: string
+}) {
+  if (!videoUrl) {
+    return (
+      <div
+        style={{
+          borderRadius: "1rem",
+          border: "1px solid rgba(255,255,255,0.07)",
+          background: "rgba(255,255,255,0.02)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "2.5rem 2rem",
+          marginBottom: "1.75rem",
+          gap: "0.875rem",
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            width: 56,
+            height: 56,
+            borderRadius: "50%",
+            background: "rgba(0,212,146,0.1)",
+            border: "1px solid rgba(0,212,146,0.25)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <polygon points="6,3 20,12 6,21" fill="#00d492" />
+          </svg>
+        </div>
+        <div>
+          <p
+            style={{
+              color: "#edf2f7",
+              fontWeight: 700,
+              marginBottom: "0.25rem",
+            }}
+          >
+            Full Video Review — Coming Soon
+          </p>
+          <p style={{ color: "#7b8ea5", fontSize: "0.875rem" }}>
+            Subscribe below to get notified the moment it drops.
+          </p>
+        </div>
+      </div>
+    )
+  }
+  const ytbe = videoUrl.match(/youtu\.be\/([^?&]+)/)
+  const watch = videoUrl.match(/[?&]v=([^?&]+)/)
+  const id = ytbe ? ytbe[1] : watch ? watch[1] : null
+  const embedUrl = id
+    ? "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1"
+    : videoUrl
+  return (
+    <div
+      style={{
+        borderRadius: "1rem",
+        overflow: "hidden",
+        border: "1px solid rgba(255,255,255,0.08)",
+        aspectRatio: "16/9",
+        background: "#0d1117",
+        marginBottom: "1.75rem",
+      }}
+    >
+      <iframe
+        src={embedUrl}
+        title={productName + " Review Video"}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+      />
+    </div>
+  )
+}
 
 function renderInline(str: string) {
   const parts = str.split(/(\*\*[^*]+\*\*)/)
@@ -26,12 +112,10 @@ function ArticleBody({
 }) {
   if (!text) return null
   const blocks = text.split("\n\n").filter((b) => b.trim().length > 0)
-
   return (
     <div className="prose-dark">
       {blocks.map((block, i) => {
         const t = block.trim()
-
         if (t === "[CTA_BUTTON]") {
           return (
             <div
@@ -66,11 +150,9 @@ function ArticleBody({
             </div>
           )
         }
-
         if (t.startsWith("## ")) return <h2 key={i}>{renderInline(t.slice(3))}</h2>
         if (t.startsWith("### ")) return <h3 key={i}>{renderInline(t.slice(4))}</h3>
         if (t.startsWith("# ")) return <h1 key={i}>{renderInline(t.slice(2))}</h1>
-
         if (t.startsWith("* ") || t.startsWith("- ")) {
           const items = t
             .split("\n")
@@ -84,7 +166,6 @@ function ArticleBody({
             </ul>
           )
         }
-
         return <p key={i}>{renderInline(t.replace(/\n/g, " "))}</p>
       })}
     </div>
@@ -124,8 +205,8 @@ function CTA({ product }: { product: Product }) {
           marginBottom: "1.75rem",
         }}
       >
-        Buy through my link and claim exclusive bonuses that help you get
-        results faster — bonuses you won&apos;t find anywhere else.
+        Order through this page and your exclusive bonus stack lands in your
+        inbox within 2 hours — included at no extra cost.
       </p>
       <a
         href={product.affiliate_link}
@@ -137,11 +218,7 @@ function CTA({ product }: { product: Product }) {
         Get {product.name} + Bonuses &rarr;
       </a>
       <p
-        style={{
-          fontSize: "0.72rem",
-          color: "#4a5568",
-          marginTop: "0.6rem",
-        }}
+        style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}
       >
         {product.landing?.urgency_line || "Bonuses expire at launch close"}
       </p>
@@ -192,17 +269,23 @@ export default function ReviewPage({ product }: { product: Product }) {
     "Cold-Start AI Fix",
     "Own Your Platform",
   ]
-  const CMP_TOOLS = ["Massfluence 2.0", "Skool", "Kajabi", "Facebook Groups", "ClickFunnels"]
+  const CMP_TOOLS = [
+    "Massfluence 2.0",
+    "Skool",
+    "Kajabi",
+    "Facebook Groups",
+    "ClickFunnels",
+  ]
   const CMP_DATA = [
-    ["yes",  "no",      "no",      "free*",   "no"     ],
-    ["yes",  "no",      "no",      "no",      "no"     ],
-    ["yes",  "no",      "no",      "no",      "no"     ],
-    ["yes",  "partial", "yes",     "no",      "partial"],
-    ["yes",  "no",      "no",      "no",      "no"     ],
-    ["yes",  "no",      "no",      "no",      "no"     ],
-    ["yes",  "yes",     "yes",     "no",      "yes"    ],
-    ["yes",  "no",      "no",      "no",      "no"     ],
-    ["yes",  "yes",     "yes",     "no",      "yes"    ],
+    ["yes", "no", "no", "free*", "no"],
+    ["yes", "no", "no", "no", "no"],
+    ["yes", "no", "no", "no", "no"],
+    ["yes", "partial", "yes", "no", "partial"],
+    ["yes", "no", "no", "no", "no"],
+    ["yes", "no", "no", "no", "no"],
+    ["yes", "yes", "yes", "no", "yes"],
+    ["yes", "no", "no", "no", "no"],
+    ["yes", "yes", "yes", "no", "yes"],
   ]
 
   const FAQS = [
@@ -224,7 +307,7 @@ export default function ReviewPage({ product }: { product: Product }) {
     },
     {
       q: "Can I cancel Kajabi or Skool after buying this?",
-      a: "If you use those platforms mainly for community and course hosting, yes. Massfluence handles both. If you rely on Kajabi's advanced email broadcasts or deep sales funnels, keep a dedicated email tool alongside Massfluence — or add OTO 1 to get email broadcast functionality inside the platform.",
+      a: "If you use those platforms mainly for community and course hosting, yes. Massfluence handles both. If you rely on Kajabi's advanced email broadcasts or deep sales funnels, keep a dedicated email tool alongside — or add OTO 1 to get email broadcast functionality built in.",
     },
     {
       q: "Is this a monthly subscription?",
@@ -232,7 +315,7 @@ export default function ReviewPage({ product }: { product: Product }) {
     },
     {
       q: "What if it doesn't work for me?",
-      a: "Massfluence 2.0 comes with a 30-day money-back guarantee. If you set it up and it doesn't deliver, you can request a refund within 30 days — no hoops to jump through.",
+      a: "Massfluence 2.0 comes with a 30-day money-back guarantee. If you set it up and it doesn't deliver, you can request a refund within 30 days.",
     },
   ]
 
@@ -276,7 +359,7 @@ export default function ReviewPage({ product }: { product: Product }) {
         }}
       >
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
-          {/* Badges */}
+          {/* Badges — no commission badge */}
           <div
             style={{
               display: "flex",
@@ -296,9 +379,6 @@ export default function ReviewPage({ product }: { product: Product }) {
                 })}
               </span>
             )}
-            <span className="badge badge-green">
-              {product.commission}% Commission
-            </span>
           </div>
 
           <h1
@@ -345,13 +425,14 @@ export default function ReviewPage({ product }: { product: Product }) {
             {product.tagline}
           </p>
 
+          {/* Product image */}
           {product.product_image && (
             <div
               style={{
                 borderRadius: "1rem",
                 overflow: "hidden",
                 border: "1px solid rgba(255,255,255,0.08)",
-                marginBottom: "1.75rem",
+                marginBottom: "1.25rem",
                 background: "#0d1117",
                 boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
               }}
@@ -369,6 +450,12 @@ export default function ReviewPage({ product }: { product: Product }) {
               />
             </div>
           )}
+
+          {/* Video section */}
+          <VideoBlock
+            videoUrl={product.video_url}
+            productName={product.name}
+          />
 
           {/* Price + CTA block */}
           <div
@@ -397,7 +484,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                     marginBottom: "0.25rem",
                   }}
                 >
-                  Front-end price
+                  Launch price
                 </p>
                 <p
                   style={{
@@ -438,13 +525,14 @@ export default function ReviewPage({ product }: { product: Product }) {
                     textAlign: "center",
                   }}
                 >
-                  {product.landing?.urgency_line || "Bonuses expire at launch close"}
+                  {product.landing?.urgency_line ||
+                    "Bonuses expire at launch close"}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Meta grid */}
+          {/* Meta grid — Price, Niche, Rating, Launch */}
           <div
             style={{
               display: "grid",
@@ -453,10 +541,13 @@ export default function ReviewPage({ product }: { product: Product }) {
             }}
           >
             {[
-              { label: "Vendor", value: product.vendor },
-              { label: "Price", value: "$" + product.price },
-              { label: "Commission", value: product.commission + "%" },
+              { label: "Price", value: "$" + product.price + " one-time" },
               { label: "Niche", value: product.niche },
+              { label: "Rating", value: "4 / 5 ★" },
+              {
+                label: "30-Day",
+                value: "Money-Back",
+              },
             ].map(({ label, value }) => (
               <div
                 key={label}
@@ -651,17 +742,27 @@ export default function ReviewPage({ product }: { product: Product }) {
 
       {/* Main 2-column layout */}
       <div
-        style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem" }}
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          padding: "3rem 1.25rem",
+        }}
       >
         <div
-          style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}
+          style={{
+            display: "flex",
+            gap: "3rem",
+            alignItems: "flex-start",
+          }}
         >
           {/* Main column */}
           <main style={{ flex: "1 1 0", minWidth: 0 }}>
-
             {/* Pros / Cons */}
             <section style={{ marginBottom: "3rem" }}>
-              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+              <p
+                className="section-label"
+                style={{ marginBottom: "0.5rem" }}
+              >
                 At a Glance
               </p>
               <h2
@@ -813,13 +914,16 @@ export default function ReviewPage({ product }: { product: Product }) {
                   style={{
                     display: "grid",
                     gap: "0.75rem",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(260px, 1fr))",
                   }}
                 >
                   {product.features.map((feat, i) => {
                     const dashIdx = feat.indexOf(" — ")
-                    const title = dashIdx > -1 ? feat.slice(0, dashIdx) : feat
-                    const desc = dashIdx > -1 ? feat.slice(dashIdx + 3) : ""
+                    const title =
+                      dashIdx > -1 ? feat.slice(0, dashIdx) : feat
+                    const desc =
+                      dashIdx > -1 ? feat.slice(dashIdx + 3) : ""
                     return (
                       <div key={i} className="feature-card">
                         <div
@@ -933,7 +1037,10 @@ export default function ReviewPage({ product }: { product: Product }) {
 
             {/* Comparison Table */}
             <section style={{ marginBottom: "3rem" }}>
-              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+              <p
+                className="section-label"
+                style={{ marginBottom: "0.5rem" }}
+              >
                 How It Stacks Up
               </p>
               <h2
@@ -954,8 +1061,8 @@ export default function ReviewPage({ product }: { product: Product }) {
                   marginBottom: "1.25rem",
                 }}
               >
-                How Massfluence 2.0 compares to Skool, Kajabi, Facebook Groups,
-                and ClickFunnels on the features that matter most.
+                How Massfluence 2.0 compares to Skool, Kajabi, Facebook
+                Groups, and ClickFunnels on the features that matter most.
               </p>
               <div style={{ overflowX: "auto" }}>
                 <table className="cmp-table">
@@ -981,7 +1088,10 @@ export default function ReviewPage({ product }: { product: Product }) {
                     {CMP_FEATURES.map((feat, ri) => (
                       <tr key={feat}>
                         <td
-                          style={{ color: "#94a3b8", fontSize: "0.875rem" }}
+                          style={{
+                            color: "#94a3b8",
+                            fontSize: "0.875rem",
+                          }}
                         >
                           {feat}
                         </td>
@@ -1013,8 +1123,9 @@ export default function ReviewPage({ product }: { product: Product }) {
                   marginTop: "0.75rem",
                 }}
               >
-                * Facebook Groups is free but you don&apos;t own your audience
-                &mdash; Meta can ban your group or cut your reach at any time.
+                * Facebook Groups is free but you don&apos;t own your
+                audience &mdash; Meta can ban your group or cut your reach at
+                any time.
               </p>
             </section>
 
@@ -1046,7 +1157,9 @@ export default function ReviewPage({ product }: { product: Product }) {
                   }}
                 >
                   <table className="oto-table">
-                    <thead style={{ background: "rgba(255,255,255,0.03)" }}>
+                    <thead
+                      style={{ background: "rgba(255,255,255,0.03)" }}
+                    >
                       <tr>
                         <th>Upsell</th>
                         <th style={{ width: 90 }}>Price</th>
@@ -1094,7 +1207,9 @@ export default function ReviewPage({ product }: { product: Product }) {
                             )}
                           </td>
                           <td>
-                            <span className="badge badge-green">Reviewed</span>
+                            <span className="badge badge-green">
+                              Reviewed
+                            </span>
                           </td>
                         </tr>
                       ))}
@@ -1106,7 +1221,10 @@ export default function ReviewPage({ product }: { product: Product }) {
 
             {/* FAQ */}
             <section style={{ marginBottom: "3rem" }}>
-              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+              <p
+                className="section-label"
+                style={{ marginBottom: "0.5rem" }}
+              >
                 COMMON QUESTIONS
               </p>
               <h2
@@ -1121,7 +1239,11 @@ export default function ReviewPage({ product }: { product: Product }) {
                 Questions Before You Buy
               </h2>
               <div
-                style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5rem",
+                }}
               >
                 {FAQS.map((faq, i) => (
                   <details key={i} className="faq-item">
@@ -1132,14 +1254,24 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </section>
 
+            {/* Subscribe section */}
+            <SubscribeSection />
+
             {/* Bottom CTA */}
-            <CTA product={product} />
+            <div style={{ marginTop: "3rem" }}>
+              <CTA product={product} />
+            </div>
           </main>
 
           {/* Sidebar */}
           <aside
             className="hidden lg:block"
-            style={{ width: 260, flexShrink: 0, position: "sticky", top: 90 }}
+            style={{
+              width: 260,
+              flexShrink: 0,
+              position: "sticky",
+              top: 90,
+            }}
           >
             <div
               style={{
@@ -1181,19 +1313,20 @@ export default function ReviewPage({ product }: { product: Product }) {
               >
                 {product.name}
               </p>
-              <div className="stars" style={{ fontSize: "0.9rem", marginBottom: "0.75rem" }}>
+              <div
+                className="stars"
+                style={{ fontSize: "0.9rem", marginBottom: "0.75rem" }}
+              >
                 &#9733;&#9733;&#9733;&#9733;&#9734;
               </div>
-              <div className="divider" style={{ margin: "0.75rem 0" }} />
+              <div
+                className="divider"
+                style={{ margin: "0.75rem 0" }}
+              />
               {[
                 { l: "Price", v: "$" + product.price },
-                { l: "Commission", v: product.commission + "%" },
-                {
-                  l: "Vendor",
-                  v: product.vendor
-                    ? product.vendor.split(" and ")[0]
-                    : "",
-                },
+                { l: "Guarantee", v: "30 days" },
+                { l: "Rating", v: "4 / 5 ★" },
               ].map(({ l, v }) => (
                 <div
                   key={l}
@@ -1211,8 +1344,6 @@ export default function ReviewPage({ product }: { product: Product }) {
                   </span>
                 </div>
               ))}
-
-              {/* Why Buy quick list */}
               <div style={{ marginTop: "1rem" }}>
                 <p
                   style={{
@@ -1257,7 +1388,6 @@ export default function ReviewPage({ product }: { product: Product }) {
                   </div>
                 ))}
               </div>
-
               <div style={{ marginTop: "1rem" }}>
                 <a
                   href={product.affiliate_link}

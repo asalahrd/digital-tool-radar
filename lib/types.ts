@@ -47,4 +47,5 @@ export interface Product {
   published_at: string
   product_image?: string
   screenshots?: string[]
+  video_url?: string
 }

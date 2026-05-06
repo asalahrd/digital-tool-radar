@@ -1,5 +1,6 @@
 import type { Product } from "@/lib/types"
 import Link from "next/link"
+import SubscribeSection from "./SubscribeSection"
 
 const DEFAULT_BONUSES = [
   { name: "Quick-Start Checklist", description: "Step-by-step checklist to get your first result within 24 hours.", badge: "INSTANT ACCESS", value: "$27", why: "Eliminates the overwhelm of starting from scratch" },
@@ -21,6 +22,87 @@ const CTA = ({ href, text, sub }: { href: string; text: string; sub?: string }) 
     {sub && <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.5rem" }}>{sub}</p>}
   </div>
 )
+
+function VideoBlock({ videoUrl, productName }: { videoUrl?: string; productName: string }) {
+  if (!videoUrl) {
+    return (
+      <div
+        style={{
+          maxWidth: 860,
+          margin: "0 auto",
+          padding: "1.5rem 1.25rem 0",
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "1rem",
+            border: "1px solid rgba(255,255,255,0.07)",
+            background: "rgba(255,255,255,0.02)",
+            display: "flex",
+            flexDirection: "column" as const,
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "2.5rem 2rem",
+            gap: "0.875rem",
+            textAlign: "center" as const,
+          }}
+        >
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              background: "rgba(0,212,146,0.1)",
+              border: "1px solid rgba(0,212,146,0.25)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <polygon points="6,3 20,12 6,21" fill="#00d492" />
+            </svg>
+          </div>
+          <div>
+            <p style={{ color: "#edf2f7", fontWeight: 700, marginBottom: "0.25rem" }}>
+              Full Video Review — Coming Soon
+            </p>
+            <p style={{ color: "#7b8ea5", fontSize: "0.875rem" }}>
+              Subscribe below to get notified the moment it drops.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  const ytbe = videoUrl.match(/youtu\.be\/([^?&]+)/)
+  const watch = videoUrl.match(/[?&]v=([^?&]+)/)
+  const id = ytbe ? ytbe[1] : watch ? watch[1] : null
+  const embedUrl = id
+    ? "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1"
+    : videoUrl
+  return (
+    <div style={{ maxWidth: 860, margin: "0 auto", padding: "1.5rem 1.25rem 0" }}>
+      <div
+        style={{
+          borderRadius: "1rem",
+          overflow: "hidden",
+          border: "1px solid rgba(255,255,255,0.08)",
+          aspectRatio: "16/9",
+          background: "#0d1117",
+        }}
+      >
+        <iframe
+          src={embedUrl}
+          title={productName + " Review Video"}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+        />
+      </div>
+    </div>
+  )
+}
 
 export default function BonusPage({ product }: { product: Product }) {
   const bonuses =
@@ -75,7 +157,7 @@ export default function BonusPage({ product }: { product: Product }) {
             {headline}
           </h1>
           <p style={{ fontSize: "1.05rem", color: "#94a3b8", lineHeight: 1.7, maxWidth: 540, margin: "0 auto 1.75rem" }}>
-            Buy {product.name} through my link and get a hand-picked bonus stack designed to help you get results faster — bonuses you won&apos;t find anywhere else.
+            Order through this page and get an exclusive bonus stack designed to help you get results faster — included at no extra cost.
           </p>
           <ul style={{ listStyle: "none", padding: 0, maxWidth: 460, margin: "0 auto 2rem", display: "flex", flexDirection: "column", gap: "0.6rem", textAlign: "left" }}>
             {bullets.map((b, i) => (
@@ -107,9 +189,9 @@ export default function BonusPage({ product }: { product: Product }) {
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "2.5rem" }}>
             {[
               { label: "Front-end Price", value: "$" + product.price, color: "#edf2f7" },
-              { label: "Commission", value: product.commission + "%", color: "#00d492" },
+              { label: "30-Day Guarantee", value: "Included", color: "#00d492" },
               { label: "Bonuses Included", value: String(bonuses.length), color: "#a78bfa" },
-              { label: "Vendor", value: product.vendor ? product.vendor.split(" and ")[0] : "Verified", color: "#edf2f7" },
+              { label: "Bonus Delivery", value: "< 2 hrs", color: "#edf2f7" },
             ].map(({ label, value, color }) => (
               <div key={label} style={{ textAlign: "center" }}>
                 <p style={{ fontSize: "1.5rem", fontWeight: 900, color, letterSpacing: "-0.03em", lineHeight: 1 }}>{value}</p>
