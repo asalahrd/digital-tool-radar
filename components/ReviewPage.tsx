@@ -174,17 +174,33 @@ export default function ReviewPage({ product }: { product: Product }) {
   const OTO_ROWS = product.otos || []
 
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       <StickyScrollCTA href={product.affiliate_link} productName={product.name} />
 
       {/* ── RESPONSIVE OVERRIDES ───────────────────────────────────────── */}
       <style>{`
-        /* 2-col → single col + hide sidebar on mobile */
+        /* ── Mobile: fix all layouts ──────────────────────────────────── */
         @media (max-width: 900px) {
+          /* Top sticky bar — hidden on mobile (bottom pill CTA handles it) */
+          .sticky-bar { display: none !important; }
+
+          /* 2-col review layout → single column, hide sidebar */
           .review-2col  { flex-direction: column !important; }
           .review-aside { display: none !important; }
-          .review-pros-cons { grid-template-columns: 1fr !important; }
+
+          /* All hardcoded 2-col grids → single column */
+          .review-pros-cons,
+          .review-old-new-head,
+          .review-old-new-row,
+          .review-decision-cols { grid-template-columns: 1fr !important; }
+
+          /* Mechanism callout — allow wrap on narrow screens */
+          .review-mechanism { flex-wrap: wrap !important; gap: 0.35rem !important; }
+
+          /* Prevent any single element from blowing out the page width */
+          .review-2col > *, .review-old-new-row > * { min-width: 0; }
         }
+
         /* Sidebar CTA button — allow text wrap so nothing clips */
         .sidebar-cta-btn {
           white-space: normal !important;
@@ -238,9 +254,9 @@ export default function ReviewPage({ product }: { product: Product }) {
           </p>
 
           {/* Mechanism callout — the one sticky idea */}
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.625rem", background: "rgba(0,212,146,0.07)", border: "1px solid rgba(0,212,146,0.22)", borderRadius: "0.5rem", padding: "0.5rem 0.875rem", marginBottom: "1.5rem" }}>
-            <span style={{ fontSize: "0.7rem", color: "#00d492", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em" }}>The mechanism:</span>
-            <span style={{ fontSize: "0.82rem", color: "#edf2f7", fontWeight: 700 }}>The 19-Minute Cold Start</span>
+          <div className="review-mechanism" style={{ display: "flex", alignItems: "center", gap: "0.625rem", background: "rgba(0,212,146,0.07)", border: "1px solid rgba(0,212,146,0.22)", borderRadius: "0.5rem", padding: "0.5rem 0.875rem", marginBottom: "1.5rem" }}>
+            <span style={{ fontSize: "0.7rem", color: "#00d492", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", flexShrink: 0 }}>The mechanism:</span>
+            <span style={{ fontSize: "0.82rem", color: "#edf2f7", fontWeight: 700, flexShrink: 0 }}>The 19-Minute Cold Start</span>
             <span style={{ fontSize: "0.78rem", color: "#7b8ea5" }}>— from empty dashboard to active community, before the first invite goes out</span>
           </div>
 
@@ -392,7 +408,7 @@ export default function ReviewPage({ product }: { product: Product }) {
       <section style={{ maxWidth: 780, margin: "0 auto", padding: "2rem 1.25rem 0" }}>
         <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>What changes when you stop doing this manually</p>
         <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Old Process vs New Process</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.875rem" }}>
+        <div className="review-old-new-head" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.875rem" }}>
           {/* Headers */}
           <div style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)", borderRadius: "0.75rem 0.75rem 0 0", padding: "0.75rem 1rem", textAlign: "center" }}>
             <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.08em" }}>❌ Without Massfluence</p>
@@ -410,7 +426,7 @@ export default function ReviewPage({ product }: { product: Product }) {
             { old: "Watch community sit empty for weeks", new_: "First visitors see an active, content-filled community" },
             { old: "Members arrive, see nothing, leave forever", new_: "Members arrive, engage, compete — gamification kicks in" },
           ].map(({ old, new_ }, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
+            <div key={i} className="review-old-new-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
               <div style={{ background: "rgba(239,68,68,0.03)", border: "1px solid rgba(239,68,68,0.08)", padding: "0.625rem 0.875rem" }}>
                 <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>{old}</p>
               </div>
@@ -1069,7 +1085,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                   If you&rsquo;re already interested — this is genuinely the best time to move. Launch pricing + the bonus package won&rsquo;t be available after the public release window. Here&rsquo;s the fast version of who should act and who should pass:
                 </p>
 
-                <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "1fr 1fr", marginBottom: "1.5rem" }}>
+                <div className="review-decision-cols" style={{ display: "grid", gap: "1rem", gridTemplateColumns: "1fr 1fr", marginBottom: "1.5rem" }}>
                   <div style={{ background: "rgba(0,212,146,0.04)", border: "1px solid rgba(0,212,146,0.15)", borderRadius: "0.875rem", padding: "1.25rem" }}>
                     <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem" }}>✓ Yes — Buy if you…</p>
                     {[
@@ -1195,6 +1211,6 @@ export default function ReviewPage({ product }: { product: Product }) {
 
         </div>
       </div>
-    </>
+    </div>
   )
 }
