@@ -177,6 +177,23 @@ export default function ReviewPage({ product }: { product: Product }) {
     <>
       <StickyScrollCTA href={product.affiliate_link} productName={product.name} />
 
+      {/* ── RESPONSIVE OVERRIDES ───────────────────────────────────────── */}
+      <style>{`
+        /* 2-col → single col + hide sidebar on mobile */
+        @media (max-width: 900px) {
+          .review-2col  { flex-direction: column !important; }
+          .review-aside { display: none !important; }
+          .review-pros-cons { grid-template-columns: 1fr !important; }
+        }
+        /* Sidebar CTA button — allow text wrap so nothing clips */
+        .sidebar-cta-btn {
+          white-space: normal !important;
+          line-height: 1.3 !important;
+          padding: 0.7rem 1.25rem !important;
+          font-size: 0.9rem !important;
+        }
+      `}</style>
+
       {/* ── TOP STICKY BAR ─────────────────────────────────────────────── */}
       <div className="sticky-bar">
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.25rem", height: 52, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -468,7 +485,7 @@ export default function ReviewPage({ product }: { product: Product }) {
 
       {/* ── MAIN 2-COLUMN ──────────────────────────────────────────────── */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem" }}>
-        <div style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}>
+        <div className="review-2col" style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}>
 
           <main style={{ flex: "1 1 0", minWidth: 0 }}>
 
@@ -476,7 +493,7 @@ export default function ReviewPage({ product }: { product: Product }) {
             <section style={{ marginBottom: "2rem" }}>
               <p className="section-label" style={{ marginBottom: "0.5rem" }}>At a Glance</p>
               <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Pros &amp; Cons</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+              <div className="review-pros-cons" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                 <div style={{ background: "rgba(0,212,146,0.05)", border: "1px solid rgba(0,212,146,0.15)", borderRadius: "0.875rem", padding: "1.25rem" }}>
                   <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem" }}>Pros</p>
                   {PROS.map((item, i) => (
@@ -1127,7 +1144,7 @@ export default function ReviewPage({ product }: { product: Product }) {
           </main>
 
           {/* ── SIDEBAR ────────────────────────────────────────────────── */}
-          <aside style={{ width: 272, flexShrink: 0, position: "sticky", top: 72, display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <aside className="review-aside" style={{ width: 272, flexShrink: 0, position: "sticky", top: 72, display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1rem", padding: "1.5rem" }}>
               {product.product_image && (
                 <div style={{ borderRadius: "0.625rem", overflow: "hidden", marginBottom: "1.25rem", border: "1px solid rgba(255,255,255,0.07)" }}>
@@ -1165,8 +1182,9 @@ export default function ReviewPage({ product }: { product: Product }) {
               <p style={{ fontSize: "0.72rem", color: "#f59e0b", marginBottom: "0.75rem", lineHeight: 1.5, fontWeight: 500 }}>
                 Launch pricing — locks in before public release
               </p>
-              <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary" style={{ display: "block", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
-                Claim {product.name} + Bonuses &rarr;
+              <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary sidebar-cta-btn" style={{ display: "block", textAlign: "center", width: "100%", boxSizing: "border-box" }}>
+                Claim {product.name}<br />
+                <span style={{ fontSize: "0.8rem", fontWeight: 600, opacity: 0.9 }}>+ All Bonuses &rarr;</span>
               </a>
               <p style={{ fontSize: "0.7rem", color: "#4a5568", marginTop: "0.5rem", textAlign: "center" }}>30-day money-back guarantee</p>
               <div style={{ marginTop: "0.75rem", textAlign: "center" }}>
