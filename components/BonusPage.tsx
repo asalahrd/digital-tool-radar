@@ -1,7 +1,6 @@
 import type { Product } from "@/lib/types"
 import Link from "next/link"
 import SubscribeSection from "./SubscribeSection"
-import SubscribeSection from "./SubscribeSection"
 
 const DEFAULT_BONUSES = [
   { name: "Quick-Start Checklist", description: "Step-by-step checklist to get your first result within 24 hours.", badge: "INSTANT ACCESS", value: "$27", why: "Eliminates the overwhelm of starting from scratch" },
