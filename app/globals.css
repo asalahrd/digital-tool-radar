@@ -20,12 +20,17 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;   /* ← prevents viewport zoom-out on mobile */
+}
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;   /* ← clips horizontal overflow at body level */
+  max-width: 100%;
 }
 
 @layer components {
@@ -357,4 +362,25 @@ body {
   /* Value tag */
   .value-tag { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #a78bfa; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.2); border-radius: 999px; padding: 0.2rem 0.6rem; }
 
+}
+
+/* ── Mobile safety net ────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Images and media never exceed viewport */
+  img, video, iframe, svg { max-width: 100%; height: auto; }
+
+  /* Comparison table — horizontal scroll within its container */
+  .cmp-table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1.25rem;
+    padding: 0 1.25rem;
+  }
+  .cmp-table { min-width: 480px; }
+
+  /* Top sticky bar — hidden on mobile (bottom pill CTA handles it) */
+  .sticky-bar { display: none !important; }
+
+  /* Inline-flex items that could overflow — allow wrap */
+  .btn-primary { white-space: normal; }
 }

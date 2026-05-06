@@ -862,13 +862,13 @@ export default function ReviewPage({ product }: { product: Product }) {
             <section style={{ marginBottom: "2rem" }}>
               <p className="section-label" style={{ marginBottom: "0.5rem" }}>How It Stacks Up</p>
               <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>{product.name} vs. The Competition</h2>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.825rem" }}>
+              <div className="cmp-table-scroll" style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.825rem", minWidth: 480 }}>
                   <thead>
                     <tr>
                       <th style={{ textAlign: "left", padding: "0.6rem 0.875rem", color: "#7b8ea5", fontWeight: 600, borderBottom: "1px solid rgba(255,255,255,0.07)" }}>Feature</th>
                       {CMP_TOOLS.map((t, i) => (
-                        <th key={t} style={{ padding: "0.6rem 0.875rem", color: i === 0 ? "#00d492" : "#7b8ea5", fontWeight: i === 0 ? 700 : 600, borderBottom: "1px solid rgba(255,255,255,0.07)", background: i === 0 ? "rgba(0,212,146,0.04)" : "transparent", whiteSpace: "nowrap" }}>{t}</th>
+                        <th key={t} style={{ padding: "0.6rem 0.875rem", color: i === 0 ? "#00d492" : "#7b8ea5", fontWeight: i === 0 ? 700 : 600, borderBottom: "1px solid rgba(255,255,255,0.07)", background: i === 0 ? "rgba(0,212,146,0.04)" : "transparent" }}>{t}</th>
                       ))}
                     </tr>
                   </thead>
