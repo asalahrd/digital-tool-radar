@@ -2,6 +2,7 @@ import type { Product } from "@/lib/types"
 import Link from "next/link"
 import SubscribeSection from "./SubscribeSection"
 import StickyScrollCTA from "./StickyScrollCTA"
+import TrustLayer from "./TrustLayer"
 
 /* ── VIDEO ──────────────────────────────────────────────────────────────── */
 function VideoBlock({ videoUrl, productName }: { videoUrl?: string; productName: string }) {
@@ -461,6 +462,9 @@ export default function ReviewPage({ product }: { product: Product }) {
           </p>
         </div>
       </section>
+
+      {/* ── COMMUNITY TRUST LAYER — full-width pattern interrupt ──────── */}
+      <TrustLayer />
 
       {/* ── MAIN 2-COLUMN ──────────────────────────────────────────────── */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem" }}>
