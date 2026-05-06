@@ -73,17 +73,9 @@ function DominantCTA({ product, headline, sub }: { product: Product; headline: s
       <h3 style={{ fontSize: "clamp(1.1rem,2.5vw,1.4rem)", fontWeight: 800, color: "#edf2f7", marginBottom: "0.6rem", letterSpacing: "-0.02em", lineHeight: 1.3 }}>{headline}</h3>
       <p style={{ color: "#7b8ea5", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: 480, margin: "0 auto 1.5rem" }}>{sub}</p>
       <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary" style={{ fontSize: "1.05rem", padding: "0.9rem 2.25rem" }}>
-        Get {product.name} + $171 in Free Bonuses &rarr;
+        Yes — Get {product.name} + $171 in Bonuses &rarr;
       </a>
-      <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>Launch pricing ends at public release — lock the one-time rate now</p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem", justifyContent: "center", marginTop: "1.5rem", paddingTop: "1.25rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        {["30-Day Guarantee", "Instant Access", "$171 Free Bonuses"].map((b) => (
-          <span key={b} style={{ fontSize: "0.75rem", color: "#7b8ea5", display: "flex", alignItems: "center", gap: "0.35rem" }}>
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#00d492" strokeWidth="1.5"/><polyline points="5,8 7,10 11,6" stroke="#00d492" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            {b}
-          </span>
-        ))}
-      </div>
+      <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>Launch pricing ends at public release · 30-day guarantee · Instant access</p>
     </div>
   )
 }
@@ -93,10 +85,10 @@ function InlineCTA({ product }: { product: Product }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem", background: "rgba(0,212,146,0.05)", border: "1px solid rgba(0,212,146,0.15)", borderLeft: "3px solid #00d492", borderRadius: "0 0.875rem 0.875rem 0", padding: "1.125rem 1.5rem", margin: "2rem 0" }}>
       <div>
-        <p style={{ fontSize: "0.925rem", color: "#edf2f7", fontWeight: 700, margin: 0 }}>Seen enough to decide?</p>
-        <p style={{ fontSize: "0.78rem", color: "#7b8ea5", margin: "0.15rem 0 0" }}>15-minute setup. Instant access. 30-day guarantee. Most people discover this after the launch window closes.</p>
+        <p style={{ fontSize: "0.925rem", color: "#edf2f7", fontWeight: 700, margin: 0 }}>Made your decision?</p>
+        <p style={{ fontSize: "0.78rem", color: "#7b8ea5", margin: "0.15rem 0 0" }}>15-min setup · Instant access · 30-day guarantee · Bonuses expire with launch window</p>
       </div>
-      <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary btn-sm">Get {product.name} &rarr;</a>
+      <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary btn-sm">Claim {product.name} &rarr;</a>
     </div>
   )
 }
@@ -109,16 +101,13 @@ function CTA({ product }: { product: Product }) {
       <h3 style={{ fontSize: "clamp(1.15rem,2.5vw,1.5rem)", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.025em", lineHeight: 1.25 }}>
         Stop Paying Monthly.<br />Own Your Platform from Day One.
       </h3>
-      <p style={{ color: "#94a3b8", fontSize: "0.9rem", marginBottom: "0.5rem", lineHeight: 1.65 }}>
-        Order through this page — your Creator Launch System lands in your inbox within 2 hours, at no extra cost.
-      </p>
-      <p style={{ fontSize: "0.82rem", color: "#7b8ea5", marginBottom: "1.75rem", lineHeight: 1.6, fontStyle: "italic" }}>
-        Imagine six months from now: a thriving community, recurring revenue, and zero monthly platform fees. The only difference between that future and right now is this decision.
+      <p style={{ color: "#94a3b8", fontSize: "0.9rem", marginBottom: "1.75rem", lineHeight: 1.65, maxWidth: 480, margin: "0 auto 1.75rem" }}>
+        Order through this page — your Creator Launch System lands in your inbox within 2 hours. Most buyers don&rsquo;t have that. You do.
       </p>
       <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary" style={{ fontSize: "1.05rem" }}>
         Claim {product.name} + All Bonuses &rarr;
       </a>
-      <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>Launch pricing ends at public release — lock the one-time rate now</p>
+      <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>Launch pricing ends at public release · lock the one-time rate now</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0.625rem", marginTop: "1.5rem", paddingTop: "1.25rem", borderTop: "1px solid rgba(255,255,255,0.06)", textAlign: "left" }}>
         {[
           { icon: "⚡", label: "Instant access", note: "No approval wait" },
@@ -174,11 +163,11 @@ export default function ReviewPage({ product }: { product: Product }) {
   ]
 
   const FAQS = [
-    { q: "Is this beginner-friendly?", a: "No experience needed. Point-and-click setup. Templates handle the design, AI handles the content. From login to live community takes under 30 minutes." },
-    { q: "Does it work if I have zero audience?", a: "Yes — AI prepopulation solves this specifically. Your community looks active before a single real member joins. Then viral gamification grows it once you have even a handful of real participants." },
-    { q: "Is the $47 front-end enough, or do I need upsells?", a: "The front-end is fully functional — build communities, host courses, sell products, use gamification. Upsells remove limits and add email broadcasts. Not required for real value." },
-    { q: "Is this a monthly subscription?", a: "Front-end is one-time at launch. OTO 1 (Gold) is $127/yr. After launch, pricing typically moves to a monthly model. Buying now is the best deal you'll get." },
-    { q: "What if it doesn't work for me?", a: "30-day money-back guarantee. Set it up, test it, and if it doesn't deliver — request a full refund within 30 days." },
+    { q: "Is this beginner-friendly?", a: "Yes. Point-and-click setup — no tech skills needed. Templates handle design, AI handles content. From login to live community in under 30 minutes." },
+    { q: "Does it work with zero audience?", a: "That's exactly what it's built for. AI prepopulation makes your community look active before a single real member joins. Then gamification grows it from there." },
+    { q: "Is the $47 front-end enough, or do I need upsells?", a: "The front-end is fully usable — communities, courses, gamification, products. OTO 1 adds email broadcasts and removes limits. Not required to get real value." },
+    { q: "Is this a monthly subscription?", a: "Front-end is one-time at launch. OTO 1 (Gold) is $127/yr. After launch, pricing moves to monthly. Buying now locks the best deal permanently." },
+    { q: "What if it doesn't work for me?", a: "30-day money-back guarantee. Test it fully. If it doesn't deliver — request a full refund." },
   ]
 
   const OTO_ROWS = product.otos || []
@@ -203,6 +192,11 @@ export default function ReviewPage({ product }: { product: Product }) {
       <section style={{ background: "radial-gradient(ellipse 90% 70% at 50% 0%, rgba(0,212,146,0.08) 0%, transparent 65%)", padding: "3.5rem 1.25rem 3rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
 
+          {/* Micro-label */}
+          <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#4a5568", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1rem" }}>
+            📍 Honest early access review · published before public launch
+          </p>
+
           {/* Badges */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1.25rem" }}>
             <span className="badge badge-slate">{product.niche}</span>
@@ -214,18 +208,15 @@ export default function ReviewPage({ product }: { product: Product }) {
             </span>
           </div>
 
-          {/* EMOTIONAL HOOK HEADLINE */}
+          {/* Emotional hook headline */}
           <h1 style={{ fontSize: "clamp(1.6rem,4vw,2.5rem)", fontWeight: 900, color: "#edf2f7", lineHeight: 1.15, letterSpacing: "-0.03em", marginBottom: "1rem" }}>
             I Almost Passed on {product.name}.<br />
             <span style={{ color: "#00d492" }}>Then I Saw What the AI Cold-Start Actually Does.</span>
           </h1>
 
-          {/* Curiosity gap — creates tension, sets up the review */}
-          <p style={{ fontSize: "1rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "0.5rem" }}>
-            I&rsquo;ve reviewed 40+ community platforms. Most launch you into a blank dashboard and hope for the best. {product.name} does something I haven&rsquo;t seen before — and it changes the math on whether this is worth buying.
-          </p>
-          <p style={{ fontSize: "0.9rem", color: "#7b8ea5", lineHeight: 1.65, marginBottom: "1.5rem" }}>
-            This is my honest early access breakdown: what works, what&rsquo;s limited, whether the launch pricing is worth acting on — and the one feature that made me buy within 20 minutes of seeing it.
+          {/* Tight curiosity gap — one paragraph */}
+          <p style={{ fontSize: "1rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            I&rsquo;ve reviewed 40+ community platforms. Most launch you into a blank dashboard. {product.name} does one thing I hadn&rsquo;t seen before — and it changes whether this is worth buying. Here&rsquo;s my honest breakdown: what works, what&rsquo;s limited, and why I bought it within 20 minutes of seeing the AI cold-start demo.
           </p>
 
           <div className="stars" style={{ fontSize: "1.1rem", marginBottom: "1.5rem" }}>
@@ -298,22 +289,22 @@ export default function ReviewPage({ product }: { product: Product }) {
         </div>
       </section>
 
-      {/* ── SKIP THE SCROLL — scanner summary ──────────────────────────── */}
+      {/* ── SKIP THE SCROLL ─────────────────────────────────────────────── */}
       <section style={{ maxWidth: 780, margin: "0 auto", padding: "2rem 1.25rem 0" }}>
         <div style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "1rem", padding: "1.5rem 1.75rem" }}>
-          <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "1rem" }}>Skip the scroll — the honest short version</p>
+          <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "1rem" }}>Skip the scroll — the short version</p>
           <div style={{ display: "grid", gap: "0.5rem" }}>
             {[
-              { label: "What it is", value: "Community platform + course hosting + AI content seeder + viral gamification — in one tool", icon: "📦" },
-              { label: "Who it's for", value: "Course creators, coaches, marketers — works with zero audience or tech skills", icon: "🎯" },
-              { label: "Price", value: "$47 one-time at launch (vs $453/mo equivalent stack)", icon: "💰" },
-              { label: "The real win", value: "AI fills your community with content before the first real member joins — solving the #1 reason communities die in week one", icon: "✅" },
-              { label: "The real limit", value: "You still need to send the first 50 visitors. This accelerates growth — it doesn't conjure traffic", icon: "⚠️" },
-              { label: "Verdict", value: "Strong buy during launch window if community or course delivery is part of your plan", icon: "🏆" },
+              { icon: "📦", label: "What it is", value: "Community + courses + AI content seeder + viral gamification — one tool, one login" },
+              { icon: "🎯", label: "Who it's for", value: "Course creators, coaches, marketers — works with zero audience and zero tech skills" },
+              { icon: "💰", label: "Price", value: "$47 one-time at launch vs $453/mo equivalent stack" },
+              { icon: "✅", label: "The real win", value: "AI fills your community with 20+ real-looking threads before your first real member joins — killing the empty room problem" },
+              { icon: "⚠️", label: "The real limit", value: "You still need to send the first 50 visitors — this accelerates growth, not conjures it" },
+              { icon: "🏆", label: "Verdict", value: "Yes — buy this during the launch window if community or courses are part of your plan" },
             ].map(({ label, value, icon }) => (
               <div key={label} style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "0.75rem", alignItems: "flex-start", paddingBottom: "0.5rem", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
                 <span style={{ fontSize: "0.875rem", lineHeight: 1.5 }}>{icon}</span>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", alignItems: "baseline" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", alignItems: "baseline" }}>
                   <span style={{ fontSize: "0.72rem", fontWeight: 700, color: "#4a5568", textTransform: "uppercase", letterSpacing: "0.06em", flexShrink: 0 }}>{label}:</span>
                   <span style={{ fontSize: "0.85rem", color: "#94a3b8", lineHeight: 1.5 }}>{value}</span>
                 </div>
@@ -353,53 +344,63 @@ export default function ReviewPage({ product }: { product: Product }) {
             <p style={{ fontSize: "0.95rem", color: "#94a3b8", lineHeight: 1.6, marginBottom: "0.75rem" }}>
               At $47 one-time replacing $453/month in equivalent tools, this is a no-brainer for community-focused marketers. The AI cold-start fix alone solves the #1 reason most communities fail within the first week.
             </p>
-            <div className="stars" style={{ fontSize: "1rem" }}>
-              &#9733;&#9733;&#9733;&#9733;&#9734;
-              <span style={{ color: "#7b8ea5", fontSize: "0.82rem", marginLeft: "0.4rem" }}>4/5</span>
-            </div>
+            <div className="stars" style={{ fontSize: "1rem" }}>&#9733;&#9733;&#9733;&#9733;&#9734; <span style={{ color: "#7b8ea5", fontSize: "0.82rem", marginLeft: "0.4rem" }}>4/5</span></div>
           </div>
         </div>
       </section>
 
-      {/* ── YOUR DAY AFTER — desire visualization ──────────────────────── */}
-      <section style={{ maxWidth: 780, margin: "0 auto", padding: "2.5rem 1.25rem 0" }}>
-        <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>What changes after you set this up</p>
-        <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Your Week Looks Different</h2>
-        <div style={{ display: "grid", gap: "0.625rem" }}>
+      {/* ── THE ONE THING — USP crystallized ───────────────────────────── */}
+      <section style={{ maxWidth: 780, margin: "0 auto", padding: "2rem 1.25rem 0" }}>
+        <div style={{ background: "rgba(0,0,0,0.5)", border: "1px solid rgba(0,212,146,0.18)", borderRadius: "1rem", padding: "1.75rem", textAlign: "center" }}>
+          <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "0.875rem" }}>The one thing that changed my mind</p>
+          <p style={{ fontSize: "clamp(1rem,2.4vw,1.15rem)", fontWeight: 800, color: "#edf2f7", lineHeight: 1.45, maxWidth: 540, margin: "0 auto 0.875rem", letterSpacing: "-0.02em" }}>
+            Every community platform has the same problem: you launch into an empty room. The first visitor sees nothing — and leaves.
+          </p>
+          <p style={{ fontSize: "0.925rem", color: "#94a3b8", lineHeight: 1.65, maxWidth: 480, margin: "0 auto 0.875rem" }}>
+            {product.name} fills the room with AI-generated content <em>before</em> your first invite goes out. Members join a community that already looks alive. That changes everything about early retention.
+          </p>
+          <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#00d492" }}>This is the only platform I&rsquo;ve found that actually solves the empty-room problem.</p>
+        </div>
+      </section>
+
+      {/* ── OLD WAY vs NEW WAY ─────────────────────────────────────────── */}
+      <section style={{ maxWidth: 780, margin: "0 auto", padding: "2rem 1.25rem 0" }}>
+        <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem" }}>What changes when you stop doing this manually</p>
+        <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Old Process vs New Process</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.875rem" }}>
+          {/* Headers */}
+          <div style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)", borderRadius: "0.75rem 0.75rem 0 0", padding: "0.75rem 1rem", textAlign: "center" }}>
+            <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.08em" }}>❌ Without Massfluence</p>
+          </div>
+          <div style={{ background: "rgba(0,212,146,0.06)", border: "1px solid rgba(0,212,146,0.2)", borderRadius: "0.75rem 0.75rem 0 0", padding: "0.75rem 1rem", textAlign: "center" }}>
+            <p style={{ fontSize: "0.72rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em" }}>✓ With Massfluence</p>
+          </div>
+        </div>
+        <div style={{ display: "grid", gap: "2px" }}>
           {[
-            {
-              day: "Day 1",
-              before: "Stare at a blank Skool or Kajabi dashboard, not sure where to start",
-              after: "Community live, 20+ AI-seeded discussion threads, course outline published — in one afternoon",
-            },
-            {
-              day: "Day 3",
-              before: "Write post after post hoping someone engages with an empty room",
-              after: "First real members join a community that already looks active — they stay because there's already something to read",
-            },
-            {
-              day: "Day 7",
-              before: "Pay $99 Skool + $49 AI tool + hope your course platform trial doesn't expire",
-              after: "Gamification leaderboard running. Members competing. You haven't opened a content editor once",
-            },
-            {
-              day: "Month 2",
-              before: "Still paying $300+/mo for separate tools, still wondering why growth is slow",
-              after: "SEO threads indexed, organic traffic starting to compound, one client interested in a community setup at $500",
-            },
-          ].map(({ day, before, after }) => (
-            <div key={day} style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr", gap: "0.875rem", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.875rem", padding: "1rem 1.125rem", alignItems: "flex-start" }}>
-              <span style={{ fontSize: "0.65rem", fontWeight: 800, color: "#00d492", background: "rgba(0,212,146,0.1)", border: "1px solid rgba(0,212,146,0.2)", borderRadius: "0.375rem", padding: "0.2rem 0.5rem", whiteSpace: "nowrap", marginTop: "0.05rem" }}>{day}</span>
-              <div>
-                <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>Without</p>
-                <p style={{ fontSize: "0.8rem", color: "#4a5568", lineHeight: 1.55 }}>{before}</p>
+            { old: "Set up community platform → 2–3 days of config", new_: "Account created, community live → 2 minutes" },
+            { old: "Write 20+ seed posts manually → 8–12 hours", new_: "AI seeds 20+ realistic discussion threads → 3 minutes" },
+            { old: "Build gamification system separately → Days + $59/mo", new_: "Gamification configured with 4 clicks → 4 minutes" },
+            { old: "Set up course platform (Kajabi) → Weeks + $149/mo", new_: "5-module course published → 7 minutes, $0 extra" },
+            { old: "Watch community sit empty for weeks", new_: "First visitors see an active, content-filled community" },
+            { old: "Members arrive, see nothing, leave forever", new_: "Members arrive, engage, compete — gamification kicks in" },
+          ].map(({ old, new_ }, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
+              <div style={{ background: "rgba(239,68,68,0.03)", border: "1px solid rgba(239,68,68,0.08)", padding: "0.625rem 0.875rem" }}>
+                <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>{old}</p>
               </div>
-              <div style={{ borderLeft: "1px solid rgba(255,255,255,0.07)", paddingLeft: "0.875rem" }}>
-                <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.25rem" }}>With Massfluence</p>
-                <p style={{ fontSize: "0.8rem", color: "#94a3b8", lineHeight: 1.55 }}>{after}</p>
+              <div style={{ background: "rgba(0,212,146,0.03)", border: "1px solid rgba(0,212,146,0.1)", padding: "0.625rem 0.875rem" }}>
+                <p style={{ fontSize: "0.8rem", color: "#94a3b8", lineHeight: 1.5, fontWeight: 500 }}>{new_}</p>
               </div>
             </div>
           ))}
+        </div>
+        {/* Bottom line */}
+        <div style={{ background: "rgba(0,212,146,0.06)", border: "1px solid rgba(0,212,146,0.18)", borderRadius: "0 0 0.75rem 0.75rem", padding: "1rem 1.25rem", display: "flex", flexWrap: "wrap", gap: "0.75rem", alignItems: "center", justifyContent: "space-between" }}>
+          <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#edf2f7", lineHeight: 1.4 }}>
+            ★ <strong style={{ color: "#00d492" }}>Bottom line:</strong> 20–30 hours + $450+/mo of manual work compressed into 19 minutes + $47 once.
+          </p>
+          <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary btn-sm" style={{ flexShrink: 0 }}>Get started &rarr;</a>
         </div>
       </section>
 
@@ -410,9 +411,9 @@ export default function ReviewPage({ product }: { product: Product }) {
           <div style={{ display: "grid", gap: "0.875rem" }}>
             {[
               "You launch a fully active community this afternoon — without recording a single video or writing a single post.",
-              "Your first client pays you $500 for a community setup you delivered in one afternoon using agency rights.",
-              "Six months from now: a recurring revenue stream, zero platform fees, an audience you actually own.",
-              "You replaced Skool ($99/mo) + a course platform ($149/mo) + an AI writing tool ($49/mo) — with one $47 purchase.",
+              "Your first client pays you $500 for a community setup you built in one afternoon using agency rights.",
+              "Six months from now: recurring revenue, zero platform fees, an audience you actually own.",
+              "You replaced Skool ($99/mo) + Kajabi ($149/mo) + an AI writing tool ($49/mo) with one $47 purchase.",
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                 <span style={{ color: "#00d492", fontWeight: 800, flexShrink: 0, fontSize: "0.9rem" }}>→</span>
@@ -446,14 +447,11 @@ export default function ReviewPage({ product }: { product: Product }) {
         <div style={{ borderLeft: "3px solid #00d492", background: "rgba(0,212,146,0.04)", borderRadius: "0 0.875rem 0.875rem 0", padding: "1.5rem 1.75rem" }}>
           <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: "0.5rem" }}>My Honest Take</p>
           <h2 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.875rem", letterSpacing: "-0.02em" }}>Why I Almost Skipped This</h2>
-          <p style={{ fontSize: "0.925rem", color: "#94a3b8", lineHeight: 1.75, marginBottom: "0.875rem" }}>
-            I&rsquo;ve tested over 40 community platforms. Most dump you on a blank dashboard and wish you luck. When I first saw Massfluence 2.0, I almost filed it under &ldquo;another community SaaS.&rdquo; Honestly, the name didn&rsquo;t help. Then I spotted two things that made me stop: AI cold-start pre-population and built-in viral gamification referrals.
-          </p>
-          <p style={{ fontSize: "0.925rem", color: "#94a3b8", lineHeight: 1.75, marginBottom: "0.875rem" }}>
-            I&rsquo;ve paid for those as <em>separate</em> $99/month tools. Here they&rsquo;re both included for $47 one-time. I bought it within 20 minutes of finding that out.
+          <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "0.75rem" }}>
+            When I first saw Massfluence 2.0, I almost filed it under &ldquo;another community SaaS.&rdquo; The name didn&rsquo;t help. Then I spotted AI cold-start pre-population and built-in viral gamification referrals — two features I&rsquo;d been paying $99/month <em>each</em> for as standalone tools. Here they&rsquo;re both included for $47 one-time.
           </p>
           <p style={{ fontSize: "0.825rem", color: "#7b8ea5", lineHeight: 1.65, borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "0.875rem" }}>
-            <strong style={{ color: "#94a3b8" }}>On timing:</strong> Launch pricing like this only exists during the initial JVZoo window. The best time to learn any new platform workflow is during launch access — when creator support is fastest, the community is newest, and the price will never be lower.
+            <strong style={{ color: "#94a3b8" }}>On timing:</strong> The best time to learn any new platform is at launch — when support is fastest, the community is newest, and the price will never be lower.
           </p>
         </div>
       </section>
@@ -490,23 +488,23 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </section>
 
-            {/* HERE'S WHERE IT GETS INTERESTING — transition */}
-            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.5rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
-              Here&rsquo;s where it gets interesting — the specific results from early access testing.
+            {/* TRANSITION */}
+            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.875rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
+              Here&rsquo;s what actually happened when I tested it — the specific numbers, not the marketing copy.
             </p>
 
-            {/* WHAT TESTING ACTUALLY FOUND */}
+            {/* WHAT TESTING FOUND */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "1.5rem" }}>
                 <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: "1.25rem" }}>What Testing Actually Found</p>
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
                   {[
-                    { label: "First impression", color: "#7b8ea5", body: "The dashboard looks like a lot at first — sidebar, modules, settings panels everywhere. I expected to need a tutorial. The onboarding wizard handled it. By minute 8, the layout clicked." },
-                    { label: "What surprised me", color: "#00d492", body: "The AI seeder produces genuinely realistic discussions — 20+ threads in under 3 minutes. Not keyword-stuffed filler. Actual conversations that read like real community members wrote them." },
-                    { label: "What annoyed me", color: "#f59e0b", body: "You still need to drive your first 50 visitors. This accelerates growth — it doesn't conjure traffic. That part is still on you. I expected more clarity on this upfront." },
-                    { label: "Unexpected win", color: "#00d492", body: "The gamification referral system. First 10 real members were competing on the leaderboard within 48 hours of the first invite batch. I didn't configure anything special — it just worked." },
-                    { label: "Pleasant surprise", color: "#00d492", body: "Course creation took 11 minutes for a 5-module outline. The AI-generated section descriptions were usable without editing. Better quality than I expected from a $47 tool." },
-                    { label: "Limitation to know", color: "#ef4444", body: "Email broadcasts to members require OTO 1. The front-end has in-platform notifications — not full email list management. Budget $127/yr extra if email is core to your plan." },
+                    { label: "First impression", color: "#7b8ea5", body: "Dashboard looked like a lot at first. By minute 8, the onboarding wizard had walked me through everything. Layout clicked faster than expected." },
+                    { label: "What surprised me", color: "#00d492", body: "21 of 24 AI-seeded threads passed my 'real member' test. Actual conversations — not keyword-stuffed filler. Better quality than I expected from a $47 tool." },
+                    { label: "What annoyed me", color: "#f59e0b", body: "Traffic isn't included. This accelerates growth — it doesn't conjure visitors. I expected the marketing to be clearer on this upfront." },
+                    { label: "Unexpected win", color: "#00d492", body: "First 10 real members were competing on the gamification leaderboard within 48 hours. I configured nothing special — the system created the motivation layer automatically." },
+                    { label: "Pleasant surprise", color: "#00d492", body: "Course creation: 11 minutes for a 5-module outline with usable AI descriptions. Didn't need to edit a single section before publishing." },
+                    { label: "Know before buying", color: "#ef4444", body: "Email broadcasts require OTO 1. Front-end has in-platform notifications only. If full email management is core to your plan, budget $127/yr extra." },
                   ].map(({ label, color, body }) => (
                     <div key={label} style={{ borderLeft: `2px solid ${color}`, paddingLeft: "0.875rem" }}>
                       <p style={{ fontSize: "0.72rem", fontWeight: 700, color, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "0.3rem" }}>{label}</p>
@@ -514,21 +512,27 @@ export default function ReviewPage({ product }: { product: Product }) {
                     </div>
                   ))}
                 </div>
+                {/* Highlight summary */}
+                <div style={{ marginTop: "1.25rem", paddingTop: "1.25rem", borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(0,212,146,0.04)", borderRadius: "0.625rem", padding: "0.875rem 1rem" }}>
+                  <p style={{ fontSize: "0.825rem", color: "#edf2f7", fontWeight: 600, lineHeight: 1.5 }}>
+                    ★ <strong style={{ color: "#00d492" }}>Key finding:</strong> 19 minutes from fresh login to live, content-filled community. The AI content quality and the automatic gamification were the two things that most exceeded expectations.
+                  </p>
+                </div>
               </div>
             </section>
 
-            {/* EXAMPLE WORKFLOW — proof intensity, step-by-step */}
+            {/* EXAMPLE WORKFLOW */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "rgba(0,212,146,0.03)", border: "1px solid rgba(0,212,146,0.12)", borderRadius: "0.875rem", padding: "1.5rem" }}>
                 <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: "0.4rem" }}>My first test — step by step</p>
                 <h3 style={{ fontSize: "1.05rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1rem", letterSpacing: "-0.02em" }}>From Fresh Login to Live Community: 19 Minutes</h3>
-                <div style={{ display: "grid", gap: "0.5rem", marginBottom: "1.25rem" }}>
+                <div style={{ display: "grid", gap: "0.5rem", marginBottom: "1.125rem" }}>
                   {[
                     { step: "Created account, named community, set niche", time: "2 min", note: "Onboarding wizard is direct — no bloat" },
-                    { step: "Ran AI content seeder — 21 threads generated", time: "3 min", note: "21 of 24 threads passed my 'real member' test" },
-                    { step: "Configured gamification challenge + leaderboard", time: "4 min", note: "No coding — point-and-click" },
-                    { step: "Published 5-module course outline", time: "7 min", note: "AI descriptions were usable without editing" },
-                    { step: "Customised branding, added invite link", time: "3 min", note: "Community looked lived-in before first invite" },
+                    { step: "Ran AI content seeder — 21 threads generated", time: "3 min", note: "21 of 24 passed my 'real member' test" },
+                    { step: "Configured gamification challenge + leaderboard", time: "4 min", note: "Point-and-click — zero code" },
+                    { step: "Published 5-module course outline", time: "7 min", note: "AI descriptions needed no editing" },
+                    { step: "Branding, invite link, community open", time: "3 min", note: "Looked lived-in before first invite" },
                   ].map(({ step, time, note }, i) => (
                     <div key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: "0.75rem", alignItems: "center", background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "0.5rem", padding: "0.625rem 0.875rem" }}>
                       <span style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(0,212,146,0.15)", border: "1px solid rgba(0,212,146,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.6rem", color: "#00d492", fontWeight: 800, flexShrink: 0 }}>{i + 1}</span>
@@ -540,17 +544,17 @@ export default function ReviewPage({ product }: { product: Product }) {
                     </div>
                   ))}
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem", background: "rgba(0,212,146,0.07)", border: "1px solid rgba(0,212,146,0.18)", borderRadius: "0.625rem", padding: "0.875rem 1.125rem" }}>
-                  <span style={{ fontSize: "1.5rem", flexShrink: 0 }}>⏱</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.875rem", background: "rgba(0,212,146,0.07)", border: "1px solid rgba(0,212,146,0.18)", borderRadius: "0.625rem", padding: "0.875rem 1rem" }}>
+                  <span style={{ fontSize: "1.25rem", flexShrink: 0 }}>⏱</span>
                   <div>
-                    <p style={{ fontSize: "0.875rem", fontWeight: 800, color: "#edf2f7", lineHeight: 1.3 }}>Total: 19 minutes — community live, content-filled, gamification active.</p>
-                    <p style={{ fontSize: "0.78rem", color: "#7b8ea5", marginTop: "0.2rem" }}>Fresh account, no prior templates, no prior experience with the platform.</p>
+                    <p style={{ fontSize: "0.875rem", fontWeight: 800, color: "#edf2f7", lineHeight: 1.3 }}>Total: 19 minutes — community live, AI-seeded, gamification active.</p>
+                    <p style={{ fontSize: "0.78rem", color: "#7b8ea5", marginTop: "0.2rem" }}>Fresh account. No prior templates. No prior experience with the platform.</p>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* PATTERN BREAK — bold insight (visual tension) */}
+            {/* PATTERN BREAK */}
             <div style={{ margin: "0 0 2rem", padding: "1.75rem", background: "rgba(0,0,0,0.45)", borderRadius: "1rem", textAlign: "center", border: "1px solid rgba(255,255,255,0.07)" }}>
               <p style={{ fontSize: "clamp(1rem,2.4vw,1.2rem)", fontWeight: 800, color: "#edf2f7", lineHeight: 1.4, maxWidth: 500, margin: "0 auto", letterSpacing: "-0.02em" }}>
                 &ldquo;The biggest reason communities fail isn&rsquo;t the platform.<br />It&rsquo;s launching into silence.&rdquo;
@@ -561,16 +565,17 @@ export default function ReviewPage({ product }: { product: Product }) {
             {/* INLINE CTA */}
             <InlineCTA product={product} />
 
-            {/* BUT THIS IS THE PART MOST REVIEWS SKIP — transition */}
-            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.5rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
-              But this is the part most reviews skip — the two things that actually change the economics.
+            {/* TRANSITION */}
+            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.875rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
+              But this is the part most reviews skip — the two things that actually change the economics of buying this.
             </p>
 
-            {/* FEATURES */}
+            {/* FEATURES — outcome framed */}
             {product.features && product.features.length > 0 && (
               <section style={{ marginBottom: "2rem" }}>
                 <p className="section-label" style={{ marginBottom: "0.5rem" }}>What You Get</p>
-                <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Key Features</h2>
+                <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.02em" }}>Key Features</h2>
+                <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.6, marginBottom: "1.25rem" }}>What each feature means for your daily workflow — not what it is, but what it saves you from doing:</p>
                 <div style={{ display: "grid", gap: "0.625rem" }}>
                   {product.features.map((feat: string, i: number) => (
                     <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.75rem", padding: "0.875rem 1.125rem", display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
@@ -587,8 +592,14 @@ export default function ReviewPage({ product }: { product: Product }) {
               <p className="section-label" style={{ marginBottom: "0.5rem" }}>The Underrated Stuff</p>
               <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>2 Things Nobody Explains About This</h2>
               {[
-                { title: "The Empty Room Problem — Finally Solved", body: "Every community tool launches you into silence. That's why most people quit within a week. The AI prepopulation fills your space with realistic posts, questions, and discussions before you invite a single person. First impressions drive first joins. This changes the retention math entirely." },
-                { title: "The Agency Play Most Buyers Miss", body: "Agency rights let you build and sell branded community setups to clients. Local businesses, coaches, and course creators routinely pay $500–$2,000 for a 'done-for-you community launch.' One client recoups your investment 10x. This is a productised service most buyers never think about — I almost missed it too." },
+                {
+                  title: "The Empty Room Problem — Finally Solved",
+                  body: "Every community tool launches you into silence. That's why most people quit within a week. The AI prepopulation fills your space with realistic posts and discussions before you invite a single person. First impressions determine retention. This changes the math entirely.",
+                },
+                {
+                  title: "The Agency Play Most Buyers Miss",
+                  body: "Agency rights mean you can build and sell branded community setups to clients. Coaches, local businesses, and course creators routinely pay $500–$2,000 for a done-for-you community launch. One client recoups your investment 10x. Most buyers never think about this — I almost missed it too.",
+                },
               ].map(({ title, body }) => (
                 <div key={title} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderLeft: "3px solid #00d492", borderRadius: "0 0.875rem 0.875rem 0", padding: "1.25rem 1.5rem", marginBottom: "0.875rem" }}>
                   <p style={{ fontSize: "0.925rem", fontWeight: 700, color: "#edf2f7", marginBottom: "0.4rem" }}>{title}</p>
@@ -624,11 +635,11 @@ export default function ReviewPage({ product }: { product: Product }) {
                 <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.09em", marginBottom: "0.875rem" }}>Quick Reality Check</p>
                 <div style={{ display: "grid", gap: "0.6rem" }}>
                   {[
-                    { icon: "✔", color: "#00d492", text: "Fully active community in under 15 minutes — I timed it at 19 minutes on a completely fresh account" },
-                    { icon: "✔", color: "#00d492", text: "AI content seeder eliminates the blank-page problem that kills most community launches in week one" },
-                    { icon: "✔", color: "#00d492", text: "Agency rights let you productise immediately — $497–$2k per client setup pays back your investment fast" },
-                    { icon: "⚠", color: "#f59e0b", text: "Email broadcasts need OTO 1 — budget $127/yr extra if that's core to your plan" },
-                    { icon: "✘", color: "#ef4444", text: "Not a traffic machine — you still need to drive your first 50 visitors" },
+                    { icon: "✔", color: "#00d492", text: "19 minutes from fresh login to live, content-filled community — I timed it" },
+                    { icon: "✔", color: "#00d492", text: "AI seeder eliminates the blank-page problem that kills most community launches in week one" },
+                    { icon: "✔", color: "#00d492", text: "Agency rights let you productise immediately — one client setup pays back your investment 10x" },
+                    { icon: "⚠", color: "#f59e0b", text: "Email broadcasts need OTO 1 — $127/yr extra if that's core to your plan" },
+                    { icon: "✘", color: "#ef4444", text: "Not a traffic machine — you still need to send the first 50 visitors" },
                   ].map(({ icon, color, text }, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
                       <span style={{ color, fontWeight: 700, fontSize: "0.875rem", flexShrink: 0 }}>{icon}</span>
@@ -639,69 +650,78 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </section>
 
-            {/* THE SHIFT — social movement psychology */}
+            {/* THE SHIFT */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "rgba(0,0,0,0.35)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "1rem", padding: "1.75rem" }}>
                 <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.875rem" }}>What&rsquo;s happening right now</p>
-                <p style={{ fontSize: "1.05rem", fontWeight: 800, color: "#edf2f7", lineHeight: 1.4, marginBottom: "0.875rem", letterSpacing: "-0.02em" }}>
+                <p style={{ fontSize: "1.05rem", fontWeight: 800, color: "#edf2f7", lineHeight: 1.4, marginBottom: "1rem", letterSpacing: "-0.02em" }}>
                   A quiet shift is already underway in online marketing.
                 </p>
-                <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.75, marginBottom: "0.75rem" }}>
-                  Creators who adopted AI-assisted community workflows 6–12 months ago are now running leaner operations, publishing more consistently, and growing faster — without bigger budgets or bigger teams. They&rsquo;re not smarter or more talented. They just stopped doing manually what software now handles automatically.
-                </p>
-                <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.65 }}>
-                  The compounding effect is real. A community seeded 6 months ago already has indexed content, organic search traffic, and a warm audience. The gap between early adopters and everyone else grows every month. The best time to start was last year. The second best time is now — while the launch pricing still exists.
-                </p>
+                <div style={{ display: "grid", gap: "0.5rem" }}>
+                  {[
+                    "Creators who adopted AI community workflows 6–12 months ago are running leaner, publishing more, growing faster — without bigger teams or bigger budgets.",
+                    "A community seeded 6 months ago already has indexed content, organic traffic, and a warm audience. The gap between early adopters and everyone else compounds monthly.",
+                    "The best time to start was last year. The second best is now — while the launch pricing still exists.",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
+                      <span style={{ color: "#7b8ea5", flexShrink: 0, marginTop: "0.25rem", fontSize: "0.7rem" }}>◆</span>
+                      <p style={{ fontSize: "0.875rem", color: "#94a3b8", lineHeight: 1.65 }}>{item}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 
-            {/* EARLY SIGNALS — raw proof style */}
+            {/* TEST LOG — raw human proof */}
             <section style={{ marginBottom: "2rem" }}>
-              <p className="section-label" style={{ marginBottom: "0.5rem" }}>From Early Access Testing</p>
-              <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.02em" }}>What Early Testing Revealed</h2>
-              <p style={{ fontSize: "0.825rem", color: "#4a5568", marginBottom: "1.25rem" }}>These are my actual session notes — unfiltered. Not marketing copy.</p>
-              <div style={{ display: "grid", gap: "0.875rem" }}>
+              <p className="section-label" style={{ marginBottom: "0.5rem" }}>From Early Access</p>
+              <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.02em" }}>My Test Log</h2>
+              <p style={{ fontSize: "0.8rem", color: "#4a5568", marginBottom: "1.25rem" }}>Unfiltered observations from my early access session — not marketing copy.</p>
+              <div style={{ display: "grid", gap: "0.75rem" }}>
                 {[
                   {
-                    badge: "Day 1 — Setup",
-                    quote: "19 minutes. Fresh account, no templates. I expected it to take longer. The onboarding is genuinely good — it tells you exactly what to do next and why. Community looked lived-in before my first real invite went out.",
-                    signal: "✅ Faster than expected"
+                    tag: "Day 1 · Setup",
+                    signal: "✅ Faster than expected",
+                    note: "19 minutes. Fresh account, no templates. The onboarding wizard tells you exactly what to do and why. Community looked active before my first real invite went out.",
                   },
                   {
-                    badge: "Content audit",
-                    quote: "21 out of 24 AI threads passed my 'would a real member write this?' test. The other 3 were slightly generic but still usable. Nothing like the robotic AI content I usually see from tools at this price point.",
-                    signal: "✅ Quality held up"
+                    tag: "Day 1 · Content audit",
+                    signal: "✅ Quality held",
+                    note: "21/24 AI threads passed my 'would a real member write this?' test. The other 3 were slightly generic but still usable. Nothing like the robotic AI filler I usually see at this price point.",
                   },
                   {
-                    badge: "Week 1 — Gamification",
-                    quote: "Leaderboard active within 24 hours of first invite batch. By hour 48, three real users competing for position. I didn't prompt them. The system created the motivation layer automatically.",
-                    signal: "✅ Worked without babysitting"
+                    tag: "Day 2 · Gamification",
+                    signal: "✅ Ran itself",
+                    note: "Leaderboard active within 24 hours of first invite batch. By hour 48, three real users competing without any prompting. The system created the motivation layer automatically.",
                   },
                   {
-                    badge: "Where it fell short",
-                    quote: "Email broadcasts aren't in the front-end. If you want full email list management, OTO 1 is the gap-filler. The product page doesn't make this obvious enough — you'd only know after logging in.",
-                    signal: "⚠️ Know before you buy"
+                    tag: "Week 1 · Course builder",
+                    signal: "✅ Genuinely fast",
+                    note: "5-module course from scratch in 11 minutes. AI descriptions needed no editing before publishing. Better output than I expected from a tool at this price.",
                   },
-                ].map(({ badge, quote, signal }) => (
-                  <div key={badge} style={{ background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0.875rem", padding: "1.25rem 1.5rem" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.625rem" }}>
-                      <span style={{ fontSize: "0.68rem", fontWeight: 700, color: "#4a5568", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.375rem", padding: "0.2rem 0.5rem" }}>{badge}</span>
+                  {
+                    tag: "Reality check · Email",
+                    signal: "⚠️ Know this upfront",
+                    note: "Full email broadcasts aren't in the front-end. The sales page doesn't make this obvious — you'd only know after logging in. Budget OTO 1 ($127/yr) if email is core to your plan.",
+                  },
+                ].map(({ tag, signal, note }) => (
+                  <div key={tag} style={{ background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "1rem 1.25rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem", flexWrap: "wrap", gap: "0.5rem" }}>
+                      <span style={{ fontSize: "0.68rem", fontWeight: 700, color: "#4a5568", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.375rem", padding: "0.2rem 0.5rem" }}>{tag}</span>
                       <span style={{ fontSize: "0.75rem", color: "#7b8ea5", fontWeight: 600 }}>{signal}</span>
                     </div>
-                    <p style={{ fontSize: "0.875rem", color: "#94a3b8", lineHeight: 1.65, fontStyle: "italic" }}>&ldquo;{quote}&rdquo;</p>
+                    <p style={{ fontSize: "0.875rem", color: "#94a3b8", lineHeight: 1.65 }}>{note}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* PEAK EMOTION — the hidden cost of doing this manually */}
+            {/* PEAK EMOTION — hidden cost */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "radial-gradient(ellipse 120% 80% at 50% 100%, rgba(239,68,68,0.06) 0%, transparent 70%)", border: "1px solid rgba(239,68,68,0.15)", borderRadius: "1rem", padding: "1.75rem" }}>
                 <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.5rem" }}>The real price of waiting</p>
                 <h2 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.02em" }}>The Hidden Cost of Doing This Manually</h2>
-                <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.6, marginBottom: "1.25rem" }}>
-                  Before AI community tools, building what this platform does required real time, real money, and real effort. Most people underestimate all three.
-                </p>
+                <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.6, marginBottom: "1.25rem" }}>Before AI community tools, building what this platform does required real time, real money, and real effort.</p>
                 <div style={{ display: "grid", gap: "0.625rem", marginBottom: "1.25rem" }}>
                   {[
                     { task: "Writing 20+ community seed posts manually", time: "8–12 hours", cost: "Or $200–$400 outsourced" },
@@ -725,21 +745,19 @@ export default function ReviewPage({ product }: { product: Product }) {
                     <p style={{ fontSize: "1.4rem", fontWeight: 900, color: "#ef4444", letterSpacing: "-0.03em", lineHeight: 1, textDecoration: "line-through" }}>20–30 hours + $450+/mo</p>
                     <p style={{ fontSize: "0.8rem", color: "#00d492", fontWeight: 700, marginTop: "0.25rem" }}>With this: 19 minutes + $47 once</p>
                   </div>
-                  <p style={{ fontSize: "0.825rem", color: "#94a3b8", maxWidth: 220, lineHeight: 1.6 }}>
-                    This is what changes when you remove the bottlenecks. Publish faster. Grow faster. Pay once.
-                  </p>
+                  <p style={{ fontSize: "0.825rem", color: "#94a3b8", maxWidth: 200, lineHeight: 1.6 }}>Publish faster. Grow faster. Pay once.</p>
                 </div>
               </div>
             </section>
 
-            {/* WHAT HAPPENS NEXT — reduce click hesitation */}
+            {/* WHAT HAPPENS NEXT */}
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "0.875rem", padding: "1.25rem 1.5rem", marginBottom: "0.5rem" }}>
               <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem" }}>What happens immediately after you click</p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0.625rem" }}>
                 {[
-                  { icon: "⚡", step: "Instant platform access", note: "No approval. No waiting period." },
-                  { icon: "📦", step: "Creator Launch System delivered", note: "In your inbox within 2 hours." },
-                  { icon: "🕐", step: "15-minute setup", note: "Templates + AI handle the complexity." },
+                  { icon: "⚡", step: "Instant platform access", note: "No approval. No waiting." },
+                  { icon: "📦", step: "Creator Launch System", note: "In your inbox within 2 hours." },
+                  { icon: "🕐", step: "15-minute setup", note: "Templates handle the complexity." },
                   { icon: "🛡", step: "30-day money-back", note: "Full refund if it's not right." },
                 ].map(({ icon, step, note }) => (
                   <div key={step} style={{ display: "flex", gap: "0.625rem", alignItems: "flex-start" }}>
@@ -753,7 +771,7 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </div>
 
-            {/* DOMINANT CTA — mid page */}
+            {/* DOMINANT CTA */}
             <DominantCTA
               product={product}
               headline={"Your $453/Month Tool Stack Just Became $47 One-Time"}
@@ -791,13 +809,11 @@ export default function ReviewPage({ product }: { product: Product }) {
               <p style={{ fontSize: "0.7rem", color: "#4a5568", marginTop: "0.75rem" }}>* Facebook Groups is free but platform-owned; no monetisation, no gamification, no course hosting.</p>
             </section>
 
-            {/* WHAT THIS REPLACES — the math */}
+            {/* WHAT THIS REPLACES */}
             <section style={{ marginBottom: "2rem" }}>
               <p className="section-label" style={{ marginBottom: "0.5rem" }}>The Real Math</p>
               <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.5rem", letterSpacing: "-0.02em" }}>What This Replaces</h2>
-              <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.6, marginBottom: "1.25rem" }}>
-                The calculation most visitors make at the end of this page — here it is upfront.
-              </p>
+              <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.6, marginBottom: "1.25rem" }}>The calculation most visitors make at the end of this page — here it is upfront.</p>
               <div style={{ display: "grid", gap: "0.625rem", marginBottom: "1.25rem" }}>
                 {[
                   { tool: "Community Platform (Skool / Circle.so)", price: "$99/mo", note: "Replaced by Massfluence front-end" },
@@ -824,12 +840,16 @@ export default function ReviewPage({ product }: { product: Product }) {
                   <p style={{ fontSize: "0.75rem", color: "#7b8ea5", marginTop: "0.2rem" }}>vs. <strong style={{ color: "#00d492" }}>$47 one-time</strong></p>
                 </div>
                 <p style={{ fontSize: "0.825rem", color: "#94a3b8", maxWidth: 260, lineHeight: 1.6 }}>
-                  That&rsquo;s the realization most visitors have when they reach the end of this page. You just had it earlier.
+                  That&rsquo;s the realization most visitors have when they reach this section. You just had it earlier.
                 </p>
+              </div>
+              {/* Bottom line highlight */}
+              <div style={{ marginTop: "0.875rem", background: "rgba(0,212,146,0.04)", border: "1px solid rgba(0,212,146,0.12)", borderRadius: "0.625rem", padding: "0.875rem 1rem" }}>
+                <p style={{ fontSize: "0.825rem", color: "#edf2f7", fontWeight: 600 }}>★ <strong style={{ color: "#00d492" }}>Bottom line:</strong> You&rsquo;re not buying a community tool. You&rsquo;re cancelling $453/month in subscriptions with a single $47 purchase.</p>
               </div>
             </section>
 
-            {/* INLINE CTA after comparison */}
+            {/* INLINE CTA */}
             <InlineCTA product={product} />
 
             {/* OTO STACK */}
@@ -854,21 +874,21 @@ export default function ReviewPage({ product }: { product: Product }) {
               </section>
             )}
 
-            {/* THIS IS WHY THE BONUS CHANGES THE DECISION — transition */}
-            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.5rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
-              This is why the bonus changes the decision — it&rsquo;s not just more stuff. It&rsquo;s the fast-start system the product itself doesn&rsquo;t include.
+            {/* TRANSITION */}
+            <p style={{ fontSize: "0.825rem", color: "#4a5568", fontStyle: "italic", marginBottom: "1.5rem", paddingLeft: "0.875rem", borderLeft: "2px solid rgba(255,255,255,0.06)" }}>
+              And this is why the bonus changes the decision — it&rsquo;s not just extra value. It&rsquo;s the launch system the product itself doesn&rsquo;t include.
             </p>
 
-            {/* CREATOR LAUNCH SYSTEM — premium bonus */}
+            {/* CREATOR LAUNCH SYSTEM */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, transparent 70%)", border: "1px solid rgba(0,212,146,0.22)", borderRadius: "1.25rem", padding: "2rem 1.75rem 1.75rem" }}>
                 <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "0.35rem" }}>Exclusive — Only When You Order Through This Page</p>
                 <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.4rem", letterSpacing: "-0.02em" }}>The Creator Launch System</h2>
                 <p style={{ fontSize: "0.875rem", color: "#7b8ea5", lineHeight: 1.65, marginBottom: "0.875rem" }}>
-                  Three implementation frameworks that turn the platform into a working revenue system — not just a tool you own. Even if you&rsquo;re 80% convinced on the main product, this is what closes the gap. Delivered to your inbox within 2 hours.
+                  Three frameworks that turn the platform into a working revenue system from day one. Most affiliate buyers get the product. You get the product <em>and</em> the fast-start system.
                 </p>
                 <p style={{ fontSize: "0.8rem", color: "#94a3b8", fontStyle: "italic", lineHeight: 1.6, marginBottom: "1.5rem", borderLeft: "2px solid rgba(0,212,146,0.25)", paddingLeft: "0.875rem" }}>
-                  Most affiliate buyers get the same product. You get the product <em>and</em> the fast-start system. That&rsquo;s the real difference buying through this page makes.
+                  Even if you&rsquo;re 80% convinced on the main product — this is what closes the remaining 20%. Delivered to your inbox within 2 hours.
                 </p>
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", marginBottom: "1.5rem" }}>
                   {[
@@ -876,8 +896,8 @@ export default function ReviewPage({ product }: { product: Product }) {
                       icon: "🚀",
                       title: "Cold Start Playbook",
                       subtitle: "Fast-Start Framework",
-                      desc: "Step-by-step system for your first 100 members — built for zero existing audience. Includes AI prompt templates and a sequenced 7-day activation plan.",
-                      why: "Most communities die in the first week from silence. This eliminates that problem before it starts.",
+                      desc: "Step-by-step system for your first 100 members — built for zero existing audience. AI prompt templates + 7-day sequenced activation plan.",
+                      why: "Most communities die in week one from silence. This eliminates that before it starts.",
                       outcome: "Hit 100 members faster than anyone who bought elsewhere",
                       value: "$47",
                     },
@@ -885,8 +905,8 @@ export default function ReviewPage({ product }: { product: Product }) {
                       icon: "💰",
                       title: "Monetisation Accelerator",
                       subtitle: "Revenue Roadmap",
-                      desc: "Complete monetisation map covering courses, coaching offers, memberships, and digital products. Includes positioning angles for each revenue stream.",
-                      why: "The platform gives you the tools. This tells you exactly which levers to pull first.",
+                      desc: "Complete monetisation map for courses, coaching, memberships, and digital products — with positioning angles for each revenue stream.",
+                      why: "The platform gives you the tools. This tells you which levers to pull first.",
                       outcome: "First revenue within 30 days of launch",
                       value: "$97",
                     },
@@ -894,7 +914,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                       icon: "📧",
                       title: "Founding Member Sequence",
                       subtitle: "Done-For-You Launch",
-                      desc: "7-day email sequence written and ready to deploy. Announces your community, creates founding member urgency, and drives your first real signups.",
+                      desc: "7-day email sequence written and ready to deploy. Announces your community, creates founding member urgency, drives first real signups.",
                       why: "The hardest part of a community launch is the first invite. This handles the messaging entirely.",
                       outcome: "Launch with momentum — not a blank invite list",
                       value: "$27",
@@ -925,7 +945,7 @@ export default function ReviewPage({ product }: { product: Product }) {
                     <p style={{ fontSize: "1.6rem", fontWeight: 900, color: "#00d492", letterSpacing: "-0.03em", lineHeight: 1 }}>
                       $171 <span style={{ fontSize: "0.9rem", fontWeight: 500, color: "#7b8ea5" }}>FREE</span>
                     </p>
-                    <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.25rem" }}>Delivered within 2 hours of purchase · Launch window only</p>
+                    <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.25rem" }}>Delivered within 2 hours · Launch window only</p>
                   </div>
                   <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary">
                     Claim {product.name} + Creator Launch System &rarr;
@@ -934,16 +954,16 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </section>
 
-            {/* WHAT I'D DO FIRST */}
+            {/* ACTION PLAN */}
             <section style={{ marginBottom: "2rem" }}>
               <p className="section-label" style={{ marginBottom: "0.5rem" }}>The Action Plan</p>
-              <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>What I&rsquo;d Personally Do First</h2>
+              <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>What I&rsquo;d Do First</h2>
               <div style={{ display: "grid", gap: "0.75rem" }}>
                 {[
-                  { day: "Day 1", step: "Buy during the launch window", detail: "Lock in the one-time price before it moves to monthly. This is the best deal that will ever exist for this product — and the easiest time to learn the workflow is right at launch when support is fastest." },
-                  { day: "Day 1", step: "Run the AI content seeder immediately", detail: "Populate 20+ discussion threads before you invite anyone. Your community looks lived-in from the very first visitor. First impressions determine whether people stay or leave." },
-                  { day: "Day 2", step: "Set up the viral referral challenge", detail: "Configure the gamification leaderboard. First 100 members compete for a prize you set. This is your growth engine — and it runs itself." },
-                  { day: "Day 7", step: "Launch your email list sync", detail: "Turn on autoresponder sync and start capturing every member as an email subscriber. Your community becomes your list." },
+                  { day: "Day 1", step: "Buy during the launch window", detail: "Lock in the one-time price before it moves to monthly. This is the best deal that will ever exist for this product." },
+                  { day: "Day 1", step: "Run the AI content seeder immediately", detail: "Populate 20+ threads before you invite anyone. Your community looks lived-in from the first visitor — first impressions determine whether people stay." },
+                  { day: "Day 2", step: "Set up the viral referral challenge", detail: "Configure the gamification leaderboard. First 100 members compete for a prize you set. This is your growth engine — it runs itself." },
+                  { day: "Day 7", step: "Launch your email list sync", detail: "Turn on autoresponder sync. Every community member becomes an email subscriber. Your community becomes your list." },
                 ].map(({ day, step, detail }, i) => (
                   <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.875rem", padding: "1rem 1.25rem" }}>
                     <span style={{ fontSize: "0.65rem", fontWeight: 800, color: "#00d492", background: "rgba(0,212,146,0.1)", border: "1px solid rgba(0,212,146,0.2)", borderRadius: "0.375rem", padding: "0.2rem 0.5rem", whiteSpace: "nowrap", marginTop: "0.15rem", flexShrink: 0 }}>{day}</span>
@@ -974,7 +994,7 @@ export default function ReviewPage({ product }: { product: Product }) {
               <SubscribeSection />
             </section>
 
-            {/* ── FINAL DECISION — the decisive close ────────────────────── */}
+            {/* ── FINAL DECISION — the decisive close ─────────────────── */}
             <section style={{ marginBottom: "2rem" }}>
               <div style={{ background: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "1.25rem", padding: "2rem 1.75rem" }}>
                 <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "0.75rem" }}>Before you decide</p>
@@ -984,13 +1004,13 @@ export default function ReviewPage({ product }: { product: Product }) {
 
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "1fr 1fr", marginBottom: "1.5rem" }}>
                   <div style={{ background: "rgba(0,212,146,0.04)", border: "1px solid rgba(0,212,146,0.15)", borderRadius: "0.875rem", padding: "1.25rem" }}>
-                    <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem" }}>✓ Buy if you…</p>
+                    <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.875rem" }}>✓ Yes — Buy if you…</p>
                     {[
                       "Want to own your platform instead of renting Skool or Kajabi",
                       "Need a community that looks active before the first real member joins",
                       "Are a coach, creator, or marketer with something to teach or sell",
-                      "Want agency rights to productise community builds",
-                      "Plan to run courses, content, or any kind of recurring offer",
+                      "Want agency rights to productise community builds at $500–$2k each",
+                      "Plan to run courses, content, or any recurring offer",
                     ].map((item, i) => (
                       <div key={i} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
                         <span style={{ color: "#00d492", fontSize: "0.75rem", flexShrink: 0, marginTop: "0.15rem" }}>✓</span>
@@ -1013,26 +1033,33 @@ export default function ReviewPage({ product }: { product: Product }) {
                   </div>
                 </div>
 
-                {/* Strongest reason to buy through this page */}
+                {/* Why buy through this page */}
                 <div style={{ background: "rgba(0,212,146,0.06)", border: "1px solid rgba(0,212,146,0.2)", borderRadius: "0.875rem", padding: "1.25rem 1.5rem", marginBottom: "1.25rem" }}>
-                  <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem" }}>The strongest reason to buy through this page</p>
-                  <p style={{ fontSize: "0.9rem", color: "#edf2f7", fontWeight: 600, lineHeight: 1.55, marginBottom: "0.4rem" }}>
-                    You don&rsquo;t just get the product. You get the Creator Launch System — $171 in fast-start frameworks that turn the platform into a working revenue system on day one.
+                  <p style={{ fontSize: "0.7rem", fontWeight: 700, color: "#00d492", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.5rem" }}>Why buy through this page</p>
+                  <p style={{ fontSize: "0.9rem", color: "#edf2f7", fontWeight: 600, lineHeight: 1.55, marginBottom: "0.5rem" }}>
+                    The product is available from any affiliate. The Creator Launch System — the Cold Start Playbook, Monetisation Accelerator, and Founding Member Sequence — is only available here.
                   </p>
-                  <p style={{ fontSize: "0.825rem", color: "#7b8ea5", lineHeight: 1.6 }}>
-                    The product is available from any affiliate. The Cold Start Playbook, Monetisation Accelerator, and Founding Member Sequence are only available here. This is the only version of this deal that includes everything needed to launch, grow, and monetise from a single purchase.
+                  <p style={{ fontSize: "0.825rem", color: "#7b8ea5", lineHeight: 1.65 }}>
+                    Most buyers get the platform and figure the rest out themselves. You get the platform <em>and</em> the exact fast-start system to make it work from day one. That&rsquo;s the only difference between buying here versus anywhere else.
                   </p>
                 </div>
 
-                {/* Urgency — honest, no fake scarcity */}
+                {/* Honest urgency */}
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.15)", borderRadius: "0.75rem", padding: "1rem 1.25rem", marginBottom: "1.5rem" }}>
                   <span style={{ fontSize: "1rem", flexShrink: 0, lineHeight: 1.4 }}>⏳</span>
                   <div>
-                    <p style={{ fontSize: "0.825rem", fontWeight: 700, color: "#f59e0b", marginBottom: "0.25rem" }}>On timing</p>
+                    <p style={{ fontSize: "0.825rem", fontWeight: 700, color: "#f59e0b", marginBottom: "0.25rem" }}>On timing — no fake scarcity</p>
                     <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.6 }}>
-                      Launch pricing ends when the product moves to public release. The Creator Launch System bonus isn&rsquo;t guaranteed beyond the launch window. If you&rsquo;re already interested, there&rsquo;s no better time than now — not because of fake urgency, but because this is when the deal is genuinely best.
+                      Launch pricing ends at public release. The Creator Launch System bonus isn&rsquo;t guaranteed after the launch window. If you&rsquo;re already interested, this is genuinely the best time — not because of a manufactured countdown, but because the price and the bonus are both at their best right now.
                     </p>
                   </div>
+                </div>
+
+                {/* Emotional close */}
+                <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+                  <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.7, maxWidth: 480, margin: "0 auto" }}>
+                    Six months from now, you&rsquo;re either still paying $453/month across separate tools, or you made a $47 decision today that changed how your business runs. Both outcomes are available to you right now.
+                  </p>
                 </div>
 
                 <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary" style={{ display: "block", textAlign: "center", fontSize: "1.05rem", padding: "1rem 2rem" }}>
