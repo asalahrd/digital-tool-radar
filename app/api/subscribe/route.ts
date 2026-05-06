@@ -8,20 +8,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 })
     }
 
-    const apiKey  = process.env.CONVERTKIT_API_KEY
-    const formId  = process.env.CONVERTKIT_FORM_ID
+    const apiKey = process.env.CONVERTKIT_API_KEY
+    const formId = process.env.CONVERTKIT_FORM_ID
 
     if (apiKey && formId) {
       const ckRes = await fetch(
-        ,
+        `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            api_key: apiKey,
-            email,
-            tags: ["launch-deals"],
-          }),
+          body: JSON.stringify({ api_key: apiKey, email }),
         }
       )
       if (!ckRes.ok) {
@@ -30,8 +26,7 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "Subscription failed" }, { status: 500 })
       }
     } else {
-      // Fallback: log to Vercel Function logs until env vars are set
-      console.log()
+      console.log("[Subscribe] No env vars set, logging:", email)
     }
 
     return NextResponse.json({ success: true })
