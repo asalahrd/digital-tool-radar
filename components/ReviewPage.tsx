@@ -1,7 +1,29 @@
 import type { Product } from "@/lib/types"
 import Link from "next/link"
 
-function ArticleBody({ text }: { text: string }) {
+function renderInline(str: string) {
+  const parts = str.split(/(\*\*[^*]+\*\*)/)
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} style={{ color: "#edf2f7", fontWeight: 700 }}>
+          {part.slice(2, -2)}
+        </strong>
+      )
+    }
+    return <span key={i}>{part}</span>
+  })
+}
+
+function ArticleBody({
+  text,
+  productName,
+  affiliateLink,
+}: {
+  text: string
+  productName: string
+  affiliateLink: string
+}) {
   if (!text) return null
   const blocks = text.split("\n\n").filter((b) => b.trim().length > 0)
 
@@ -9,18 +31,46 @@ function ArticleBody({ text }: { text: string }) {
     <div className="prose-dark">
       {blocks.map((block, i) => {
         const t = block.trim()
+
         if (t === "[CTA_BUTTON]") {
-          return null
+          return (
+            <div
+              key={i}
+              style={{
+                background: "rgba(0,212,146,0.06)",
+                border: "1px solid rgba(0,212,146,0.2)",
+                borderRadius: "1rem",
+                padding: "1.75rem",
+                margin: "2.5rem 0",
+                textAlign: "center",
+              }}
+            >
+              <p
+                style={{
+                  color: "#edf2f7",
+                  fontWeight: 700,
+                  marginBottom: "0.75rem",
+                  fontSize: "1.05rem",
+                }}
+              >
+                Ready to get started with {productName}?
+              </p>
+              <a
+                href={affiliateLink}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="btn-primary"
+              >
+                Get {productName} + My Bonuses &rarr;
+              </a>
+            </div>
+          )
         }
-        if (t.startsWith("## ")) {
-          return <h2 key={i}>{t.slice(3)}</h2>
-        }
-        if (t.startsWith("### ")) {
-          return <h3 key={i}>{t.slice(4)}</h3>
-        }
-        if (t.startsWith("# ")) {
-          return <h1 key={i}>{t.slice(2)}</h1>
-        }
+
+        if (t.startsWith("## ")) return <h2 key={i}>{renderInline(t.slice(3))}</h2>
+        if (t.startsWith("### ")) return <h3 key={i}>{renderInline(t.slice(4))}</h3>
+        if (t.startsWith("# ")) return <h1 key={i}>{renderInline(t.slice(2))}</h1>
+
         if (t.startsWith("* ") || t.startsWith("- ")) {
           const items = t
             .split("\n")
@@ -29,13 +79,85 @@ function ArticleBody({ text }: { text: string }) {
           return (
             <ul key={i}>
               {items.map((item, j) => (
-                <li key={j}>{item}</li>
+                <li key={j}>{renderInline(item)}</li>
               ))}
             </ul>
           )
         }
-        return <p key={i}>{t.replace(/\n/g, " ")}</p>
+
+        return <p key={i}>{renderInline(t.replace(/\n/g, " "))}</p>
       })}
+    </div>
+  )
+}
+
+function CTA({ product }: { product: Product }) {
+  return (
+    <div
+      style={{
+        background:
+          "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, #0d1117 70%)",
+        border: "1px solid rgba(0,212,146,0.2)",
+        borderRadius: "1.25rem",
+        padding: "2.5rem",
+        textAlign: "center",
+      }}
+    >
+      <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+        Ready to buy?
+      </p>
+      <h3
+        style={{
+          fontSize: "1.5rem",
+          fontWeight: 800,
+          color: "#edf2f7",
+          marginBottom: "0.6rem",
+          letterSpacing: "-0.025em",
+        }}
+      >
+        Get {product.name} + My Exclusive Bonuses
+      </h3>
+      <p
+        style={{
+          color: "#7b8ea5",
+          fontSize: "0.95rem",
+          marginBottom: "1.75rem",
+        }}
+      >
+        Buy through my link and claim exclusive bonuses that help you get
+        results faster — bonuses you won&apos;t find anywhere else.
+      </p>
+      <a
+        href={product.affiliate_link}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className="btn-primary"
+        style={{ fontSize: "1.05rem" }}
+      >
+        Get {product.name} + Bonuses &rarr;
+      </a>
+      <p
+        style={{
+          fontSize: "0.72rem",
+          color: "#4a5568",
+          marginTop: "0.6rem",
+        }}
+      >
+        {product.landing?.urgency_line || "Bonuses expire at launch close"}
+      </p>
+      <div style={{ marginTop: "0.75rem" }}>
+        <Link
+          href={"/" + product.slug + "-bonus"}
+          style={{
+            color: "#7b8ea5",
+            fontSize: "0.8rem",
+            textDecoration: "underline",
+            textUnderlineOffset: 3,
+          }}
+        >
+          See full bonus page
+        </Link>
+      </div>
     </div>
   )
 }
@@ -44,6 +166,75 @@ export default function ReviewPage({ product }: { product: Product }) {
   const launchYear = product.launch_date
     ? new Date(product.launch_date).getFullYear()
     : new Date().getFullYear()
+
+  const PROS = [
+    "Replaces $958+/month in stacked tools for a one-time fee",
+    "AI cold-start fix solves the #1 reason communities fail",
+    "Viral gamification referral loop compounds growth automatically",
+    "SEO thread indexing builds free organic traffic over time",
+    "Agency rights included — sell community builds to clients",
+  ]
+  const CONS = [
+    "Community limits on front-end; unlimited needs Gold ($127/yr)",
+    "Email broadcasts to members require OTO 1",
+    "You still need to drive your first 50–100 visitors",
+    "AI-generated course content needs a human review pass",
+  ]
+
+  const CMP_FEATURES = [
+    "One-Time Price",
+    "AI Content Generation",
+    "Viral Gamification",
+    "Course Hosting",
+    "SEO Thread Indexing",
+    "Agency Rights",
+    "Email List Building",
+    "Cold-Start AI Fix",
+    "Own Your Platform",
+  ]
+  const CMP_TOOLS = ["Massfluence 2.0", "Skool", "Kajabi", "Facebook Groups", "ClickFunnels"]
+  const CMP_DATA = [
+    ["yes",  "no",      "no",      "free*",   "no"     ],
+    ["yes",  "no",      "no",      "no",      "no"     ],
+    ["yes",  "no",      "no",      "no",      "no"     ],
+    ["yes",  "partial", "yes",     "no",      "partial"],
+    ["yes",  "no",      "no",      "no",      "no"     ],
+    ["yes",  "no",      "no",      "no",      "no"     ],
+    ["yes",  "yes",     "yes",     "no",      "yes"    ],
+    ["yes",  "no",      "no",      "no",      "no"     ],
+    ["yes",  "yes",     "yes",     "no",      "yes"    ],
+  ]
+
+  const FAQS = [
+    {
+      q: "Is this beginner-friendly? Do I need tech experience?",
+      a: "No experience needed. Everything is point-and-click. Templates handle the design. AI handles the content. Setup from login to a live community takes under 30 minutes. If you can use Facebook, you can use this.",
+    },
+    {
+      q: "Does it work if I have zero audience right now?",
+      a: "Yes — the AI prepopulation feature specifically solves this. Your community looks active and busy before a single real member joins. Then the viral referral gamification kicks in to grow it organically once you have even a handful of real participants.",
+    },
+    {
+      q: "How does it compare to Skool?",
+      a: "Skool is $99/month with no AI, no built-in gamification, and limited course selling at the base tier. Massfluence 2.0 includes AI content, viral gamification referrals, full course hosting, autoresponder sync, and agency rights — for a one-time price. The math is not close.",
+    },
+    {
+      q: "Is the $47 front-end enough, or do I need the upsells?",
+      a: "The front-end is fully functional. You can build communities, host courses, sell products, and use the gamification features. The upsells remove limits and add advanced tools (email broadcasts, unlimited communities, whitelabel). They're not required to get real value from the base product.",
+    },
+    {
+      q: "Can I cancel Kajabi or Skool after buying this?",
+      a: "If you use those platforms mainly for community and course hosting, yes. Massfluence handles both. If you rely on Kajabi's advanced email broadcasts or deep sales funnels, keep a dedicated email tool alongside Massfluence — or add OTO 1 to get email broadcast functionality inside the platform.",
+    },
+    {
+      q: "Is this a monthly subscription?",
+      a: "The front-end is a one-time fee at launch. OTO 1 (Gold) is billed yearly at $127. After the launch window closes, pricing typically moves to a recurring monthly model — buying during launch is the best deal you'll get.",
+    },
+    {
+      q: "What if it doesn't work for me?",
+      a: "Massfluence 2.0 comes with a 30-day money-back guarantee. If you set it up and it doesn't deliver, you can request a refund within 30 days — no hoops to jump through.",
+    },
+  ]
 
   return (
     <>
@@ -85,7 +276,15 @@ export default function ReviewPage({ product }: { product: Product }) {
         }}
       >
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
+          {/* Badges */}
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.5rem",
+              marginBottom: "1rem",
+            }}
+          >
             <span className="badge badge-slate">{product.niche}</span>
             {product.launch_date && (
               <span className="badge badge-amber">
@@ -97,7 +296,9 @@ export default function ReviewPage({ product }: { product: Product }) {
                 })}
               </span>
             )}
-            <span className="badge badge-green">{product.commission}% Commission</span>
+            <span className="badge badge-green">
+              {product.commission}% Commission
+            </span>
           </div>
 
           <h1
@@ -111,21 +312,39 @@ export default function ReviewPage({ product }: { product: Product }) {
             }}
           >
             {product.name} Review {launchYear} &mdash;{" "}
-            <span style={{ color: "#7b8ea5", fontWeight: 600 }}>Honest Look Inside</span>
+            <span style={{ color: "#7b8ea5", fontWeight: 600 }}>
+              Honest Look After Testing It
+            </span>
           </h1>
 
-          <div className="stars" style={{ fontSize: "1.1rem", marginBottom: "0.75rem" }}>
+          <div
+            className="stars"
+            style={{ fontSize: "1.1rem", marginBottom: "0.75rem" }}
+          >
             &#9733;&#9733;&#9733;&#9733;&#9734;
-            <span style={{ color: "#7b8ea5", fontSize: "0.82rem", marginLeft: "0.6rem", fontWeight: 400 }}>
+            <span
+              style={{
+                color: "#7b8ea5",
+                fontSize: "0.82rem",
+                marginLeft: "0.6rem",
+                fontWeight: 400,
+              }}
+            >
               4/5 &mdash; Early Access Review
             </span>
           </div>
 
-          <p style={{ fontSize: "1.05rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "1.75rem" }}>
+          <p
+            style={{
+              fontSize: "1.05rem",
+              color: "#94a3b8",
+              lineHeight: 1.7,
+              marginBottom: "1.75rem",
+            }}
+          >
             {product.tagline}
           </p>
 
-          {/* Product image hero */}
           {product.product_image && (
             <div
               style={{
@@ -140,12 +359,18 @@ export default function ReviewPage({ product }: { product: Product }) {
               <img
                 src={product.product_image}
                 alt={product.name + " screenshot"}
-                style={{ width: "100%", display: "block", maxHeight: 420, objectFit: "contain", objectPosition: "center" }}
+                style={{
+                  width: "100%",
+                  display: "block",
+                  maxHeight: 420,
+                  objectFit: "contain",
+                  objectPosition: "center",
+                }}
               />
             </div>
           )}
 
-          {/* CTA block */}
+          {/* Price + CTA block */}
           <div
             style={{
               background: "rgba(0,212,146,0.06)",
@@ -165,7 +390,13 @@ export default function ReviewPage({ product }: { product: Product }) {
               }}
             >
               <div>
-                <p style={{ color: "#7b8ea5", fontSize: "0.78rem", marginBottom: "0.25rem" }}>
+                <p
+                  style={{
+                    color: "#7b8ea5",
+                    fontSize: "0.78rem",
+                    marginBottom: "0.25rem",
+                  }}
+                >
                   Front-end price
                 </p>
                 <p
@@ -178,8 +409,15 @@ export default function ReviewPage({ product }: { product: Product }) {
                   }}
                 >
                   ${product.price}
-                  <span style={{ fontSize: "0.85rem", color: "#7b8ea5", fontWeight: 400 }}>
-                    {" "}one-time
+                  <span
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "#7b8ea5",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {" "}
+                    one-time
                   </span>
                 </p>
               </div>
@@ -192,7 +430,14 @@ export default function ReviewPage({ product }: { product: Product }) {
                 >
                   Get {product.name} + My Bonuses &rarr;
                 </a>
-                <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.4rem", textAlign: "center" }}>
+                <p
+                  style={{
+                    fontSize: "0.72rem",
+                    color: "#4a5568",
+                    marginTop: "0.4rem",
+                    textAlign: "center",
+                  }}
+                >
                   {product.landing?.urgency_line || "Bonuses expire at launch close"}
                 </p>
               </div>
@@ -222,10 +467,25 @@ export default function ReviewPage({ product }: { product: Product }) {
                   padding: "0.75rem 1rem",
                 }}
               >
-                <p style={{ fontSize: "0.65rem", color: "#4a5568", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "0.2rem" }}>
+                <p
+                  style={{
+                    fontSize: "0.65rem",
+                    color: "#4a5568",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.07em",
+                    marginBottom: "0.2rem",
+                  }}
+                >
                   {label}
                 </p>
-                <p style={{ fontSize: "0.875rem", color: "#edf2f7", fontWeight: 600 }}>
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "#edf2f7",
+                    fontWeight: 600,
+                  }}
+                >
                   {value}
                 </p>
               </div>
@@ -234,17 +494,310 @@ export default function ReviewPage({ product }: { product: Product }) {
         </div>
       </section>
 
-      {/* Content */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem" }}>
-        <div style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}>
+      {/* Quick Verdict */}
+      <section
+        style={{
+          maxWidth: 780,
+          margin: "0 auto",
+          padding: "2.5rem 1.25rem 0",
+        }}
+      >
+        <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+          IS THIS RIGHT FOR YOU?
+        </p>
+        <h2
+          style={{
+            fontSize: "1.4rem",
+            fontWeight: 800,
+            color: "#edf2f7",
+            marginBottom: "1.25rem",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Quick Verdict
+        </h2>
+        <div className="verdict-box">
+          <div className="verdict-row">
+            <div>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontWeight: 700,
+                  color: "#00d492",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                &#10003; BEST FOR
+              </p>
+              {[
+                "Course creators & coaches tired of Kajabi fees",
+                "Marketers building a community from scratch",
+                "Agencies wanting a community-building service offer",
+                "Anyone paying for Skool who wants to own their platform",
+                "Beginners — no tech skills required",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "0.5rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span className="verdict-dot-green" />
+                  <span
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "#94a3b8",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                  fontWeight: 700,
+                  color: "#ef4444",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                &#10005; NOT IDEAL FOR
+              </p>
+              {[
+                "Those who expect zero traffic effort",
+                "Enterprise e-commerce with deep inventory management",
+                "Users who already own a thriving private community",
+                "People only looking for a standalone email tool",
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "0.5rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <span className="verdict-dot-red" />
+                  <span
+                    style={{
+                      fontSize: "0.875rem",
+                      color: "#94a3b8",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div
+            style={{
+              borderTop: "1px solid rgba(255,255,255,0.06)",
+              paddingTop: "1.25rem",
+              marginTop: "0.5rem",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "0.7rem",
+                fontWeight: 700,
+                color: "#7b8ea5",
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                marginBottom: "0.5rem",
+              }}
+            >
+              MY VERDICT
+            </p>
+            <p
+              style={{
+                fontSize: "0.95rem",
+                color: "#94a3b8",
+                lineHeight: 1.6,
+                marginBottom: "0.75rem",
+              }}
+            >
+              At $47 one-time replacing $958/month in stacked tools, this is a
+              no-brainer for community-focused marketers. The AI cold-start fix
+              alone is worth the price of admission.
+            </p>
+            <div className="stars" style={{ fontSize: "1rem" }}>
+              &#9733;&#9733;&#9733;&#9733;&#9734;
+              <span
+                style={{
+                  color: "#7b8ea5",
+                  fontSize: "0.82rem",
+                  marginLeft: "0.4rem",
+                }}
+              >
+                4/5
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Main 2-column layout */}
+      <div
+        style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem" }}
+      >
+        <div
+          style={{ display: "flex", gap: "3rem", alignItems: "flex-start" }}
+        >
           {/* Main column */}
           <main style={{ flex: "1 1 0", minWidth: 0 }}>
+
+            {/* Pros / Cons */}
+            <section style={{ marginBottom: "3rem" }}>
+              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+                At a Glance
+              </p>
+              <h2
+                style={{
+                  fontSize: "1.4rem",
+                  fontWeight: 800,
+                  color: "#edf2f7",
+                  marginBottom: "1.25rem",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Pros &amp; Cons
+              </h2>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "1rem",
+                }}
+              >
+                <div
+                  style={{
+                    background: "rgba(0,212,146,0.05)",
+                    border: "1px solid rgba(0,212,146,0.15)",
+                    borderRadius: "0.875rem",
+                    padding: "1.25rem",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      color: "#00d492",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    Pros
+                  </p>
+                  {PROS.map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        gap: "0.6rem",
+                        alignItems: "flex-start",
+                        marginBottom: "0.6rem",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#00d492",
+                          fontSize: "0.75rem",
+                          marginTop: "0.15rem",
+                          flexShrink: 0,
+                        }}
+                      >
+                        &#10003;
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "0.875rem",
+                          color: "#94a3b8",
+                          lineHeight: 1.45,
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div
+                  style={{
+                    background: "rgba(239,68,68,0.04)",
+                    border: "1px solid rgba(239,68,68,0.12)",
+                    borderRadius: "0.875rem",
+                    padding: "1.25rem",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: "0.7rem",
+                      fontWeight: 700,
+                      color: "#ef4444",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    Cons
+                  </p>
+                  {CONS.map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        display: "flex",
+                        gap: "0.6rem",
+                        alignItems: "flex-start",
+                        marginBottom: "0.6rem",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#ef4444",
+                          fontSize: "0.75rem",
+                          marginTop: "0.15rem",
+                          flexShrink: 0,
+                        }}
+                      >
+                        &#10005;
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "0.875rem",
+                          color: "#94a3b8",
+                          lineHeight: 1.45,
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
             {/* Features */}
             {product.features && product.features.length > 0 && (
               <section style={{ marginBottom: "3rem" }}>
-                <p className="section-label" style={{ marginBottom: "0.5rem" }}>What&apos;s Inside</p>
+                <p
+                  className="section-label"
+                  style={{ marginBottom: "0.5rem" }}
+                >
+                  What&apos;s Inside
+                </p>
                 <h2
                   style={{
                     fontSize: "1.4rem",
@@ -269,7 +822,13 @@ export default function ReviewPage({ product }: { product: Product }) {
                     const desc = dashIdx > -1 ? feat.slice(dashIdx + 3) : ""
                     return (
                       <div key={i} className="feature-card">
-                        <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "0.75rem",
+                          }}
+                        >
                           <span
                             style={{
                               minWidth: "1.4rem",
@@ -289,11 +848,25 @@ export default function ReviewPage({ product }: { product: Product }) {
                             {i + 1}
                           </span>
                           <div>
-                            <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#edf2f7", marginBottom: desc ? "0.2rem" : 0, lineHeight: 1.35 }}>
+                            <p
+                              style={{
+                                fontSize: "0.875rem",
+                                fontWeight: 700,
+                                color: "#edf2f7",
+                                marginBottom: desc ? "0.2rem" : 0,
+                                lineHeight: 1.35,
+                              }}
+                            >
                               {title}
                             </p>
                             {desc && (
-                              <p style={{ fontSize: "0.78rem", color: "#7b8ea5", lineHeight: 1.5 }}>
+                              <p
+                                style={{
+                                  fontSize: "0.78rem",
+                                  color: "#7b8ea5",
+                                  lineHeight: 1.5,
+                                }}
+                              >
                                 {desc}
                               </p>
                             )}
@@ -306,11 +879,23 @@ export default function ReviewPage({ product }: { product: Product }) {
               </section>
             )}
 
-            {/* Screenshots strip */}
+            {/* Screenshots */}
             {product.screenshots && product.screenshots.length > 0 && (
               <section style={{ marginBottom: "3rem" }}>
-                <p className="section-label" style={{ marginBottom: "0.5rem" }}>Inside the Dashboard</p>
-                <div style={{ display: "flex", gap: "0.75rem", overflowX: "auto", paddingBottom: "0.5rem" }}>
+                <p
+                  className="section-label"
+                  style={{ marginBottom: "0.5rem" }}
+                >
+                  Inside the Dashboard
+                </p>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "0.75rem",
+                    overflowX: "auto",
+                    paddingBottom: "0.5rem",
+                  }}
+                >
                   {product.screenshots.map((src, i) => (
                     <img
                       key={i}
@@ -329,22 +914,137 @@ export default function ReviewPage({ product }: { product: Product }) {
               </section>
             )}
 
-            {/* Article */}
+            {/* Full Review Article */}
             {product.review_article && (
               <section style={{ marginBottom: "3rem" }}>
-                <p className="section-label" style={{ marginBottom: "0.5rem" }}>Full Review</p>
-                <ArticleBody text={product.review_article} />
+                <p
+                  className="section-label"
+                  style={{ marginBottom: "0.5rem" }}
+                >
+                  Full Review
+                </p>
+                <ArticleBody
+                  text={product.review_article}
+                  productName={product.name}
+                  affiliateLink={product.affiliate_link}
+                />
               </section>
             )}
+
+            {/* Comparison Table */}
+            <section style={{ marginBottom: "3rem" }}>
+              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+                How It Stacks Up
+              </p>
+              <h2
+                style={{
+                  fontSize: "1.4rem",
+                  fontWeight: 800,
+                  color: "#edf2f7",
+                  marginBottom: "0.5rem",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {product.name} vs. The Alternatives
+              </h2>
+              <p
+                style={{
+                  color: "#7b8ea5",
+                  fontSize: "0.9rem",
+                  marginBottom: "1.25rem",
+                }}
+              >
+                How Massfluence 2.0 compares to Skool, Kajabi, Facebook Groups,
+                and ClickFunnels on the features that matter most.
+              </p>
+              <div style={{ overflowX: "auto" }}>
+                <table className="cmp-table">
+                  <thead>
+                    <tr>
+                      <th style={{ textAlign: "left" }}>Feature</th>
+                      {CMP_TOOLS.map((t) => (
+                        <th
+                          key={t}
+                          style={{
+                            textAlign: "center",
+                            ...(t === "Massfluence 2.0"
+                              ? { color: "#00d492" }
+                              : {}),
+                          }}
+                        >
+                          {t}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {CMP_FEATURES.map((feat, ri) => (
+                      <tr key={feat}>
+                        <td
+                          style={{ color: "#94a3b8", fontSize: "0.875rem" }}
+                        >
+                          {feat}
+                        </td>
+                        {CMP_DATA[ri].map((val, ci) => (
+                          <td key={ci} style={{ textAlign: "center" }}>
+                            {val === "yes" && (
+                              <span className="cmp-yes">&#10003;</span>
+                            )}
+                            {val === "no" && (
+                              <span className="cmp-no">&#10005;</span>
+                            )}
+                            {val === "partial" && (
+                              <span className="cmp-partial">&#126;</span>
+                            )}
+                            {val === "free*" && (
+                              <span className="cmp-partial">Free*</span>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "#4a5568",
+                  marginTop: "0.75rem",
+                }}
+              >
+                * Facebook Groups is free but you don&apos;t own your audience
+                &mdash; Meta can ban your group or cut your reach at any time.
+              </p>
+            </section>
 
             {/* OTO table */}
             {product.otos && product.otos.length > 0 && (
               <section style={{ marginBottom: "3rem" }}>
-                <p className="section-label" style={{ marginBottom: "0.5rem" }}>Upsell Funnel</p>
-                <h2 style={{ fontSize: "1.35rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>
+                <p
+                  className="section-label"
+                  style={{ marginBottom: "0.5rem" }}
+                >
+                  Upsell Funnel
+                </p>
+                <h2
+                  style={{
+                    fontSize: "1.35rem",
+                    fontWeight: 800,
+                    color: "#edf2f7",
+                    marginBottom: "1.25rem",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
                   OTO / Upsell Breakdown
                 </h2>
-                <div style={{ border: "1px solid rgba(255,255,255,0.07)", borderRadius: "1rem", overflow: "hidden" }}>
+                <div
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.07)",
+                    borderRadius: "1rem",
+                    overflow: "hidden",
+                  }}
+                >
                   <table className="oto-table">
                     <thead style={{ background: "rgba(255,255,255,0.03)" }}>
                       <tr>
@@ -357,18 +1057,40 @@ export default function ReviewPage({ product }: { product: Product }) {
                       {product.otos.map((oto, i) => (
                         <tr key={i}>
                           <td>
-                            <p style={{ fontWeight: 700, color: "#edf2f7", marginBottom: "0.25rem", fontSize: "0.875rem" }}>
+                            <p
+                              style={{
+                                fontWeight: 700,
+                                color: "#edf2f7",
+                                marginBottom: "0.25rem",
+                                fontSize: "0.875rem",
+                              }}
+                            >
                               {oto.name}
                             </p>
-                            <p style={{ fontSize: "0.8rem", color: "#7b8ea5", lineHeight: 1.5 }}>
+                            <p
+                              style={{
+                                fontSize: "0.8rem",
+                                color: "#7b8ea5",
+                                lineHeight: 1.5,
+                              }}
+                            >
                               {oto.description}
                             </p>
                           </td>
                           <td>
                             {oto.price ? (
-                              <strong style={{ color: "#edf2f7" }}>${oto.price}</strong>
+                              <strong style={{ color: "#edf2f7" }}>
+                                ${oto.price}
+                              </strong>
                             ) : (
-                              <span style={{ color: "#4a5568", fontSize: "0.8rem" }}>See page</span>
+                              <span
+                                style={{
+                                  color: "#4a5568",
+                                  fontSize: "0.8rem",
+                                }}
+                              >
+                                See page
+                              </span>
                             )}
                           </td>
                           <td>
@@ -382,44 +1104,36 @@ export default function ReviewPage({ product }: { product: Product }) {
               </section>
             )}
 
-            {/* Bottom CTA */}
-            <div
-              style={{
-                background: "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,212,146,0.1) 0%, #0d1117 70%)",
-                border: "1px solid rgba(0,212,146,0.2)",
-                borderRadius: "1.25rem",
-                padding: "2.5rem",
-                textAlign: "center",
-              }}
-            >
-              <p className="section-label" style={{ marginBottom: "0.5rem" }}>Ready to buy?</p>
-              <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.6rem", letterSpacing: "-0.025em" }}>
-                Get {product.name} + My Exclusive Bonuses
-              </h3>
-              <p style={{ color: "#7b8ea5", fontSize: "0.95rem", marginBottom: "1.75rem" }}>
-                Buy through my link and unlock exclusive bonuses to help you get results faster.
+            {/* FAQ */}
+            <section style={{ marginBottom: "3rem" }}>
+              <p className="section-label" style={{ marginBottom: "0.5rem" }}>
+                COMMON QUESTIONS
               </p>
-              <a
-                href={product.affiliate_link}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="btn-primary"
-                style={{ fontSize: "1.05rem" }}
+              <h2
+                style={{
+                  fontSize: "1.4rem",
+                  fontWeight: 800,
+                  color: "#edf2f7",
+                  marginBottom: "1.25rem",
+                  letterSpacing: "-0.02em",
+                }}
               >
-                Get {product.name} + Bonuses &rarr;
-              </a>
-              <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>
-                {product.landing?.urgency_line || "Bonuses expire at launch close"}
-              </p>
-              <div style={{ marginTop: "0.75rem" }}>
-                <Link
-                  href={"/" + product.slug + "-bonus"}
-                  style={{ color: "#7b8ea5", fontSize: "0.8rem", textDecoration: "underline", textUnderlineOffset: 3 }}
-                >
-                  See full bonus page
-                </Link>
+                Questions Before You Buy
+              </h2>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
+              >
+                {FAQS.map((faq, i) => (
+                  <details key={i} className="faq-item">
+                    <summary>{faq.q}</summary>
+                    <div className="faq-body">{faq.a}</div>
+                  </details>
+                ))}
               </div>
-            </div>
+            </section>
+
+            {/* Bottom CTA */}
+            <CTA product={product} />
           </main>
 
           {/* Sidebar */}
@@ -444,13 +1158,27 @@ export default function ReviewPage({ product }: { product: Product }) {
                     borderRadius: "0.6rem",
                     marginBottom: "1rem",
                     border: "1px solid rgba(255,255,255,0.06)",
-                    objectFit: "cover",
+                    objectFit: "contain",
                     maxHeight: 130,
+                    background: "#0d1117",
                   }}
                 />
               )}
-              <p className="section-label" style={{ marginBottom: "0.6rem" }}>Quick Summary</p>
-              <p style={{ fontSize: "1.05rem", fontWeight: 800, color: "#edf2f7", marginBottom: "0.25rem", lineHeight: 1.25 }}>
+              <p
+                className="section-label"
+                style={{ marginBottom: "0.6rem" }}
+              >
+                Quick Summary
+              </p>
+              <p
+                style={{
+                  fontSize: "1.05rem",
+                  fontWeight: 800,
+                  color: "#edf2f7",
+                  marginBottom: "0.25rem",
+                  lineHeight: 1.25,
+                }}
+              >
                 {product.name}
               </p>
               <div className="stars" style={{ fontSize: "0.9rem", marginBottom: "0.75rem" }}>
@@ -460,7 +1188,12 @@ export default function ReviewPage({ product }: { product: Product }) {
               {[
                 { l: "Price", v: "$" + product.price },
                 { l: "Commission", v: product.commission + "%" },
-                { l: "Vendor", v: product.vendor ? product.vendor.split(" and ")[0] : "" },
+                {
+                  l: "Vendor",
+                  v: product.vendor
+                    ? product.vendor.split(" and ")[0]
+                    : "",
+                },
               ].map(({ l, v }) => (
                 <div
                   key={l}
@@ -473,9 +1206,58 @@ export default function ReviewPage({ product }: { product: Product }) {
                   }}
                 >
                   <span style={{ color: "#7b8ea5" }}>{l}</span>
-                  <span style={{ color: "#edf2f7", fontWeight: 600 }}>{v}</span>
+                  <span style={{ color: "#edf2f7", fontWeight: 600 }}>
+                    {v}
+                  </span>
                 </div>
               ))}
+
+              {/* Why Buy quick list */}
+              <div style={{ marginTop: "1rem" }}>
+                <p
+                  style={{
+                    fontSize: "0.65rem",
+                    fontWeight: 700,
+                    color: "#4a5568",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.07em",
+                    marginBottom: "0.6rem",
+                  }}
+                >
+                  Why Buy
+                </p>
+                {PROS.slice(0, 3).map((pro, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      display: "flex",
+                      gap: "0.4rem",
+                      marginBottom: "0.4rem",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#00d492",
+                        fontSize: "0.65rem",
+                        flexShrink: 0,
+                        marginTop: "0.15rem",
+                      }}
+                    >
+                      &#10003;
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.75rem",
+                        color: "#7b8ea5",
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {pro}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
               <div style={{ marginTop: "1rem" }}>
                 <a
                   href={product.affiliate_link}
@@ -489,7 +1271,12 @@ export default function ReviewPage({ product }: { product: Product }) {
                 <div style={{ marginTop: "0.5rem", textAlign: "center" }}>
                   <Link
                     href={"/" + product.slug + "-bonus"}
-                    style={{ fontSize: "0.75rem", color: "#7b8ea5", textDecoration: "underline", textUnderlineOffset: 3 }}
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "#7b8ea5",
+                      textDecoration: "underline",
+                      textUnderlineOffset: 3,
+                    }}
                   >
                     See bonus details
                   </Link>
@@ -497,7 +1284,6 @@ export default function ReviewPage({ product }: { product: Product }) {
               </div>
             </div>
           </aside>
-
         </div>
       </div>
     </>
