@@ -2,38 +2,41 @@ import { NextResponse } from "next/server"
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
-    const email = typeof body?.email === "string" ? body.email.trim().toLowerCase() : ""
+    const { email } = await request.json()
 
-    if (!email || !email.includes("@") || !email.includes(".")) {
+    if (!email || !email.includes("@")) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 })
     }
 
-    const webhookUrl = process.env.SUBSCRIBE_WEBHOOK_URL
+    const apiKey  = process.env.CONVERTKIT_API_KEY
+    const formId  = process.env.CONVERTKIT_FORM_ID
 
-    if (webhookUrl) {
-      // Forward to configured webhook (ConvertKit, Mailchimp, Make, Zapier, etc.)
-      const res = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          source: "digitaltoolradar.com",
-          timestamp: new Date().toISOString(),
-        }),
-      })
-      if (!res.ok) {
-        console.error("[Subscribe] Webhook returned", res.status)
+    if (apiKey && formId) {
+      const ckRes = await fetch(
+        ,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            api_key: apiKey,
+            email,
+            tags: ["launch-deals"],
+          }),
+        }
+      )
+      if (!ckRes.ok) {
+        const body = await ckRes.text()
+        console.error("[Subscribe] ConvertKit error:", ckRes.status, body)
+        return NextResponse.json({ error: "Subscription failed" }, { status: 500 })
       }
     } else {
-      // No webhook configured — log to Vercel Function logs
-      // Set SUBSCRIBE_WEBHOOK_URL in Vercel env vars to connect your email provider
-      console.log(`[Subscribe] ${email}`)
+      // Fallback: log to Vercel Function logs until env vars are set
+      console.log()
     }
 
     return NextResponse.json({ success: true })
   } catch (err) {
     console.error("[Subscribe] Error:", err)
-    return NextResponse.json({ error: "Internal error" }, { status: 500 })
+    return NextResponse.json({ error: "Server error" }, { status: 500 })
   }
 }
