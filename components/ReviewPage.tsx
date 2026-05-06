@@ -1306,12 +1306,12 @@ export default function ReviewPage({ product }: { product: Product }) {
                   </div>
                 ))}
               </div>
-              {product.landing?.bullets && product.landing.why_buy.length > 0 && (
+              {product.landing?.bullets && product.landing.bullets.length > 0 && (
                 <div style={{ marginBottom: "1.25rem" }}>
                   <p style={{ fontSize: "0.65rem", fontWeight: 700, color: "#7b8ea5", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "0.5rem" }}>
                     Why Buy
                   </p>
-                  {product.landing.why_buy.map((item: string, i: number) => (
+                  {product.landing.bullets.map((item: string, i: number) => (
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.4rem", marginBottom: "0.4rem" }}>
                       <span style={{ color: "#00d492", fontSize: "0.75rem", marginTop: "0.1rem", flexShrink: 0 }}>✓</span>
                       <span style={{ fontSize: "0.78rem", color: "#94a3b8", lineHeight: 1.5 }}>{item}</span>
