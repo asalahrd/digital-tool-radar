@@ -72,13 +72,13 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className="product-card-actions">
         <Link
-          href={}
+          href={`/${product.slug}-review`}
           className="btn-outline btn-sm"
         >
           Read Review
         </Link>
         <Link
-          href={}
+          href={`/${product.slug}-bonus`}
           className="btn-primary btn-sm"
         >
           Get Bonuses
