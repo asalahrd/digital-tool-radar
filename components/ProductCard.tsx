@@ -1,6 +1,5 @@
 import type { Product } from "@/lib/types"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function ProductCard({ product }: { product: Product }) {
   const launchMs = new Date(product.launch_date).getTime()
@@ -12,7 +11,6 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Product image */}
       <div
         style={{
-          position: "relative",
           width: "100%",
           aspectRatio: "16 / 9",
           borderRadius: "0.5rem",
@@ -23,13 +21,11 @@ export default function ProductCard({ product }: { product: Product }) {
         }}
       >
         {product.product_image ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={product.product_image}
             alt={product.name}
-            fill
-            style={{ objectFit: "cover" }}
-            sizes="(max-width: 768px) 100vw, 340px"
-            unoptimized
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         ) : (
           <div
@@ -38,13 +34,8 @@ export default function ProductCard({ product }: { product: Product }) {
               height: "100%",
               background:
                 "radial-gradient(ellipse at 50% 50%, rgba(0,212,146,0.07) 0%, transparent 70%)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
             }}
-          >
-            <span style={{ color: "#2d3748", fontSize: "0.75rem" }}>No image</span>
-          </div>
+          />
         )}
       </div>
 
