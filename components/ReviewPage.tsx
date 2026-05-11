@@ -187,7 +187,74 @@ export default function ReviewPage({ product }: { product: Product }) {
 
   const OTO_ROWS = product.otos || []
 
+  // ── SCHEMA MARKUP ───────────────────────────────────────────────────────
+  const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "name": `${product.name} Review ${launchYear}`,
+    "reviewBody": `Honest review of ${product.name} by DigitalToolRadar. We tested every feature and break down pros, cons, pricing, and whether it's worth buying.`,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": p.review?.rating || "4",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "DigitalToolRadar",
+      "url": "https://digitaltoolradar.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DigitalToolRadar",
+      "url": "https://digitaltoolradar.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://digitaltoolradar.com/og-image.png"
+      }
+    },
+    "datePublished": product.launch_date || new Date().toISOString().split("T")[0],
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": product.name,
+      "applicationCategory": "BusinessApplication",
+      "description": product.tagline,
+      "offers": {
+        "@type": "Offer",
+        "price": product.price || "37",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": product.affiliate_link
+      },
+      "operatingSystem": "Web"
+    }
+  }
+
+  const faqSchema = FAQS.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  } : null
+
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+    />
+    {faqSchema && (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    )}
     <div style={{ overflowX: "hidden" }}>
       <StickyScrollCTA href={product.affiliate_link} productName={product.name} />
 
@@ -1194,5 +1261,6 @@ export default function ReviewPage({ product }: { product: Product }) {
         </div>
       </div>
     </div>
+    </>
   )
 }
