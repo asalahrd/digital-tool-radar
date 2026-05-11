@@ -57,17 +57,80 @@
     }
   ],
   "comparison": {
-    "features": ["One-Time Price", "DFY Recorded Webinars", "Zero Platform Fees", "Built-in Email Follow-Up", "AI Traffic Optimization", "Replay Routing", "Agency Rights", "Works Any Niche"],
-    "tools": ["WebinarClonesAI", "EverWebinar", "WebinarJam", "Zoom Webinars", "ClickFunnels"],
+    "features": [
+      "One-Time Price",
+      "DFY Recorded Webinars",
+      "Zero Platform Fees",
+      "Built-in Email Follow-Up",
+      "AI Traffic Optimization",
+      "Replay Routing",
+      "Agency Rights",
+      "Works Any Niche"
+    ],
+    "tools": [
+      "WebinarClonesAI",
+      "EverWebinar",
+      "WebinarJam",
+      "Zoom Webinars",
+      "ClickFunnels"
+    ],
     "data": [
-      ["yes", "no", "no", "no", "no"],
-      ["yes", "no", "no", "no", "no"],
-      ["yes", "no", "no", "no", "no"],
-      ["yes", "partial", "partial", "no", "partial"],
-      ["yes", "no", "no", "no", "no"],
-      ["yes", "yes", "yes", "no", "no"],
-      ["yes", "no", "no", "no", "no"],
-      ["yes", "yes", "yes", "yes", "yes"]
+      [
+        "yes",
+        "no",
+        "no",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "no",
+        "no",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "no",
+        "no",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "partial",
+        "partial",
+        "no",
+        "partial"
+      ],
+      [
+        "yes",
+        "no",
+        "no",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "yes",
+        "yes",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "no",
+        "no",
+        "no",
+        "no"
+      ],
+      [
+        "yes",
+        "yes",
+        "yes",
+        "yes",
+        "yes"
+      ]
     ],
     "note": "* Comparison reflects standard tiers as of May 2026. EverWebinar/WebinarJam include replay but at $99–$499/mo."
   },
@@ -151,178 +214,7 @@
     "urgency_line": "Bonuses expire when the launch closes on May 19th — price increases after the 7-day window"
   },
   "review": {
-    "hero_headline": "I've Tried Building My Own Webinars Twice. Both Times the Same Problem Killed Them Before They Launched.",
-    "hero_sub": "The script took weeks. The platform cost $99/month. The tech setup took 3 days. By the time it was ready, the momentum was gone. WebinarClonesAI is the first platform I've tested that removes all three of those blockers at once — with done-for-you funnels built by a vendor who made $41,904 in 14 days using the same system. Here's exactly what I found — including what still has limitations.",
-    "mechanism_label": "The mechanism:",
-    "mechanism_name": "Done-For-You Webinar Cloning",
-    "mechanism_desc": "— pre-built, pre-recorded webinar funnels from Jono Armstrong's $41k system, hosted for free, live in 3 steps",
-    "quick_summary": [
-      { "icon": "📦", "label": "What it is", "value": "5 fully recorded, done-for-you webinar funnels from proven top earners — deploy in minutes with zero content creation" },
-      { "icon": "🎯", "label": "Who it's for", "value": "Affiliate marketers, beginners, and anyone who's avoided webinars because of cost, tech, or content creation" },
-      { "icon": "💰", "label": "Price", "value": "$37 one-time at launch vs $99–$299/mo for traditional webinar platforms — zero ongoing hosting fees" },
-      { "icon": "✅", "label": "The mechanism", "value": "Done-For-You Webinar Cloning — deploy Jono's $41k-proven funnels in 3 steps: log in, paste your link, go live" },
-      { "icon": "⚠️", "label": "The real limit", "value": "You're running Jono's webinar content — not your own branded material. Traffic still your job." },
-      { "icon": "🏆", "label": "Verdict", "value": "Yes — buy during the launch window if affiliate marketing, passive income, or webinar funnels are any part of your plan" }
-    ],
-    "quick_fit_checks": [
-      { "label": "Works for complete beginners", "ok": true },
-      { "label": "No recording needed", "ok": true },
-      { "label": "~15 min setup", "ok": true },
-      { "label": "Affiliate marketers", "ok": true },
-      { "label": "Personal brand webinars", "ok": false },
-      { "label": "Standalone email platform", "ok": false }
-    ],
-    "verdict_best_for": [
-      "Affiliate marketers who want the highest-converting format without building one",
-      "Beginners — zero webinar experience, tech, or recording required",
-      "Email marketers with a list looking for a fresh high-converting offer",
-      "Marketers paying $99+/mo for webinar platforms who want a one-time alternative",
-      "Anyone who's wanted to run webinars but been blocked by cost or content"
-    ],
-    "verdict_not_for": [
-      "Those wanting to promote their own brand via a custom webinar",
-      "Enterprise marketers needing deep CRM or custom integrations",
-      "Anyone who expects traffic to appear without sending visitors"
-    ],
-    "verdict_text": "At $37 one-time versus $99–$299/month for traditional webinar platforms — with zero content creation and zero hosting fees — the value equation is strong. The real question is whether running someone else's proven webinar is right for your business model. For most affiliates, it is.",
-    "usp_label": "Done-For-You Webinar Cloning — why this changes the equation",
-    "usp_body": "Every webinar tool launches you into a blank editor. You need a script, slides, a platform that costs $99+/month, and weeks to put it together before you send a single visitor. Most marketers never get there. The setup kills the momentum.",
-    "usp_body2": "WebinarClonesAI inverts this. The webinars are already built — recorded, scripted, and proven by Jono Armstrong's team that generated $41,904 in 14 days with the same system. Your three-step setup: log in, paste your affiliate link, go live. Hosting included. Email follow-up included. Nothing else to set up.",
-    "usp_footer": "Every other platform at this price point gives you a blank canvas and a monthly bill. This one gives you a working, converting system from day one.",
-    "old_vs_new_label": "What changes when you stop doing this manually",
-    "old_vs_new_without": "Without WebinarClonesAI",
-    "old_vs_new_with": "With WebinarClonesAI",
-    "old_vs_new": [
-      { "old": "Write webinar script from scratch → 8–12 hours", "new_": "5 DFY scripts already written and recorded → 0 hours" },
-      { "old": "Pay $99–$299/mo for webinar platform", "new_": "Fully hosted at no ongoing cost → $0/mo" },
-      { "old": "Build landing page, thank-you page, follow-up sequence → 2–3 days", "new_": "All pages, emails, SMS already built → included" },
-      { "old": "Test if your script converts → weeks + ad spend", "new_": "Deploy a system with $41k of proven results → live in minutes" },
-      { "old": "Tech setup across Zoom, page builder, email platform → 3–5 days", "new_": "3 steps: log in, paste link, click save → 15 minutes" },
-      { "old": "First webinar attempt bombs, audience disappears", "new_": "First visitors see a professional, converting funnel from day one" }
-    ],
-    "old_vs_new_bottom": "Weeks of work + $99–$299/mo replaced with 15 minutes + $37 once.",
-    "picture_this": [
-      "You open a laptop this afternoon, paste your affiliate link into the dashboard, and your webinar is live and taking registrations before dinner — no recording session, no script writing, no platform subscription.",
-      "You message a local business: 'I'll set up a done-for-you webinar funnel for your product in one afternoon for $500.' Agency rights came included in the $37 you already paid.",
-      "You cancel your EverWebinar subscription next month. WebinarClonesAI hosts everything. One login handles the webinar, the follow-up, the replay — and you never wrote a single slide."
-    ],
-    "who_you_become": [
-      { "icon": "◈", "text": "The affiliate who runs the highest-converting traffic format — without ever recording a webinar or writing a script." },
-      { "icon": "◈", "text": "The marketer who built a 24/7 automated income stream while competitors were still planning their first webinar." },
-      { "icon": "◈", "text": "The beginner who launched their first commission-generating asset in an afternoon, with zero experience and zero content." },
-      { "icon": "◈", "text": "The agency owner who builds webinar funnels for clients at $500–$2k each, using a $37 licence." }
-    ],
-    "why_almost_skipped_headline": "Why I Almost Skipped This",
-    "why_almost_skipped_body": "When I first saw WebinarClonesAI, I filed it mentally as 'another webinar builder with an AI label.' The market is full of them. Then I re-read the core pitch: you're not building a webinar — you're deploying five that are already built, already recorded, already converting. At $37 one-time with zero ongoing hosting fees, the cost argument alone made me look twice. Then I saw the $41,904 proof screenshot. That changed the evaluation entirely.",
-    "why_almost_skipped_timing": "The best time to evaluate any new platform is at launch — when support is fastest, pricing is lowest, and the first-mover advantage in your niche is still available.",
-    "testing_found": [
-      { "label": "First impression", "color": "#7b8ea5", "body": "Cleaner than expected. The dashboard shows your webinar funnels immediately — no learning curve. Setup wizard walked me through affiliate link insertion in under 3 minutes. Faster orientation than any tool in this space I've reviewed." },
-      { "label": "What surprised me", "color": "#00d492", "body": "The production quality of the DFY webinars. These aren't template slides — they're professionally recorded sessions with polished graphics, proven pitch structure, and real performance data behind them. At $37 I expected something rough. This wasn't." },
-      { "label": "What annoyed me", "color": "#f59e0b", "body": "Traffic expectation gap. Marketing language implies results happen automatically. They don't — you still need to send visitors. That should be stated more directly upfront. It's not a product flaw, but it sets the wrong expectation for some buyers." },
-      { "label": "Unexpected win", "color": "#00d492", "body": "The replay routing. Visitors who don't attend the live session are automatically routed to a replay version. Conversion windows that would normally close stay open. That's a real feature that costs extra on most platforms." },
-      { "label": "Pleasant surprise", "color": "#00d492", "body": "AI traffic optimization for ChatGPT, Gemini, Claude, and Perplexity. The system is structured to show up in AI search results — a traffic source that most webinar tools haven't touched yet. That's a genuine future-proofing feature." },
-      { "label": "Know before buying", "color": "#ef4444", "body": "You're deploying Jono's webinar content, not your own branded material. The front-end is for affiliate promoters. Agency branding and full customization require OTO 3 (Empire, $127). If personal brand is core — factor that in before buying." }
-    ],
-    "workflow_label": "The 3-Step Setup — what it actually looks like",
-    "workflow_title": "From Fresh Login to Live Webinar Funnel: Under 15 Minutes",
-    "workflow_steps": [
-      { "step": "Create account, access dashboard", "time": "2 min", "note": "Immediate access to all 5 DFY webinar funnels. Dashboard shows registration pages, email sequences, and replay links ready to go." },
-      { "step": "Select funnel, paste affiliate link", "time": "~3 min", "note": "Pick a funnel, paste your affiliate link or product URL. The system swaps it in everywhere — the webinar CTA, follow-up emails, and confirmation pages." },
-      { "step": "Click save — webinar is live", "time": "1 min", "note": "Hosted immediately. Registration page is live. Email and SMS follow-up sequences are armed. No external platform needed." },
-      { "step": "Connect autoresponder (optional)", "time": "5 min", "note": "Optional: connect your existing email list. Or let WebinarClonesAI collect and store leads internally. Either works." },
-      { "step": "Review, test registration, ready for traffic", "time": "3 min", "note": "Register as a test attendee, confirm the flow works end-to-end, then send traffic. That's it." }
-    ],
-    "workflow_total": "Total: ~14 minutes — live, converting webinar funnel with follow-up sequences armed.",
-    "workflow_total_note": "Fresh account. No prior webinar experience. No external tools needed.",
-    "pattern_break_quote": "Imagine sending traffic to a webinar funnel built by someone who generated $41,904 in 14 days using it — and your only job was to paste a link.",
-    "pattern_break_note": "That's not a hypothetical. That's literally what the 3-step setup delivers.",
-    "reality_check": [
-      { "icon": "✔", "color": "#00d492", "text": "**~14 minutes** from fresh login to live, converting webinar funnel — I timed the setup on a fresh account" },
-      { "icon": "✔", "color": "#00d492", "text": "**$0/mo hosting** — no EverWebinar, no Zoom, no platform fees. Zero ongoing costs is real, not marketing language" },
-      { "icon": "✔", "color": "#00d492", "text": "**$41,904 in 14 days** using the same system — documented proof from Jono's own campaigns, not manufactured screenshots" },
-      { "icon": "⚠", "color": "#f59e0b", "text": "**Agency branding needs OTO 3** ($127). Front-end runs Jono's content. Personal brand webinar requires upgrade." },
-      { "icon": "✘", "color": "#ef4444", "text": "**Not a traffic machine** — platform converts visitors, doesn't generate them. You still need to drive the first 50–100 people." }
-    ],
-    "shift_items": [
-      "The affiliate who set up their WebinarClonesAI funnel this month is now waking up to 24/7 registrations and automated follow-ups — while you're still deciding whether webinars are worth trying.",
-      "A funnel deployed today will have weeks of replay data, an email list of warm leads, and a conversion track record by the time you'd otherwise finish setting up a traditional webinar platform. That compounding gap grows every week.",
-      "This isn't FOMO. It's math. The affiliates running these automated funnels now aren't smarter — they just moved first while the tools were still cheap and the niche wasn't saturated."
-    ],
-    "test_log": [
-      { "tag": "Day 1 · Setup", "signal": "✅ Faster than expected", "note": "14 minutes. Fresh account, picked a funnel, pasted affiliate link, clicked save. Webinar was live with registration page and follow-up sequence armed before I'd even finished reviewing the dashboard." },
-      { "tag": "Day 1 · Content quality", "signal": "✅ Professional grade", "note": "Watched 10 minutes of the DFY webinar. Professional production — not template slides. Real pitch structure, real performance data behind it. At $37 I expected corner-cutting. This didn't have it." },
-      { "tag": "Day 1 · Email follow-up", "signal": "✅ Already built", "note": "7-email follow-up sequence fires automatically after registration. Pre-written, pre-timed, matched to the webinar content. Nothing to configure. That's a workflow that takes days to build manually." },
-      { "tag": "Day 2 · Replay routing", "signal": "✅ Ran itself", "note": "Test visitor who left before completion was automatically routed to the replay version. Conversion window stayed open. This is a paid feature on every major webinar platform. It's built in here." },
-      { "tag": "Reality check · Traffic", "signal": "⚠️ Know this upfront", "note": "Platform does not generate traffic. It converts the traffic you send. The sales page language implies results will appear automatically — they won't. Budget time or spend for your first 50–100 visitors." }
-    ],
-    "social_proof": [
-      { "handle": "anon · JVZoo buyers group", "msg": "wait is this actually zero hosting fees? I'm paying $99/mo for EverWebinar and this does the same thing for $37 one-time?" },
-      { "handle": "early tester · launch community", "msg": "14 minutes from login to live webinar. that's real. I literally just pasted my affiliate link and clicked save. the funnel was up." },
-      { "handle": "marketer · pre-launch chat", "msg": "the $41k proof on the JV page — I've seen a lot of these screenshots. this one looks legitimate. the breakdown is day-by-day, not just a final number." },
-      { "handle": "buyer · launch day comment", "msg": "no recording needed is the part nobody talks about enough. i've been avoiding webinars for 2 years because of the camera thing. this removes that entirely." },
-      { "handle": "affiliate · FB group", "msg": "jono armstrong's track record is solid. this isn't a first-timer. the support will be there. that matters more than any feature list at this price." }
-    ],
-    "early_signals": [
-      { "signal": "Vendor track record", "status": "✅ Strong", "note": "Jono Armstrong is a documented JVZoo top vendor with multiple successful launches. This isn't a first-timer launch. The support infrastructure and ongoing maintenance are established — which matters most when something breaks." },
-      { "signal": "Proof quality", "status": "✅ Credible", "note": "The $41,904 income screenshot on the JV page is day-by-day detailed — not a lump sum screenshot. That level of specificity is harder to fake and correlates with real campaign data." },
-      { "signal": "JV page activity", "status": "✅ Active launch", "note": "Strong affiliate presence at launch correlates with vendor investment in the product. Jono has a large affiliate network — active promotion means post-launch community support is available." },
-      { "signal": "Sales page clarity", "status": "⚠️ One gap", "note": "The front-end page doesn't clearly state you're deploying Jono's webinar content rather than creating your own branded material. For personal-brand marketers, this is a relevant distinction to know before buying." },
-      { "signal": "Price-to-value ratio", "status": "✅ Strong", "note": "At $37 one-time with zero hosting fees, the cost advantage over monthly webinar platforms is real and wide. Even partial use — one affiliate promotion — justifies the price. 30-day refund removes all downside." },
-      { "signal": "Support response", "status": "✅ Fast at launch", "note": "Pre-launch support queries were answered same-day. Launch periods are when established vendors are most responsive — reputations are built in the first 7 days." }
-    ],
-    "early_signals_summary": "5 of 6 signals are positive before public release. The one gap (personal brand clarification) is a communication issue — not a product flaw.",
-    "hidden_cost_tasks": [
-      { "task": "Write webinar script from scratch", "time": "8–12 hours", "cost": "Or $300–$600 copywriter" },
-      { "task": "Record and edit a 45-min webinar", "time": "1–3 days", "cost": "Or $200–$500 video editor" },
-      { "task": "Build landing, thank-you, and replay pages", "time": "2–3 days", "cost": "$97–$297/mo page builder" },
-      { "task": "Set up webinar platform + hosting", "time": "Setup + ongoing", "cost": "$99–$299/mo" },
-      { "task": "Write 7-email follow-up sequence", "time": "3–5 hours", "cost": "Or $200–$400 copywriter" }
-    ],
-    "hidden_cost_manual": "2–4 weeks + $99–$300+/mo",
-    "hidden_cost_tool": "15 minutes + $37 once",
-    "dominant_cta_headline": "Your $99–$299/Month Webinar Stack Just Became $37 One-Time",
-    "dominant_cta_sub": "Order through this page and your Webinar Launch System is in your inbox within 2 hours — at no extra cost.",
-    "what_replaces": [
-      { "tool": "Webinar Platform (EverWebinar / WebinarJam)", "price": "$99–$299/mo", "note": "Replaced by WebinarClonesAI — fully hosted at no extra cost" },
-      { "tool": "Script & Sales Copy (Copywriter)", "price": "$300–$600 one-off", "note": "DFY scripts already written and recorded — included" },
-      { "tool": "Page Builder (ClickFunnels / Leadpages)", "price": "$97–$197/mo", "note": "All pages pre-built — registration, thank-you, replay — included" },
-      { "tool": "Email Follow-Up Sequence (Copywriter)", "price": "$200–$400 one-off", "note": "7-email follow-up sequence pre-written and armed — included" },
-      { "tool": "Video Hosting (Vimeo / Wistia)", "price": "$13–$49/mo", "note": "Hosting built into the platform — no third-party needed" }
-    ],
-    "what_replaces_total": "$99–$299/mo + setup costs",
-    "what_replaces_one_time": "$37 one-time",
-    "what_replaces_bottom_line": "You're not buying a webinar tool. You're replacing $99–$299/month and weeks of setup time with a 15-minute deployment at $37 once.",
-    "bonus_label": "Exclusive — Only When You Order Through This Page",
-    "bonus_title": "The Webinar Launch System",
-    "bonus_intro": "Three frameworks that complement what WebinarClonesAI provides — filling the gaps the platform doesn't cover. Traffic, scripting, and execution. Most affiliate buyers get the product. You get the product and the fast-start system.",
-    "bonus_quote": "Even if you're 80% convinced on the main product — this is what closes the remaining 20%. Delivered to your inbox within 2 hours.",
-    "bonus_value_total": "$171 FREE",
-    "bonus_value_note": "Delivered within 2 hours · Launch window only",
-    "action_plan": [
-      { "day": "Day 1", "step": "Buy during the launch window", "detail": "Lock in the one-time price before it moves. This is the best deal that will ever exist for this product — $37 one-time with zero hosting fees." },
-      { "day": "Day 1", "step": "Log in and deploy your first funnel", "detail": "Pick one of the 5 DFY webinar funnels, paste your affiliate link, click save. Your webinar is live in under 15 minutes." },
-      { "day": "Day 2", "step": "Connect your autoresponder", "detail": "Wire up your existing email list to capture every registrant. Or let the platform collect leads internally — both work from day one." },
-      { "day": "Day 3", "step": "Drive your first 50 visitors", "detail": "Use the Traffic Blueprint bonus to pick your first organic traffic method. Get the first 50 eyes on your registration page and let the funnel work." }
-    ],
-    "buy_if": [
-      "You want to run the highest-converting sales format without creating a single piece of content",
-      "You're an affiliate marketer looking for a fresh, proven promotional vehicle",
-      "You've been paying $99+/mo for a webinar platform and want a one-time alternative",
-      "You're a beginner who wants to start earning without tech skills or on-camera experience",
-      "You want a 24/7 automated income system that works while you're offline"
-    ],
-    "skip_if": [
-      "You want to build your own branded personal webinar with custom content",
-      "You expect sales to happen without driving any traffic to the funnel",
-      "You have no interest in affiliate marketing or automated sales funnels"
-    ],
-    "why_this_page_headline": "Why buying through this page matters",
-    "why_this_page_body1": "The product is the same from any affiliate. The Webinar Launch System — Traffic Blueprint, Offer Script Framework, and 5-Day Launch Checklist — is only available through this page.",
-    "why_this_page_body2": "Other buyers get the platform. You get the platform plus the exact fast-start system that eliminates the only three failure modes: no traffic, no second webinar, and no first-week action plan. Delivered to your inbox within 2 hours of purchase.",
-    "honest_rec_p1": "If affiliate marketing, passive income, or automated funnels are any part of your plan — the done-for-you system alone justifies this at $37 one-time. You're not buying slides. You're deploying a $41,904-proven webinar funnel in 15 minutes flat.",
-    "honest_rec_p2": "Six months from now you're either still planning your first webinar — or you made a $37 decision this week that put a 24/7 converting funnel to work on your behalf. The 30-day guarantee removes all downside. There's not much logical reason to wait.",
-    "cta_headline": "Stop Planning Webinars.\nDeploy One That Already Converts for $37.",
-    "cta_sub": "5 done-for-you webinar funnels from Jono Armstrong's $41k-proven system. Zero recording. Zero platform fees. Live in 15 minutes. Order through this page and your Webinar Launch System lands in your inbox within 2 hours."
+    "rating": "4.5"
   },
   "meta": {
     "review_title": "WebinarClonesAI Review 2026 — Is Jono Armstrong's DFY Webinar System Worth It?",
