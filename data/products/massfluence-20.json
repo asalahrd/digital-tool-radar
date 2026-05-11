@@ -103,7 +103,7 @@
   "review": {
     "rating": "4.5"
   },
-  "faq": [
+  "faqs": [
     {
       "q": "Does Massfluence 2.0 work without an existing audience?",
       "a": "Yes — this is specifically what the AI prepopulation feature is for. Your community looks active before real members join. The viral referral gamification then grows it organically once you have even a handful of real participants."
