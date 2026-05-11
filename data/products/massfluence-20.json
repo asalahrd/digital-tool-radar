@@ -99,5 +99,42 @@
     "https://aitribes.net/jv/images/aitribesstep3aa.png",
     "https://aitribes.net/jv/images/aitribesstep2b1.png",
     "https://aitribes.net/jv/images/aitribesstep2c-b.png"
+  ],
+  "review": {
+    "rating": "4.5"
+  },
+  "faq": [
+    {
+      "q": "Does Massfluence 2.0 work without an existing audience?",
+      "a": "Yes — this is specifically what the AI prepopulation feature is for. Your community looks active before real members join. The viral referral gamification then grows it organically once you have even a handful of real participants."
+    },
+    {
+      "q": "Is Massfluence 2.0 a monthly subscription?",
+      "a": "The front-end is a one-time fee at launch. OTO 1 (Gold) is billed yearly. After the launch window closes, pricing typically moves to recurring monthly — buying at launch is the best deal available."
+    },
+    {
+      "q": "How does Massfluence 2.0 compare to Skool?",
+      "a": "Skool costs $99/month with no AI content, no built-in gamification, and limited course selling at the base tier. Massfluence 2.0 includes AI auto-content, viral gamification referrals, full course hosting, autoresponder sync, and agency rights — for a one-time launch price."
+    },
+    {
+      "q": "Can I cancel Kajabi after buying Massfluence 2.0?",
+      "a": "If you use Kajabi mainly for community and course hosting, yes. Massfluence 2.0 handles both. If you rely on Kajabi for email broadcasts and advanced sales pages, keep those tools or replace them with a dedicated email platform alongside Massfluence."
+    },
+    {
+      "q": "Do I need tech skills to use Massfluence 2.0?",
+      "a": "No. Everything is point-and-click. Templates handle the design. AI handles the content. If you can use Facebook, you can set up Massfluence 2.0 — setup took 22 minutes from login to live community in testing."
+    },
+    {
+      "q": "What happens to my community if I do not buy the upsells?",
+      "a": "The front-end version is fully functional. You can build communities, host courses, sell products, and use all gamification features. The upsells remove limits and add advanced capabilities like unlimited communities and email broadcasts to members — they are not required to get full value from the base product."
+    },
+    {
+      "q": "What is the difference between Massfluence 2.0 and AITribes?",
+      "a": "Massfluence 2.0 is the launch name for the AITribes platform. The underlying software is AITribes — a full-featured community builder with AI content, gamification, and course hosting built in. Both names refer to the same product."
+    },
+    {
+      "q": "Does Massfluence 2.0 include agency rights?",
+      "a": "Yes. Agency and commercial rights are included in the front-end purchase. You can build and sell AI community sites to clients for recurring monthly fees using the base licence. Full agency whitelabel (your own branding on the app) requires OTO 3 — AITribes Enterprise."
+    }
   ]
 }
