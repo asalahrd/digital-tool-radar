@@ -256,7 +256,7 @@ export default function ReviewPage({ product }: { product: Product }) {
       />
     )}
     <div style={{ overflowX: "hidden" }}>
-      <StickyScrollCTA href={product.affiliate_link} productName={product.name} />
+      <StickyScrollCTA href={product.affiliate_link} productName={product.name} bonusTotal={r.bonus_value_total} />
 
       {/* ── RESPONSIVE OVERRIDES ───────────────────────────────────────── */}
       <style>{`

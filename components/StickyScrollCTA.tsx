@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 
-export default function StickyScrollCTA({ href, productName }: { href: string; productName: string }) {
+export default function StickyScrollCTA({ href, productName, bonusTotal }: { href: string; productName: string; bonusTotal?: string }) {
   const [visible, setVisible] = useState(false)
   const [hovered, setHovered] = useState(false)
 
@@ -76,7 +76,7 @@ export default function StickyScrollCTA({ href, productName }: { href: string; p
             lineHeight: 1.2,
             whiteSpace: "nowrap",
           }}>
-            Get {productName} + $171 Bonus &rarr;
+            Get {productName} + {bonusTotal ? bonusTotal + " in " : ""}Bonuses &rarr;
           </span>
           <span style={{
             color: "#4a6741",
