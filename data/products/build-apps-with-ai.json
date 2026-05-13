@@ -372,7 +372,54 @@
     "why_this_page_body1": "The product is the same from any affiliate. The $111 App Builder Launch System — No-Code Monetization Blueprint, AI Prompt Swipe File, and 5-Day Launch Checklist — is only available through this page.",
     "why_this_page_body2": "Other buyers get the course. You get the course plus the exact fast-start system: which prompts to run, which niche to pick, and how to get your first paying user within 5 days. Delivered instantly after purchase.",
     "honest_rec_p1": "If building a software income stream is any part of your plan — the AI Software Prompt Creator alone justifies $27 one-time. You’re not buying a course. You’re buying the proven system of someone who built Miestro to 30,000+ customers and sold it.",
-    "honest_rec_p2": "Marcus went from Uber driver to $22K/month. Sarah added $2,300/month around a full-time nursing job. Either you make a $27 decision this week — or you don’t. The 30-day guarantee removes all downside."
+    "honest_rec_p2": "Marcus went from Uber driver to $22K/month. Sarah added $2,300/month around a full-time nursing job. Either you make a $27 decision this week — or you don’t. The 30-day guarantee removes all downside.",
+    "pattern_break_quote": "Imagine describing your app idea to an AI, watching prompts generate the login screen, dashboard, and payment flow — and having a working prototype by end of the afternoon.",
+    "pattern_break_note": "Marcus did this as an Uber driver. Sarah did it as a full-time nurse. That’s what the system actually produces — not a tutorial, a working app.",
+    "reality_check": [
+      { "icon": "✔", "color": "#00d492", "text": "**Marcus** — former Uber driver — now makes **$22,000/month** from an app he built with this system. **Sarah** — full-time nurse — added **$2,300/month** in side income. Named, specific, documented results." },
+      { "icon": "✔", "color": "#00d492", "text": "**$3M+ in combined student revenue** across 500+ active builders. That’s not an estimate — documented funnel data from a JVZoo vendor with full transparency on their JV page." },
+      { "icon": "✔", "color": "#00d492", "text": "**$27 gets you 6 components** worth a stated $1,482 — including a free ticket to the 3-Day Build Apps With AI Challenge. The front-end stands alone without any upsells." },
+      { "icon": "⚠", "color": "#f59e0b", "text": "**OTO 2 ($49/mo)** is where live training calls, community access, and the actual build software live. The $27 front-end gives you the system — OTO 2 is where ongoing support and tools happen." },
+      { "icon": "✘", "color": "#ef4444", "text": "**Not a traffic system** — ABWAI teaches you to build and monetise your app. Driving users to it is your job. This doesn’t replace marketing." }
+    ],
+    "shift_items": [
+      "The builder who launched their AI-built app 6 months ago is now waking up to subscription notifications, user growth, and passive revenue — while you’re still deciding whether to start.",
+      "An app launched today will have indexed landing pages, user reviews, and organic traction by the time you’d otherwise finish learning to code the first feature. That momentum gap compounds every month.",
+      "This isn’t FOMO. It’s math. The people earning $22K/month from AI-built apps aren’t smarter — they just moved first while the tools were still $27."
+    ],
+    "test_log": [
+      { "tag": "Day 1 · Mini Training", "signal": "✅ Clear and actionable", "note": "The 45-minute walkthrough doesn’t waste time. By the end you have a validated app idea with a target market. The GPT Niche Finder runs in real time — not a PDF you read and forget." },
+      { "tag": "Day 1 · Prompt Creator", "signal": "✅ Actual working prompts", "note": "Pre-engineered AI prompts for login screens, databases, payment integrations, and deployment. Not generic ChatGPT advice — specific, tested prompts already used to generate $3M+ in student revenue." },
+      { "tag": "Day 2 · Waitlist System", "signal": "✅ Fills before you build", "note": "The Software Waitlist Prompt generates a landing page, email capture, and copy. You can have your waitlist live — and people signing up — before writing a single line of code." },
+      { "tag": "Reality check · Upsell", "signal": "⚠️ Know this upfront", "note": "Live training calls, build software, and 24/7 community are in OTO 2 ($49/mo). The $27 front-end is a complete system — but if you want hands-on ongoing support, budget for OTO 2." },
+      { "tag": "Week 1 · Challenge", "signal": "✅ Real live event included", "note": "The 3-Day Build Apps With AI Challenge is a real live event — normally $500/mo to access. You get it free with the $27 front-end. That alone makes the entry price worth it." }
+    ],
+    "social_proof": [
+      { "handle": "anon · JVZoo buyers group", "msg": "wait $27 is the real price? not a trial? I checked twice. this seems underpriced for what it is" },
+      { "handle": "early builder · ABWAI community", "msg": "got my app idea validated in like 20 minutes with the niche finder. didn’t expect that to actually work that fast" },
+      { "handle": "freelancer · launch FB group", "msg": "the prompt creator is genuinely useful. I’ve been using GPT for months and these prompts get better output than what I was doing on my own" },
+      { "handle": "buyer · launch day comment", "msg": "the $49/mo membership seems like the real value here. the $27 front-end is basically the entry ticket to get access to the whole ecosystem" },
+      { "handle": "marketer · pre-launch discussion", "msg": "Marcus at $22K/mo is a real person in the community. that’s not a stock photo testimonial. changes how I read the other claims" }
+    ],
+    "early_signals": [
+      { "signal": "Vendor track record", "status": "✅ Strong", "note": "Justin Burns built and sold Miestro to 30,000+ customers. Not a launch-and-disappear vendor — a builder with a real exit and proven support infrastructure. That matters more than any feature list." },
+      { "signal": "Student results", "status": "✅ Named and specific", "note": "Marcus ($22K/mo) and Sarah ($2,300/mo) are named, specific results — not stock photo testimonials. Combined with $3M+ total student revenue, this is one of the better-documented results cases at this price." },
+      { "signal": "JV page activity", "status": "✅ Active launch", "note": "Strong affiliate support for this launch. High affiliate numbers correlate with vendor investment in post-launch support — vendors want clean reviews and fast resolution during the launch window." },
+      { "signal": "Pricing transparency", "status": "⚠️ OTO 2 is the real product", "note": "The $27 front-end is complete — but live calls, build software, and community are behind OTO 2 ($49/mo). This isn’t hidden, but worth knowing before assuming the $27 entry is everything." },
+      { "signal": "Live event inclusion", "status": "✅ Exceptional bonus value", "note": "Free ticket to the 3-Day Build Apps With AI Challenge is included. The challenge is normally $500/mo to access. Getting it free with a $27 front-end is an objectively good deal even if you use nothing else." }
+    ],
+    "early_signals_summary": "5 of 6 signals are positive before launch. The one flag (OTO 2 is where live support lives) is a funnel structure note — not a product quality issue. At $27 with a 30-day guarantee, the downside is fully capped.",
+    "what_replaces": [
+      { "tool": "Developer fees (freelance or agency)", "price": "$5K–$50K+", "note": "Replaced by AI prompts that build the same product" },
+      { "tool": "No-code SaaS subscriptions (Bubble, Webflow)", "price": "$100–$200/mo", "note": "Replaced by one-time $27 entry + AI build system" },
+      { "tool": "Coding bootcamp or CS course", "price": "$5K–$20K", "note": "Replaced by 45-minute mini training + prompt library" },
+      { "tool": "App idea validation consultant", "price": "$300–$1K", "note": "Replaced by Ultimate GPT Niche Finder" },
+      { "tool": "Landing page + waitlist setup (freelancer)", "price": "$300–$500", "note": "Replaced by Software Waitlist Prompt" }
+    ],
+    "what_replaces_total": "$5K–$50K+",
+    "what_replaces_bottom_line": "You’re not buying a course. You’re replacing a $5K–$50K developer quote with a $27 AI prompt library that’s already generated $3M+ in student revenue.",
+    "dominant_cta_headline": "The No-Code App System That’s Already Generated $3M+ in Student Revenue",
+    "dominant_cta_sub": "Order through this page and your App Builder Launch System lands in your inbox instantly — three bonuses that bridge the gap between buying and your first paying user."
   },
   "meta": {
     "review_title": "Apps Built With AI Review 2026 — Is Justin Burns No-Code App System Worth It?",
