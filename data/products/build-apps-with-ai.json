@@ -298,7 +298,81 @@
         "old": "Launch to crickets → no waitlist, no users, no revenue day one",
         "new_": "Software Waitlist Prompt → landing page + email capture fills your list before you build"
       }
-    ]
+    ],
+    "hidden_cost_tasks": [
+      {
+        "task": "Hiring a developer to build the app",
+        "time": "Months of back-and-forth",
+        "cost": "Or $5,000–$50,000+"
+      },
+      {
+        "task": "No-code SaaS subscriptions (Bubble, Webflow, etc.)",
+        "time": "Ongoing",
+        "cost": "$50–$200/mo in platform fees"
+      },
+      {
+        "task": "Learning to code from scratch",
+        "time": "6–12 months minimum",
+        "cost": "Or $5K+ bootcamp"
+      },
+      {
+        "task": "Building a waitlist + landing page manually",
+        "time": "Days of setup",
+        "cost": "Or $300–$500 freelancer"
+      },
+      {
+        "task": "Testing AI prompts by trial and error",
+        "time": "Weeks of testing",
+        "cost": "Or $150–$300 consultant"
+      }
+    ],
+    "hidden_cost_manual": "Weeks/months + $5K–$50K+",
+    "hidden_cost_tool": "Days with this system + $27 once",
+    "bonus_label": "Exclusive — Only When You Order Through This Page",
+    "bonus_title": "The App Builder Launch System",
+    "bonus_intro": "Three bonuses that bridge the gap between buying the course and earning your first dollar. Most buyers get the product. You get the product plus the fast-start system.",
+    "bonus_quote": "Even if you’re 80% convinced on the main product — these bonuses cover the monetization, the prompts, and the first-week execution. Delivered instantly.",
+    "bonus_value_total": "$111",
+    "bonus_value_note": "Instant access · Launch window only — closes May 22",
+    "action_plan": [
+      {
+        "day": "Day 1",
+        "step": "Get access during the launch window",
+        "detail": "Lock in the $27 one-time price before it increases after May 22. This is the best deal this product will ever have."
+      },
+      {
+        "day": "Day 1",
+        "step": "Complete the 45-min mini training",
+        "detail": "Plan, build, and conceptualize your first app idea. You’ll have a clear direction before the session ends."
+      },
+      {
+        "day": "Day 2",
+        "step": "Run the Ultimate GPT Niche Finder",
+        "detail": "Validate demand for your app idea before writing a single prompt. Build what people already want to pay for."
+      },
+      {
+        "day": "Day 3",
+        "step": "Use the AI Software Prompt Creator to start building",
+        "detail": "Pre-engineered prompts for login, dashboard, payments, deploys. AI does the heavy lifting — you supply the idea."
+      }
+    ],
+    "buy_if": [
+      "Want a software income stream without hiring a developer",
+      "Are a non-technical entrepreneur, coach, or freelancer wanting to add tech revenue",
+      "Want recurring income from a SaaS product you build once",
+      "Plan to attend the 3-Day Build Apps With AI Challenge included free",
+      "Want the validated prompt library and niche research system — worth $27 alone"
+    ],
+    "skip_if": [
+      "Expect traffic to appear with zero effort on your part",
+      "Are not willing to put in the initial work to set up and launch your app",
+      "Have no interest in software, tech products, or digital income streams"
+    ],
+    "why_this_page_headline": "Why buying through this page matters",
+    "why_this_page_body1": "The product is the same from any affiliate. The $111 App Builder Launch System — No-Code Monetization Blueprint, AI Prompt Swipe File, and 5-Day Launch Checklist — is only available through this page.",
+    "why_this_page_body2": "Other buyers get the course. You get the course plus the exact fast-start system: which prompts to run, which niche to pick, and how to get your first paying user within 5 days. Delivered instantly after purchase.",
+    "honest_rec_p1": "If building a software income stream is any part of your plan — the AI Software Prompt Creator alone justifies $27 one-time. You’re not buying a course. You’re buying the proven system of someone who built Miestro to 30,000+ customers and sold it.",
+    "honest_rec_p2": "Marcus went from Uber driver to $22K/month. Sarah added $2,300/month around a full-time nursing job. Either you make a $27 decision this week — or you don’t. The 30-day guarantee removes all downside."
   },
   "meta": {
     "review_title": "Apps Built With AI Review 2026 — Is Justin Burns No-Code App System Worth It?",
