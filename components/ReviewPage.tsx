@@ -80,7 +80,7 @@ function DominantCTA({ product, headline, sub }: { product: Product; headline: s
       <h3 style={{ fontSize: "clamp(1.1rem,2.5vw,1.4rem)", fontWeight: 800, color: "#edf2f7", marginBottom: "0.6rem", letterSpacing: "-0.02em", lineHeight: 1.3 }}>{headline}</h3>
       <p style={{ color: "#7b8ea5", fontSize: "0.9rem", lineHeight: 1.6, maxWidth: 480, margin: "0 auto 1.5rem" }}>{sub}</p>
       <a href={product.affiliate_link} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary" style={{ fontSize: "1.05rem", padding: "0.9rem 2.25rem" }}>
-        Yes — Get {product.name} + $171 in Bonuses &rarr;
+        Yes — Get {product.name} + My Bonuses &rarr;
       </a>
       <p style={{ fontSize: "0.72rem", color: "#4a5568", marginTop: "0.6rem" }}>Launch pricing ends at public release · 30-day guarantee · Instant access</p>
     </div>
