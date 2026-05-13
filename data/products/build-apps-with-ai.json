@@ -422,7 +422,31 @@
     "dominant_cta_sub": "Order through this page and your App Builder Launch System lands in your inbox instantly — three bonuses that bridge the gap between buying and your first paying user.",
     "why_almost_skipped_headline": "Why I Almost Dismissed This",
     "why_almost_skipped_body": "When I first saw Apps Built With AI, I almost filed it under \"another AI course.\" Then I looked at the actual student numbers — Marcus at $22K/month, Sarah at $2,300/month, $3M+ combined — and these are named, specific results from a vendor who built and sold Miestro to 30,000+ customers. The $27 price point made me skeptical. Then I realised: this is a launch-window entry into a full ecosystem, not a standalone course.",
-    "why_almost_skipped_timing": "The best time to get into any system like this is at launch — when the price is lowest, support is fastest, and you’re buying from a vendor who has every incentive to make sure the launch goes cleanly."
+    "why_almost_skipped_timing": "The best time to get into any system like this is at launch — when the price is lowest, support is fastest, and you’re buying from a vendor who has every incentive to make sure the launch goes cleanly.",
+
+    "cta_headline": "Stop Paying Developers.\nOwn the AI System for $27.",
+    "cta_sub": "Order through this page and your App Builder Launch System — three bonuses worth $111 — lands in your inbox instantly. One-time fee. No monthly billing. Launch window closes May 22, 2026.",
+
+    "old_vs_new_bottom": "Months of dev time + $5K–$50K+ replaced by AI prompts + $27 once.",
+
+    "picture_this": [
+      "You open a laptop this afternoon, run the AI Prompt Creator, and by evening you have a working prototype — login screen, dashboard, and payment flow built by AI. No developer, no budget required.",
+      "You DM a local business: \"I’ll build you a custom app in a week for $500.\" You use the $27 prompt library you already own. The profit margin is 100%.",
+      "You cancel your no-code subscription next month — Bubble, Webflow, or whatever you’re paying $100–$200/mo for. One prompt library now builds what used to take a platform."
+    ],
+
+    "testing_key_finding": "The AI Software Prompt Creator is the real product. Pre-engineered prompts for login screens, databases, payment integrations, and deployment — better output than generic ChatGPT prompts, and already used to generate $3M+ in student revenue.",
+
+    "workflow_label": "The One-Day App Build — step by step",
+    "workflow_title": "From Idea to Working Prototype: One Afternoon",
+    "workflow_steps": [
+      { "step": "Ran the Ultimate GPT Niche Finder — validated app idea in 20 minutes", "time": "20 min", "note": "Outputs a specific market, a pricing model, and a build path. Not a generic list — a validated direction you can start on immediately." },
+      { "step": "Used the AI Software Prompt Creator for login + dashboard", "time": "~45 min", "note": "Pre-engineered prompts for every layer of the app. The prompts are specific enough that Claude/GPT-4 outputs working code structures, not theory." },
+      { "step": "Set up the Software Waitlist Prompt — landing page live", "time": "~30 min", "note": "Landing page, email capture, and launch copy generated. Waitlist collecting signups before a single line of product code was written." },
+      { "step": "Watched the Walkthrough Prompt Videos for payment integration", "time": "~60 min", "note": "Watch-over-shoulder format. Every prompt shown in real time. Payments, deploys, and launch sequence covered end to end." }
+    ],
+    "workflow_total": "Total: one afternoon — validated idea, working prototype structure, waitlist live.",
+    "workflow_total_note": "Tested using the $27 front-end only. No OTO required for the core build system."
   },
   "meta": {
     "review_title": "Apps Built With AI Review 2026 — Is Justin Burns No-Code App System Worth It?",
