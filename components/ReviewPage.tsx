@@ -388,7 +388,7 @@ export default function ReviewPage({ product }: { product: Product }) {
             </div>
           )}
 
-          {!(product as any).hide_video && <VideoBlock videoUrl={product.video_url} productName={product.name} />}
+          {(product as any).show_video && <VideoBlock videoUrl={product.video_url} productName={product.name} />}
 
           {/* Hero CTA */}
           <div style={{ background: "linear-gradient(135deg, rgba(0,212,146,0.12) 0%, rgba(0,212,146,0.04) 100%)", border: "1px solid rgba(0,212,146,0.28)", borderRadius: "1.125rem", padding: "1.75rem", marginBottom: "1.5rem" }}>
