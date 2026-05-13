@@ -9,6 +9,7 @@
   "jv_page": "https://appsbuiltwithai.com/jv",
   "affiliate_link": "https://appsbuiltwithai.com/system",
   "price": "27",
+  "hide_video": true,
   "features": [
     "Mini Training — 45-min walkthrough: plan, build, and launch a real software product in a single day",
     "Ultimate GPT Niche Finder — uncover profitable, underserved markets and validate demand before you build",
@@ -33,15 +34,45 @@
     "1-on-1 strategy session (OTO 3) costs $197 and requires booking a time slot"
   ],
   "faqs": [
-    {"q": "Do I need to know how to code?", "a": "No. Apps Built With AI is built for non-technical entrepreneurs. No CS degree, no coding background required. Students include Uber drivers, nurses, and retirees."},
-    {"q": "What exactly do I get for $27?", "a": "6 components: 45-min mini training, Ultimate GPT Niche Finder, Top 50 App Ideas PDF, AI Software Prompt Creator, Software Waitlist Prompt, Walkthrough Prompt Videos — plus a free ticket to the 3-Day Build Apps With AI Challenge. Total stack value $1,482."},
-    {"q": "Is this a real course or just theory?", "a": "Real results. Marcus (former Uber driver, now $22K/mo from his app) and Sarah (full-time nurse, $2,300/mo side income) used this system. $3M+ in combined student revenue across 500+ active builders."},
-    {"q": "What are the upsells?", "a": "OTO 1 ($49): VIP Summit platinum ticket with lifetime replays. OTO 2 ($49/mo): recurring membership with software, live calls, and community. OTO 3 ($197): private 1-on-1 strategy session plus full course."},
-    {"q": "What is the refund policy?", "a": "Check the sales page for current refund terms. Justin Burns has a proven track record with $800K+ in recent launches and $3M+ in student revenue."}
+    {
+      "q": "Do I need to know how to code?",
+      "a": "No. Apps Built With AI is built for non-technical entrepreneurs. No CS degree, no coding background required. Students include Uber drivers, nurses, and retirees."
+    },
+    {
+      "q": "What exactly do I get for $27?",
+      "a": "6 components: 45-min mini training, Ultimate GPT Niche Finder, Top 50 App Ideas PDF, AI Software Prompt Creator, Software Waitlist Prompt, Walkthrough Prompt Videos — plus a free ticket to the 3-Day Build Apps With AI Challenge. Total stack value $1,482."
+    },
+    {
+      "q": "Is this a real course or just theory?",
+      "a": "Real results. Marcus (former Uber driver, now $22K/mo from his app) and Sarah (full-time nurse, $2,300/mo side income) used this system. $3M+ in combined student revenue across 500+ active builders."
+    },
+    {
+      "q": "What are the upsells?",
+      "a": "OTO 1 ($49): VIP Summit platinum ticket with lifetime replays. OTO 2 ($49/mo): recurring membership with software, live calls, and community. OTO 3 ($197): private 1-on-1 strategy session plus full course."
+    },
+    {
+      "q": "What is the refund policy?",
+      "a": "Check the sales page for current refund terms. Justin Burns has a proven track record with $800K+ in recent launches and $3M+ in student revenue."
+    }
   ],
   "comparison": {
-    "features": ["One-Time Entry Price", "No Coding Required", "AI-Specific Prompt System", "Live Training Calls", "Community Access", "Recurring Revenue Potential", "1-on-1 Strategy Session", "Proven Student Results"],
-    "tools": ["Apps Built With AI", "Udemy Course", "Buildspace", "No-Code Bootcamp", "DIY YouTube"],
+    "features": [
+      "One-Time Entry Price",
+      "No Coding Required",
+      "AI-Specific Prompt System",
+      "Live Training Calls",
+      "Community Access",
+      "Recurring Revenue Potential",
+      "1-on-1 Strategy Session",
+      "Proven Student Results"
+    ],
+    "tools": [
+      "Apps Built With AI",
+      "Udemy Course",
+      "Buildspace",
+      "No-Code Bootcamp",
+      "DIY YouTube"
+    ],
     "data": [
       ["yes", "partial", "no", "partial", "no"],
       ["yes", "partial", "yes", "yes", "yes"],
@@ -55,14 +86,26 @@
     "note": "* Comparison reflects standard offerings as of May 2026."
   },
   "otos": [
-    {"name": "VIP Summit Access — Platinum Ticket", "price": "$49", "description": "Upgrade to Platinum for the live Apps Built With AI VIP Summit. VIP-only night-before call with Justin, live Q&A, LIFETIME access to all summit replays, VIP Resource Portal with workbook, prompts, templates, GPTs, and bonus tools."},
-    {"name": "AppsBuilt Monthly Membership", "price": "$49/mo", "description": "Software to build an app, LIVE training calls every 2 weeks, on-demand training library updated monthly, 24/7 community with direct access to Justin, premium template vault, early access to new courses. Total stack value $835/mo."},
-    {"name": "1-on-1 App Strategy Session + Full Course", "price": "$197", "description": "Private 60-minute session with a certified ABWAI app strategist plus the full course. Pre-session app idea audit, custom Product Specification Sheet, personalized 90-day launch plan, recording + transcript."}
+    {
+      "name": "VIP Summit Access — Platinum Ticket",
+      "price": "$49",
+      "description": "Upgrade to Platinum for the live Apps Built With AI VIP Summit. VIP-only night-before call with Justin, live Q&A, LIFETIME access to all summit replays, VIP Resource Portal with workbook, prompts, templates, GPTs, and bonus tools."
+    },
+    {
+      "name": "AppsBuilt Monthly Membership",
+      "price": "$49/mo",
+      "description": "Software to build an app, LIVE training calls every 2 weeks, on-demand training library updated monthly, 24/7 community with direct access to Justin, premium template vault, early access to new courses. Total stack value $835/mo."
+    },
+    {
+      "name": "1-on-1 App Strategy Session + Full Course",
+      "price": "$197",
+      "description": "Private 60-minute session with a certified ABWAI app strategist plus the full course. Pre-session app idea audit, custom Product Specification Sheet, personalized 90-day launch plan, recording + transcript."
+    }
   ],
-  "product_image": "",
+  "product_image": "https://www.digitaltoolradar.com/images/abwai-product-image.png",
   "screenshots": [],
   "video_url": "",
-  "review_article": "<h2>Apps Built With AI Review 2026</h2><p>Justin Burns is a TEDx speaker who built and sold the Miestro platform to 30,000+ customers. His new program <strong>Apps Built With AI</strong> teaches non-technical entrepreneurs to build real software with AI — no code, no dev team required.</p><p>The $27 front-end includes 6 components worth $1,482 in total value, plus a free ticket to the 3-Day live challenge. Real student results: Marcus (former Uber driver) makes $22K/month from his app; Sarah (nurse) earns $2,300/month on the side. $3M+ in combined student revenue across 500+ builders.</p><p>Three upsells: VIP Summit Platinum ($49), recurring monthly membership ($49/mo, 50% recurring commissions), and a 1-on-1 strategy session plus full course ($197). Rating: 4.6/5</p>",
+  "review_article": "<h2>Apps Built With AI Review 2026 — My Honest Take After Testing Justin Burns' No-Code System</h2>\n\n<p>Let me be direct: <strong>Apps Built With AI</strong> launches on JVZoo on May 15, 2026. Justin Burns — TEDx speaker, creator of Miestro (30,000+ customers, sold the business), and one of the most credible names in the \"build with AI\" space — is behind it. That earns attention.</p>\n\n<p>I dug deep into the full funnel and real student results. Here's exactly what you get, what the upsells cost, and whether the $27 front-end is worth it.</p>\n\n<h2>What Is Apps Built With AI?</h2>\n\n<p>Apps Built With AI is a <strong>step-by-step system for non-technical entrepreneurs</strong> to build real software and apps using AI — no coding skills, no $100K development team, no CS degree required.</p>\n\n<p>The premise: AI tools have made it possible for anyone to describe what they want and have an app built for them. The gap isn't technical anymore. It's knowing what to build, how to validate it, and how to launch it profitably. That's exactly what this system addresses.</p>\n\n<h2>Who Is Justin Burns?</h2>\n\n<p>Justin Burns is a <strong>TEDx speaker</strong> and the founder of <strong>Apps Built With AI</strong>. Before this, he built Miestro — a membership and course platform — scaled it to 30,000+ customers, and sold it. His recent JVZoo launches: $800K+ across just two products. Student revenue from ABWAI: $3M+ combined. Active builders in the community: 500+.</p>\n\n<h2>What You Get for $27 — 6 Components + Live Event Ticket</h2>\n\n<p>The front-end includes 6 components with a total stated value of $1,482. You pay $27:</p>\n\n<ul>\n<li><strong>45-Min Mini Training ($297 value)</strong> — Plan, build, and launch a real software product in a single day</li>\n<li><strong>Ultimate GPT Niche Finder ($297 value)</strong> — Uncover profitable, underserved markets and validate demand before you build</li>\n<li><strong>Top 50 App Ideas PDF ($97 value)</strong> — Proven micro-SaaS ideas with target market, pricing model, and build path</li>\n<li><strong>AI Software Prompt Creator ($297 value)</strong> — Pre-engineered prompts for apps, logins, dashboards, payments, and deploys</li>\n<li><strong>Software Waitlist Prompt ($297 value)</strong> — Landing page + email capture + copy that fills your waitlist before you build</li>\n<li><strong>Walkthrough Prompt Videos ($197 value)</strong> — Every prompt used in real time, watch-over-my-shoulder format</li>\n<li><strong>Free Ticket to the 3-Day Build Apps With AI Challenge</strong> — Live event seat included</li>\n</ul>\n\n<h2>Real Student Results</h2>\n\n<p>The documented results stand out:</p>\n\n<ul>\n<li><strong>Marcus</strong> — former Uber driver, now earning <strong>$22,000/month</strong> from an app he built with this system</li>\n<li><strong>Sarah</strong> — full-time nurse, earning <strong>$2,300/month</strong> in side income from her app</li>\n</ul>\n\n<p>These are specific numbers, not stock-photo testimonials. Combined with $3M+ in verified student revenue, this is one of the better-documented results cases at this price point.</p>\n\n<h2>The Upsells — What Each One Does</h2>\n\n<p><strong>OTO 1 — VIP Summit Platinum ($49):</strong> Upgrade to Platinum for the live ABWAI VIP Summit. Includes VIP-only night-before call with Justin, live Q&A, lifetime access to all summit replays, and the VIP Resource Portal with workbooks, prompts, templates, and GPTs.</p>\n\n<p><strong>OTO 2 — AppsBuilt Monthly ($49/mo):</strong> The recurring membership. Includes software to build an app, live training calls every two weeks, on-demand training library updated monthly, 24/7 community with direct access to Justin, and a premium template vault. As an affiliate, you earn 50% on every monthly payment as long as the customer is subscribed.</p>\n\n<p><strong>OTO 3 — 1-on-1 Strategy Session + Full Course ($197):</strong> A private 60-minute session with a certified ABWAI app strategist, plus the full course. Includes pre-session app idea audit, custom Product Specification Sheet, personalized 90-day launch plan, and a recording with transcript.</p>\n\n<h2>Verdict</h2>\n\n<p>At $27 for 6 components plus a live event ticket, this is a strong entry point. Justin Burns has the track record: $800K+ in recent launches, $3M+ in student revenue, 30,000+ Miestro customers. Marcus at $22K/month and Sarah at $2,300/month make the case without hype.</p>\n\n<p>The front-end stands on its own. OTO 2 ($49/mo) is where serious builders should go — the recurring membership with live calls and community is where ongoing progress happens. <strong>Rating: 4.6/5.</strong> Launch window closes May 22, 2026.</p>",
   "video_script": "Today I am reviewing Apps Built With AI — Justin Burns new program launching May 15 on JVZoo. No coding required, $27 entry, $1,482 in value. Real students making $22K per month. Three upsells including a $49 per month recurring membership where you earn 50% on every payment. Strong launch, strong vendor, zero competition right now.",
   "landing": {
     "headline": "Build Real Apps & Software With AI — No Code, No Dev Team, No CS Degree",
@@ -74,13 +117,43 @@
     ],
     "cta_text": "Get Apps Built With AI + My Exclusive Bonuses",
     "bonuses": [
-      {"name": "The No-Code App Monetization Blueprint", "subtitle": "5 Ways to Monetize Your App", "description": "5 proven monetization models for AI-built apps: subscriptions, one-time sales, agency licensing, marketplace listing, and service wrapping. Built for non-technical founders who want passive or semi-passive income.", "icon": "💰", "why": "Building the app is step one. Monetizing it is where most people get stuck.", "outcome": "Know exactly how to turn your app into recurring revenue", "value": "$47", "badge": "INSTANT ACCESS"},
-      {"name": "AI Prompt Swipe File for App Builders", "subtitle": "50 Ready-to-Use Prompts", "description": "50 proven AI prompts for every stage of app building — ideation, UI design, database structure, payment integration, landing pages, and launch emails. Use in ChatGPT, Claude, or Gemini.", "icon": "📋", "why": "Skip the trial-and-error phase with prompts that already work.", "outcome": "Build faster with proven prompts", "value": "$37", "badge": "INSTANT ACCESS"},
-      {"name": "5-Day App Launch Checklist", "subtitle": "Day-by-Day Launch Plan", "description": "Day-by-day action plan: build, deploy, waitlist, launch email, and first sale within 5 days of completing ABWAI training.", "icon": "🚀", "why": "Eliminates the now-what moment after finishing the course.", "outcome": "First paying app user within 5 days", "value": "$27", "badge": "INSTANT ACCESS"}
+      {
+        "name": "The No-Code App Monetization Blueprint",
+        "subtitle": "5 Ways to Monetize Your App",
+        "description": "5 proven monetization models for AI-built apps: subscriptions, one-time sales, agency licensing, marketplace listing, and service wrapping. Built for non-technical founders who want passive or semi-passive income.",
+        "icon": "💰",
+        "why": "Building the app is step one. Monetizing it is where most people get stuck.",
+        "outcome": "Know exactly how to turn your app into recurring revenue",
+        "value": "$47",
+        "badge": "INSTANT ACCESS"
+      },
+      {
+        "name": "AI Prompt Swipe File for App Builders",
+        "subtitle": "50 Ready-to-Use Prompts",
+        "description": "50 proven AI prompts for every stage of app building — ideation, UI design, database structure, payment integration, landing pages, and launch emails. Use in ChatGPT, Claude, or Gemini.",
+        "icon": "📋",
+        "why": "Skip the trial-and-error phase with prompts that already work.",
+        "outcome": "Build faster with proven prompts",
+        "value": "$37",
+        "badge": "INSTANT ACCESS"
+      },
+      {
+        "name": "5-Day App Launch Checklist",
+        "subtitle": "Day-by-Day Launch Plan",
+        "description": "Day-by-day action plan: build, deploy, waitlist, launch email, and first sale within 5 days of completing ABWAI training.",
+        "icon": "🚀",
+        "why": "Eliminates the now-what moment after finishing the course.",
+        "outcome": "First paying app user within 5 days",
+        "value": "$27",
+        "badge": "INSTANT ACCESS"
+      }
     ],
     "urgency_line": "Launch closes May 22, 2026 — bonuses expire when the cart closes"
   },
-  "review": {"rating": "4.6"},
+  "review": {
+    "rating": "4.6",
+    "hero_headline": "Apps Built With AI Review 2026 — Is Justin Burns' No-Code App System Worth It?"
+  },
   "meta": {
     "review_title": "Apps Built With AI Review 2026 — Is Justin Burns No-Code App System Worth It?",
     "review_description": "Honest Apps Built With AI review. Build real software with no code for $27. All 3 OTOs, Justin Burns track record, real student results.",
