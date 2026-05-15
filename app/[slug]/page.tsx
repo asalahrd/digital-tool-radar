@@ -5,9 +5,6 @@ import ReviewPage from "@/components/ReviewPage"
 import BonusPage from "@/components/BonusPage"
 import type { Metadata } from "next"
 
-const SITE_URL = "https://digitaltoolradar.com"
-const SITE_NAME = "DigitaltoolRadar"
-
 interface Props {
   params: { slug: string }
 }
@@ -28,40 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { productSlug, pageType } = parseSlug(params.slug)
   const product = getProduct(productSlug)
   if (!product) return { title: "Not Found" }
-
   const isBonus = pageType === "bonus"
-  const title = isBonus ? product.meta.bonus_title : product.meta.review_title
-  const description = isBonus ? product.meta.bonus_description : product.meta.review_description
-  const url = `${SITE_URL}/${params.slug}`
-  const image = product.product_image ?? `${SITE_URL}/og-default.png`
-
   return {
-    title,
-    description,
-    robots: { index: true, follow: true },
-    alternates: {
-      canonical: url,
-    },
+    title: isBonus ? product.meta.bonus_title : product.meta.review_title,
+    description: isBonus ? product.meta.bonus_description : product.meta.review_description,
     openGraph: {
-      title,
-      description,
-      url,
+      title: isBonus ? product.meta.bonus_title : product.meta.review_title,
+      description: isBonus ? product.meta.bonus_description : product.meta.review_description,
       type: "article",
-      siteName: SITE_NAME,
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
     },
   }
 }
