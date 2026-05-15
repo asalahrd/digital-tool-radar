@@ -45,4 +45,7 @@ export interface Product {
   meta: ProductMeta
   script_url?: string
   published_at: string
+  product_image?: string
+  screenshots?: string[]
+  video_url?: string
 }
