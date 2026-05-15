@@ -735,11 +735,18 @@ export default function ReviewPage({ product }: { product: Product }) {
                 <p className="section-label" style={{ marginBottom: "0.5rem" }}>Inside the Platform</p>
                 <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#edf2f7", marginBottom: "1.25rem", letterSpacing: "-0.02em" }}>Screenshots</h2>
                 <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
-                  {product.screenshots.map((src: string, i: number) => (
-                    <div key={i} style={{ borderRadius: "0.875rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0d1117" }}>
-                      <img src={src} alt={"Screenshot " + (i + 1)} style={{ width: "100%", display: "block" }} />
-                    </div>
-                  ))}
+                  {product.screenshots.map((item: any, i: number) => {
+                    const imgSrc = typeof item === "string" ? item : item.src;
+                    const imgAlt = typeof item === "string" ? "Screenshot " + (i + 1) : (item.caption || "Screenshot " + (i + 1));
+                    return (
+                      <div key={i} style={{ borderRadius: "0.875rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.07)", background: "#0d1117" }}>
+                        <img src={imgSrc} alt={imgAlt} style={{ width: "100%", display: "block" }} />
+                        {typeof item !== "string" && item.caption && (
+                          <p style={{ fontSize: "0.78rem", color: "#8b95a3", padding: "0.5rem 0.75rem", margin: 0 }}>{item.caption}</p>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
             )}
