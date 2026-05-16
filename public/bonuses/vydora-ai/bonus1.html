@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faceless YouTube Launch Checklist — DigitalToolRadar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0e1a; color: #e2e8f0; width: 794px; margin: 0 auto; }
+
+  .page { width: 794px; min-height: 1123px; padding: 56px 60px; position: relative; page-break-after: always; }
+
+  /* Header */
+  .brand-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(0,212,146,0.2); }
+  .brand-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #00d492; text-transform: uppercase; }
+  .brand-tag { font-size: 11px; color: #4a5568; font-weight: 500; }
+
+  /* Title block */
+  .bonus-label { display: inline-block; background: rgba(0,212,146,0.12); border: 1px solid rgba(0,212,146,0.3); color: #00d492; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 16px; }
+  .bonus-number { font-size: 11px; color: #4a5568; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  h1 { font-size: 36px; font-weight: 900; color: #ffffff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h1 span { color: #00d492; }
+  .subtitle { font-size: 15px; color: #8b95a3; line-height: 1.6; margin-bottom: 36px; max-width: 560px; }
+
+  /* Checklist sections */
+  .section { margin-bottom: 28px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .section-num { width: 28px; height: 28px; background: rgba(0,212,146,0.15); border: 1px solid rgba(0,212,146,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #00d492; flex-shrink: 0; }
+  .section-title { font-size: 14px; font-weight: 700; color: #e2e8f0; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; padding-left: 38px; }
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #c8d0db; line-height: 1.5; }
+  .check-box { width: 18px; height: 18px; border: 1.5px solid rgba(255,255,255,0.2); border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+  .check-note { font-size: 11px; color: #5a6478; display: block; margin-top: 2px; font-style: italic; }
+
+  /* Pro tip box */
+  .pro-tip { background: rgba(0,212,146,0.07); border: 1px solid rgba(0,212,146,0.2); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+  .pro-tip-label { font-size: 10px; font-weight: 800; color: #00d492; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .pro-tip p { font-size: 12.5px; color: #a8b4c0; line-height: 1.6; }
+
+  /* Warning box */
+  .warning { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; }
+  .warning-label { font-size: 10px; font-weight: 800; color: #f87171; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+  .warning p { font-size: 12px; color: #a8b4c0; line-height: 1.6; }
+
+  /* CPM table */
+  .mini-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+  .mini-table th { background: rgba(255,255,255,0.04); color: #8b95a3; font-weight: 600; text-align: left; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .mini-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #c8d0db; }
+  .mini-table tr:last-child td { border-bottom: none; }
+  .cpm-high { color: #00d492; font-weight: 700; }
+  .cpm-mid { color: #f59e0b; font-weight: 600; }
+  .cpm-low { color: #8b95a3; }
+
+  /* Footer */
+  .footer { position: absolute; bottom: 30px; left: 60px; right: 60px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-brand { font-size: 11px; color: #2d3748; font-weight: 600; }
+  .footer-site { font-size: 11px; color: #2d3748; }
+
+  /* Divider */
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+
+  @media print {
+    body { background: #0a0e1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="brand-bar">
+    <div class="brand-logo">DigitalToolRadar</div>
+    <div class="brand-tag">Exclusive Bonus — VydoraAI Early Access Review</div>
+  </div>
+
+  <div class="bonus-label">Bonus #1 of 3</div>
+  <h1>Faceless YouTube<br><span>Launch Checklist</span></h1>
+  <p class="subtitle">The exact pre-launch sequence to validate your niche, set up your channel for monetization, and publish your first AI video with maximum ranking odds — before you record a single frame.</p>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Niche Validation (Before Anything Else)</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="check-box"></div><div>Confirm niche CPM is $8+ using VydoraAI's AI Niche Engine — skip anything under $6<span class="check-note">Low CPM niches need 10× more views to earn the same income</span></div></li>
+      <li><div class="check-box"></div><div>Verify buyer intent: niche should contain product comparisons, tutorials, or finance decisions<span class="check-note">Entertainment niches have high views, terrible CPM — avoid</span></div></li>
+      <li><div class="check-box"></div><div>Run AI Ranking Predictor — confirm score is 70+ before proceeding to script</div></li>
+      <li><div class="check-box"></div><div>Search YouTube for your niche: check if top videos have under 200K views (lower competition = faster ranking)</div></li>
+      <li><div class="check-box"></div><div>Confirm at least 3 affiliate offers exist in the niche on ClickBank, JVZoo, or Amazon Associates</div></li>
+    </ul>
+  </div>
+
+  <div class="pro-tip">
+    <div class="pro-tip-label">VydoraAI Shortcut</div>
+    <p>The AI Niche + Topic Engine handles steps 1–3 automatically. It filters out low-CPM niches before you see them. Your job is to confirm the affiliate angle in step 4–5, not research CPM from scratch.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Channel Setup (One-Time)</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="check-box"></div><div>Create a niche-specific YouTube channel name — not your personal name<span class="check-note">Example: "Finance Unlocked" not "John's Channel" — niche names rank better for topic keywords</span></div></li>
+      <li><div class="check-box"></div><div>Write a channel description with your primary keyword in the first 2 sentences</div></li>
+      <li><div class="check-box"></div><div>Enable channel monetization eligibility tracker (1,000 subs / 4,000 hours watch time goal)</div></li>
+      <li><div class="check-box"></div><div>Add channel links: affiliate disclosure page URL + your primary affiliate offer</div></li>
+      <li><div class="check-box"></div><div>Upload a channel banner using VydoraAI's Thumbnail Strategy System template</div></li>
+      <li><div class="check-box"></div><div>Set default upload settings: category, language, and license (Creative Commons if applicable)</div></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">DigitalToolRadar.com</div>
+    <div class="footer-site">Page 1 of 2 — Faceless YouTube Launch Checklist</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="brand-bar">
+    <div class="brand-logo">DigitalToolRadar</div>
+    <div class="brand-tag">Exclusive Bonus — VydoraAI Early Access Review</div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">First Video Production</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="check-box"></div><div>Pick the "Monetization" or "Authority" script style in VydoraAI for your first video — not Viral<span class="check-note">Viral scripts prioritize shares over search; you want SEO traffic on your first upload</span></div></li>
+      <li><div class="check-box"></div><div>Keep first video 6–10 minutes (optimal for mid-roll ad eligibility + viewer retention)</div></li>
+      <li><div class="check-box"></div><div>Embed affiliate CTA at the 40% mark — the highest engagement point confirmed by the vendors</div></li>
+      <li><div class="check-box"></div><div>Select Character Lock avatar — use the same avatar across your first 5 videos for brand recognition</div></li>
+      <li><div class="check-box"></div><div>Use AI Voiceover Engine — pick a neutral, professional voice (avoid heavily accented voices for finance niches)</div></li>
+      <li><div class="check-box"></div><div>Apply Cinematic scene style for finance/business niches — Doodle works better for education</div></li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Pre-Upload SEO (VydoraAI AI SEO Engine)</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="check-box"></div><div>Use AI-generated title with primary keyword in first 60 characters</div></li>
+      <li><div class="check-box"></div><div>Write description: primary keyword in first 2 sentences, affiliate link in first 3 lines (above the fold)</div></li>
+      <li><div class="check-box"></div><div>Add all 400+ AI-generated tags — YouTube uses tags for initial distribution</div></li>
+      <li><div class="check-box"></div><div>Upload AI-generated thumbnail — confirm text is readable on mobile screen size</div></li>
+      <li><div class="check-box"></div><div>Add chapters (timestamps) every 90 seconds — boosts search snippet appearance</div></li>
+      <li><div class="check-box"></div><div>Set end screen: link to your next video + subscribe button</div></li>
+    </ul>
+  </div>
+
+  <div class="warning">
+    <div class="warning-label">Don't Skip This</div>
+    <p>YouTube ranks new channels based on <strong style="color:#f87171">click-through rate in the first 24 hours</strong>. Your thumbnail is the most important ranking variable — not the content itself. If VydoraAI's generated thumbnail has low contrast text, regenerate it before uploading.</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Post-Upload Monitoring (First 72 Hours)</div>
+    </div>
+    <ul class="checklist">
+      <li><div class="check-box"></div><div>Check YouTube Studio at 24h: if CTR is under 3%, test a new thumbnail immediately</div></li>
+      <li><div class="check-box"></div><div>Check average view duration: if under 40%, edit the opening hook in your next video</div></li>
+      <li><div class="check-box"></div><div>Reply to every comment in the first 48h — signals engagement to the algorithm</div></li>
+      <li><div class="check-box"></div><div>Share video in 1–2 relevant Reddit communities or Facebook groups (not spam — relevant context)</div></li>
+      <li><div class="check-box"></div><div>At 72h: if video has under 200 views, publish video #2 immediately (consistency > one viral hit)</div></li>
+    </ul>
+  </div>
+
+  <div class="pro-tip">
+    <div class="pro-tip-label">The Real System</div>
+    <p>The vendors' 508,084 views in 90 days wasn't one viral video — it was consistent publishing across multiple channels using this exact checklist. VydoraAI's value is in removing the 4–6 hours per video down to 20 minutes, so you can publish 3–5× more frequently than manually-created channels.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">DigitalToolRadar.com</div>
+    <div class="footer-site">Page 2 of 2 — Faceless YouTube Launch Checklist</div>
+  </div>
+</div>
+
+</body>
+</html>

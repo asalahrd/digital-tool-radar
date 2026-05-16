@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Script-to-Sales Mini Guide — DigitalToolRadar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0e1a; color: #e2e8f0; width: 794px; margin: 0 auto; }
+  .page { width: 794px; min-height: 1123px; padding: 56px 60px; position: relative; page-break-after: always; }
+
+  .brand-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; padding-bottom: 18px; border-bottom: 1px solid rgba(0,212,146,0.2); }
+  .brand-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: #00d492; text-transform: uppercase; }
+  .brand-tag { font-size: 11px; color: #4a5568; font-weight: 500; }
+
+  .bonus-label { display: inline-block; background: rgba(0,212,146,0.12); border: 1px solid rgba(0,212,146,0.3); color: #00d492; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-size: 34px; font-weight: 900; color: #ffffff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 10px; }
+  h1 span { color: #00d492; }
+  .subtitle { font-size: 14px; color: #8b95a3; line-height: 1.6; margin-bottom: 28px; }
+
+  /* Script anatomy */
+  .anatomy { display: flex; flex-direction: column; gap: 0; margin-bottom: 24px; }
+  .anatomy-row { display: flex; align-items: stretch; gap: 0; }
+  .time-bar { width: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 14px 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-right: none; font-size: 11px; color: #6b7280; font-weight: 600; text-align: center; }
+  .segment { flex: 1; padding: 14px 18px; border: 1px solid rgba(255,255,255,0.06); border-bottom: none; }
+  .anatomy-row:last-child .segment { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .anatomy-row:last-child .time-bar { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .seg-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .seg-desc { font-size: 12.5px; color: #a8b4c0; line-height: 1.5; }
+  .seg-example { font-size: 11px; color: #5a6478; margin-top: 5px; font-style: italic; border-left: 2px solid rgba(0,212,146,0.3); padding-left: 8px; }
+
+  /* Segment colors */
+  .hook .seg-label { color: #f59e0b; }
+  .hook { border-left: 3px solid #f59e0b; }
+  .hook .time-bar { border-left: 3px solid #f59e0b; }
+  .problem .seg-label { color: #f87171; }
+  .problem { border-left: 3px solid #f87171; }
+  .problem .time-bar { border-left: 3px solid #f87171; }
+  .solution .seg-label { color: #60a5fa; }
+  .solution { border-left: 3px solid #60a5fa; }
+  .solution .time-bar { border-left: 3px solid #60a5fa; }
+  .cta1 .seg-label { color: #00d492; }
+  .cta1 { border-left: 3px solid #00d492; }
+  .cta1 .time-bar { border-left: 3px solid #00d492; }
+  .proof .seg-label { color: #a78bfa; }
+  .proof { border-left: 3px solid #a78bfa; }
+  .proof .time-bar { border-left: 3px solid #a78bfa; }
+  .deep .seg-label { color: #60a5fa; }
+  .deep { border-left: 3px solid #60a5fa; }
+  .deep .time-bar { border-left: 3px solid #60a5fa; }
+  .cta2 .seg-label { color: #00d492; }
+  .cta2 { border-left: 3px solid #00d492; background: rgba(0,212,146,0.04); }
+  .cta2 .time-bar { border-left: 3px solid #00d492; background: rgba(0,212,146,0.04); }
+
+  /* Key rules */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .rule-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 16px; }
+  .rule-num { font-size: 10px; font-weight: 800; color: #00d492; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .rule-title { font-size: 13px; font-weight: 700; color: #e2e8f0; margin-bottom: 5px; }
+  .rule-body { font-size: 12px; color: #8b95a3; line-height: 1.5; }
+
+  .pro-tip { background: rgba(0,212,146,0.07); border: 1px solid rgba(0,212,146,0.2); border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; }
+  .pro-tip-label { font-size: 10px; font-weight: 800; color: #00d492; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .pro-tip p { font-size: 12.5px; color: #a8b4c0; line-height: 1.6; }
+
+  /* Conversion table */
+  .conv-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 16px; }
+  .conv-table th { background: rgba(255,255,255,0.04); color: #6b7280; font-weight: 600; text-align: left; padding: 8px 12px; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .conv-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); color: #c8d0db; font-size: 12px; }
+  .conv-table tr:last-child td { border-bottom: none; }
+  .good { color: #00d492; font-weight: 700; }
+  .bad { color: #f87171; font-weight: 600; }
+  .ok { color: #f59e0b; font-weight: 600; }
+
+  /* Script styles comparison */
+  .styles-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .style-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 12px 14px; }
+  .style-name { font-size: 11px; font-weight: 800; color: #00d492; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .style-best { font-size: 10px; color: #6b7280; margin-bottom: 6px; font-style: italic; }
+  .style-body { font-size: 11.5px; color: #8b95a3; line-height: 1.5; }
+
+  .footer { position: absolute; bottom: 30px; left: 60px; right: 60px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-brand { font-size: 11px; color: #2d3748; font-weight: 600; }
+  .footer-site { font-size: 11px; color: #2d3748; }
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+
+  @media print {
+    body { background: #0a0e1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="brand-bar">
+    <div class="brand-logo">DigitalToolRadar</div>
+    <div class="brand-tag">Exclusive Bonus — VydoraAI Early Access Review</div>
+  </div>
+
+  <div class="bonus-label">Bonus #3 of 3</div>
+  <h1>AI Script-to-Sales<br><span>Mini Guide</span></h1>
+  <p class="subtitle">How to structure VydoraAI scripts so viewers actually buy — CTA placement, script style selection, and the 7 conversion rules that separate channels earning $50/month from channels earning $500+/month.</p>
+
+  <div class="anatomy">
+    <div class="anatomy-row hook">
+      <div class="time-bar">0:00–0:45</div>
+      <div class="segment">
+        <div class="seg-label">Hook — The Pattern Interrupt</div>
+        <div class="seg-desc">State the specific result or counterintuitive truth immediately. Never start with "Welcome back to my channel." VydoraAI's Monetization style script opens with this automatically.</div>
+        <div class="seg-example">"Most people trying to lose weight are doing cardio first thing in the morning — and it's actually working against them. Here's why, and what to do instead."</div>
+      </div>
+    </div>
+    <div class="anatomy-row problem">
+      <div class="time-bar">0:45–1:30</div>
+      <div class="segment">
+        <div class="seg-label">Problem — Agitate the Pain</div>
+        <div class="seg-desc">Name the exact frustration the viewer is experiencing. Be specific — not "it's hard" but "you've tried X and Y and still get Z." This is why they keep watching.</div>
+        <div class="seg-example">"You've spent hours researching, you've started 3 different plans, and every time you make progress you hit the same wall. The issue isn't your willpower."</div>
+      </div>
+    </div>
+    <div class="anatomy-row solution">
+      <div class="time-bar">1:30–2:30</div>
+      <div class="segment">
+        <div class="seg-label">Solution Preview — Earn Their Trust</div>
+        <div class="seg-desc">Introduce the mechanism (not the product) that solves the problem. This is why the Authority and Monetization styles outperform Viral for affiliate income — they establish credibility before selling.</div>
+        <div class="seg-example">"There's a metabolic window most people aren't using. I'll show you the exact 12-minute protocol that changes this — no equipment, no gym, just timing."</div>
+      </div>
+    </div>
+    <div class="anatomy-row cta1">
+      <div class="time-bar" style="color:#00d492; font-weight:800;">CTA #1<br style='margin:2px'/>~2:30</div>
+      <div class="segment">
+        <div class="seg-label" style="color:#00d492;">First Affiliate CTA — 40% Mark (Critical)</div>
+        <div class="seg-desc">Place the affiliate mention here. Viewers who reach 2:30 in a 6-minute video are engaged — this is your highest-converting moment. VydoraAI's Monetization style places this automatically. Keep it soft: "I'll leave the link below if you want to explore this further."</div>
+        <div class="seg-example">"If you want a done-for-you version of this protocol, the program I used is linked in the description — it's $37 right now during launch week."</div>
+      </div>
+    </div>
+    <div class="anatomy-row proof">
+      <div class="time-bar">2:30–4:30</div>
+      <div class="segment">
+        <div class="seg-label">Proof + Deep Dive</div>
+        <div class="seg-desc">Demonstrate the mechanism works. This is where most AI scripts generate thin content — add one specific data point, case study, or documented result. For faceless channels, use the result from the JV page or documented outcomes from the niche.</div>
+        <div class="seg-example">"In a 2023 study from the NIH — I'll link to it in the description — participants using this protocol lost 2.3× more fat than the control group in the same 8-week period."</div>
+      </div>
+    </div>
+    <div class="anatomy-row deep">
+      <div class="time-bar">4:30–5:30</div>
+      <div class="segment">
+        <div class="seg-label">The Step-by-Step (What They Came For)</div>
+        <div class="seg-desc">Deliver the actionable content clearly. Use numbered steps — they increase video completion rate because viewers want to see the list finished. VydoraAI's Scene Engine visualizes each step as its own scene.</div>
+      </div>
+    </div>
+    <div class="anatomy-row cta2">
+      <div class="time-bar" style="color:#00d492; font-weight:800;">CTA #2<br/>~5:30</div>
+      <div class="segment">
+        <div class="seg-label" style="color:#00d492;">Closing CTA — Harder Ask</div>
+        <div class="seg-desc">After delivering value, make the direct offer. Viewers who reach this point have implicitly said "I trust this creator." This CTA can be more direct: "If you want the complete system, check the link below — I negotiated a discount for my viewers."</div>
+        <div class="seg-example">"Everything I covered today is the free version. The full system is below — it's $37 during launch and goes up after this week."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">DigitalToolRadar.com</div>
+    <div class="footer-site">Page 1 of 2 — AI Script-to-Sales Mini Guide</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="brand-bar">
+    <div class="brand-logo">DigitalToolRadar</div>
+    <div class="brand-tag">Exclusive Bonus — VydoraAI Early Access Review</div>
+  </div>
+
+  <p style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.06em;">VydoraAI Script Style Selection Guide</p>
+
+  <div class="styles-grid">
+    <div class="style-card">
+      <div class="style-name">Monetization</div>
+      <div class="style-best">Best for: Finance, Software, Business</div>
+      <div class="style-body">Structures content around a problem, solution, and offer. Automatically places affiliate CTA at the 40% engagement peak. Use this for your first 3 videos in any niche — it's the safest converter.</div>
+    </div>
+    <div class="style-card">
+      <div class="style-name">Authority</div>
+      <div class="style-best">Best for: Health, Education, Career</div>
+      <div class="style-body">Builds credibility before selling. Longer proof sections, data-heavy middle. Lower CTR on first watch but significantly higher return viewer rate — builds the channel's trust faster.</div>
+    </div>
+    <div class="style-card">
+      <div class="style-name">Listicle</div>
+      <div class="style-best">Best for: Tools, Tips, Product Reviews</div>
+      <div class="style-body">"Top 5 X that do Y" structure. Highest search-snippet appearance. Embed affiliate CTA on item #2 and item #5 — viewers who finish listicles are in purchase research mode.</div>
+    </div>
+    <div class="style-card">
+      <div class="style-name">Viral</div>
+      <div class="style-best">Best for: Shorts, Trend Content</div>
+      <div class="style-body">Optimized for shares and recommendations, not search. Use for Shorts only. Weak for affiliate conversion — avoid for long-form monetization channels until you have 5K+ subscribers.</div>
+    </div>
+    <div class="style-card">
+      <div class="style-name">Story</div>
+      <div class="style-best">Best for: Personal Finance, Health Journeys</div>
+      <div class="style-body">Narrative arc: problem → attempt → solution → outcome. Highest viewer retention of all styles. Use after establishing credibility (after video 5+). Requires VydoraAI's Character Lock for avatar consistency across scenes.</div>
+    </div>
+    <div class="style-card" style="border-color:rgba(0,212,146,0.2);">
+      <div class="style-name" style="color:#f59e0b;">Start Here</div>
+      <div class="style-best">Recommended First Choice</div>
+      <div class="style-body" style="color:#e2e8f0; font-weight:600;">Use <span style="color:#00d492">Monetization</span> style for videos 1–5 in a new niche. Switch to <span style="color:#00d492">Authority</span> once you have viewer comments showing what questions they have. Then add <span style="color:#00d492">Listicle</span> for SEO volume.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px; text-transform:uppercase; letter-spacing:0.06em;">The 7 CTA Rules That Separate $50/mo Channels from $500+/mo Channels</p>
+
+  <table class="conv-table">
+    <tr>
+      <th style="width:5%">#</th>
+      <th style="width:35%">Rule</th>
+      <th style="width:30%">Wrong Version</th>
+      <th style="width:30%">Right Version</th>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">1</td>
+      <td>Place first CTA before 45% through video</td>
+      <td class="bad">CTA at 5:30 in a 6-min video</td>
+      <td class="good">CTA at 2:30 in a 6-min video</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">2</td>
+      <td>Name the affiliate link price in the CTA</td>
+      <td class="bad">"Check the link below"</td>
+      <td class="good">"It's $37 — link below"</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">3</td>
+      <td>Create urgency with a real reason</td>
+      <td class="bad">"Limited time offer"</td>
+      <td class="good">"Launch price ends May 24"</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">4</td>
+      <td>Pin affiliate link as top comment</td>
+      <td class="bad">Link only in description</td>
+      <td class="good">Pinned comment + description</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">5</td>
+      <td>Use a soft CTA first, hard CTA at end</td>
+      <td class="bad">Hard sell at 2:30</td>
+      <td class="good">"I'll leave it below" at 2:30, direct pitch at 5:30</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">6</td>
+      <td>Add a bonus to your affiliate link</td>
+      <td class="bad">Raw affiliate link</td>
+      <td class="good">"Buy through my link to get [bonus]"</td>
+    </tr>
+    <tr>
+      <td style="font-weight:800; color:#00d492;">7</td>
+      <td>Update description after 90 days if offer expires</td>
+      <td class="bad">Dead affiliate link stays live</td>
+      <td class="good">Replace with evergreen alternative offer</td>
+    </tr>
+  </table>
+
+  <div class="pro-tip">
+    <div class="pro-tip-label">The $162 Breakdown — What the VydoraAI Vendors Documented</div>
+    <p>One faceless video in a high-CPM niche: <strong style="color:#e2e8f0">$21 YouTube ad revenue</strong> (1,400 views × $15 CPM) + <strong style="color:#e2e8f0">$141 affiliate commission</strong> (3 sales at $47). The affiliate income was 6.7× the ad revenue. This is only possible when the CTA is placed at the right point in the script — which is exactly what VydoraAI's Monetization style automates.</p>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">DigitalToolRadar.com</div>
+    <div class="footer-site">Page 2 of 2 — AI Script-to-Sales Mini Guide</div>
+  </div>
+</div>
+
+</body>
+</html>
