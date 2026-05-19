@@ -3,6 +3,7 @@ import { getProduct, getAllSlugs } from "@/lib/products"
 import { parseSlug } from "@/lib/slugParser"
 import ReviewPage from "@/components/ReviewPage"
 import BonusPage from "@/components/BonusPage"
+import HybridReviewPage from "@/components/HybridReviewPage"
 import type { Metadata } from "next"
 
 const SITE_URL = "https://digitaltoolradar.com"
@@ -72,6 +73,7 @@ export default function ProductPage({ params }: Props) {
   if (!product) notFound()
 
   if (pageType === "bonus" || pageType === "deal") return <BonusPage product={product} />
+  if (product.page_template === "hybrid") return <HybridReviewPage product={product} />
   return <ReviewPage product={product} />
 }
 

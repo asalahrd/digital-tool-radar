@@ -1,0 +1,314 @@
+{
+  "_comment": "HYBRID PAGE TEMPLATE — copy this for new products. Remove _comment fields before use.",
+  "slug": "product-name",
+  "name": "ProductName",
+  "tagline": "Short tagline that captures the main promise.",
+  "launch_date": "2026-01-01",
+  "commission": 50,
+  "vendor": "Vendor Name",
+  "niche": "AI Video / Faceless Content",
+  "jv_page": "https://vendor.com/jv",
+  "affiliate_link": "https://jvzoo.com/b/xxxxx",
+  "price": "37",
+  "published_at": "2026-01-01T00:00:00Z",
+  "product_image": "/images/product-name-dashboard.png",
+  "screenshots": [],
+  "video_url": "",
+
+  "page_template": "hybrid",
+
+  "features": [
+    "Feature One — short description of what it does",
+    "Feature Two — short description of what it does"
+  ],
+
+  "pros": [
+    "First genuine strength, specific and concrete",
+    "Second genuine strength"
+  ],
+
+  "cons": [
+    "Honest limitation buyers should know",
+    "Another real limitation"
+  ],
+
+  "faqs": [
+    {
+      "q": "Is this beginner-friendly?",
+      "a": "Yes. You do not need prior experience. The setup takes approximately 15 minutes and the interface is designed for non-technical users."
+    },
+    {
+      "q": "Are there upsells?",
+      "a": "Yes. The front-end gives you full core access. OTO1 unlocks [specific upgrade]. OTO2 adds [specific upgrade]. The FE is complete on its own — the OTOs are optional performance upgrades."
+    },
+    {
+      "q": "How do I claim the bonus?",
+      "a": "Buy through our affiliate link, forward your receipt to salaheddine.raddaoui@gmail.com, and receive your bonus files within 24 hours."
+    },
+    {
+      "q": "Is there a money-back guarantee?",
+      "a": "Yes. 30 days, no questions asked, through the payment platform."
+    },
+    {
+      "q": "Who should skip this?",
+      "a": "If you already have a [competing tool] and are happy with it, or if you need [specific advanced feature], this may not be the right fit."
+    }
+  ],
+
+  "otos": [
+    {
+      "name": "OTO1 — Pro Upgrade",
+      "description": "Unlocks unlimited [feature], higher limits, and priority processing.",
+      "price": "$67"
+    },
+    {
+      "name": "OTO2 — Agency License",
+      "description": "Use for client projects, sub-accounts, and commercial resale.",
+      "price": "$97"
+    }
+  ],
+
+  "hybrid": {
+    "hero": {
+      "headline": "I Tested [ProductName] Before You Buy — Here's What I'd Want to Know",
+      "sub": "An honest look at [ProductName] — what it does well, where it falls short, and whether it's worth buying during the launch window.",
+      "badge": "⭐ Reviewed by DigitaltoolRadar",
+      "verdict_text": "Solid tool for [use case]. Recommended if [specific condition].",
+      "cta_text": "Get ProductName + DigitaltoolRadar Bonus Pack",
+      "launch_note": "Launch pricing ends [date] — price increases after."
+    },
+
+    "quick_decision": {
+      "best_for": ["Beginners", "Affiliate marketers", "Content creators"],
+      "not_for": ["Advanced agencies needing deep customization", "Teams needing multi-seat access"],
+      "skill_level": "Beginner",
+      "setup_time": "~15 minutes",
+      "use_case": "Create [specific output] without [specific pain]",
+      "verdict_score": "8.2 / 10",
+      "deal_type": "One-Time",
+      "bonus_available": true
+    },
+
+    "transformation": {
+      "before": [
+        "Spending hours on [painful task] manually",
+        "Paying for multiple subscriptions to get the same result",
+        "Struggling to [specific problem] consistently",
+        "Needing technical skills just to [basic outcome]"
+      ],
+      "after": [
+        "[Specific outcome] in [timeframe] with minimal effort",
+        "One tool replacing your [old stack] at a fraction of the cost",
+        "Consistent [output] without needing to [pain point]",
+        "Working faster with AI handling [specific workflow steps]"
+      ]
+    },
+
+    "social_proof": {
+      "title": "Why Readers Trust DigitaltoolRadar",
+      "items": [
+        {
+          "type": "quote",
+          "text": "I bought [Previous Product] based on the DigitaltoolRadar review and it was exactly what was described. Finally a review site that doesn't hype everything.",
+          "author": "R.M.",
+          "platform": "Email subscriber"
+        },
+        {
+          "type": "message",
+          "text": "Your bonus tips from the last launch actually helped me set things up properly. Other reviewers just send generic PDFs.",
+          "author": "James T.",
+          "platform": "WhatsApp"
+        },
+        {
+          "type": "quote",
+          "text": "The cons section saved me from buying the wrong OTO. Straight talk.",
+          "author": "S.K.",
+          "platform": "YouTube comment"
+        }
+      ]
+    },
+
+    "feature_cards": [
+      {
+        "icon": "🎯",
+        "title": "Feature Module One",
+        "description": "What this module does in plain language. Explain the workflow step it handles.",
+        "why_it_matters": "Why this matters: it removes [specific friction] from your workflow."
+      },
+      {
+        "icon": "⚡",
+        "title": "Feature Module Two",
+        "description": "Plain description of what this does and how the user interacts with it.",
+        "why_it_matters": "This saves [time/money/effort] by automating [specific task]."
+      },
+      {
+        "icon": "🤖",
+        "title": "AI Core Engine",
+        "description": "The AI layer that powers [specific output]. Input [X], get [Y] automatically.",
+        "why_it_matters": "Eliminates the need for [skill/tool/subscription]."
+      }
+    ],
+
+    "use_cases": [
+      {
+        "persona": "Beginner Creator",
+        "icon": "🌱",
+        "workflow": [
+          "Pick a niche using the built-in [tool]",
+          "Generate your first [output] with the AI [module]",
+          "Publish and start building your [channel/presence]"
+        ],
+        "outcome": "First [deliverable] live within the first session — no prior experience needed."
+      },
+      {
+        "persona": "Affiliate Marketer",
+        "icon": "💰",
+        "workflow": [
+          "Use the [feature] to identify high-converting [topics]",
+          "Create [content type] that targets buyer-intent searches",
+          "Embed affiliate links using [built-in monetization feature]"
+        ],
+        "outcome": "Content optimized for commissions from day one — no separate tools needed."
+      },
+      {
+        "persona": "Agency / Freelancer",
+        "icon": "🏢",
+        "workflow": [
+          "Create [deliverable] for multiple clients from a single dashboard",
+          "Use commercial license (OTO2) to resell outputs",
+          "Scale delivery without proportionally increasing time"
+        ],
+        "outcome": "Add [service type] to your offering without hiring additional staff."
+      }
+    ],
+
+    "review_body": "<p>Here goes the full HTML review text. Write honestly. Include what the product is, how it works, who made it, specific observations from testing or demo materials.</p><p>Keep paragraphs short. Use clear headings. Be specific about what works and what doesn't.</p>",
+
+    "micro_proof": [
+      {
+        "label": "First impression",
+        "text": "The onboarding took approximately [X] steps. The interface was [description]. The first usable output appeared after [timeframe].",
+        "source": "Based on vendor walkthrough materials"
+      },
+      {
+        "label": "Strongest use case",
+        "text": "The most practical application I noticed was [specific workflow]. This is where the tool genuinely reduces friction.",
+        "source": "From available demo assets"
+      },
+      {
+        "label": "Worth knowing",
+        "text": "[Specific limitation or nuance] that the sales page doesn't emphasize clearly. Buyers should be aware of this before deciding.",
+        "source": "From product documentation"
+      }
+    ],
+
+    "bonus_stack": [
+      {
+        "name": "Bonus 1: Quick-Start Workflow Guide",
+        "description": "A step-by-step PDF showing exactly how to set up [ProductName] in your first session — covering the settings most users miss.",
+        "why_it_matters": "Cuts setup time in half. Most buyers waste their first hour in the wrong place.",
+        "value": "$27",
+        "badge": "Implementation"
+      },
+      {
+        "name": "Bonus 2: [Specific Complementary Resource]",
+        "description": "A curated [resource type] that complements [ProductName] — covering [specific gap the product doesn't address].",
+        "why_it_matters": "Fills the gap between what the tool provides and what you actually need to get results.",
+        "value": "$37",
+        "badge": "Strategy"
+      },
+      {
+        "name": "Bonus 3: DigitaltoolRadar Swipe Kit",
+        "description": "Our private collection of [relevant templates/prompts/frameworks] optimized for [ProductName's use case].",
+        "why_it_matters": "Use these instead of starting from scratch — results from the first session.",
+        "value": "$47",
+        "badge": "Templates"
+      }
+    ],
+
+    "bonus_claim_steps": [
+      "Click our affiliate link and complete your purchase through JVZoo",
+      "Forward your purchase receipt to salaheddine.raddaoui@gmail.com with subject line 'DTR Bonus'",
+      "Receive your bonus files via email within 24 hours"
+    ],
+
+    "comparison": {
+      "title": "[ProductName] vs. Doing It Without It",
+      "rows": [
+        {
+          "dimension": "Time to first output",
+          "product": "~15 minutes",
+          "alternative": "Hours of manual work",
+          "advantage": "product"
+        },
+        {
+          "dimension": "Monthly cost",
+          "product": "$37 one-time",
+          "alternative": "$97–$300/month stack",
+          "advantage": "product"
+        },
+        {
+          "dimension": "Technical skill needed",
+          "product": "None",
+          "alternative": "Moderate to high",
+          "advantage": "product"
+        },
+        {
+          "dimension": "Scalability",
+          "product": "Handled by AI",
+          "alternative": "Linear with time input",
+          "advantage": "product"
+        },
+        {
+          "dimension": "Content quality ceiling",
+          "product": "Good (AI-assisted)",
+          "alternative": "Depends on skill",
+          "advantage": "neutral"
+        }
+      ]
+    },
+
+    "final_decision": {
+      "verdict": "If your goal is [specific outcome] and you want to [specific workflow benefit], [ProductName] is a practical tool at a reasonable launch price. The front-end is complete on its own. The OTOs are useful but not required to get started.",
+      "buy_if": [
+        "You want to [specific goal] without [specific pain]",
+        "You're at the beginner to intermediate level and want a guided workflow",
+        "The $37 one-time cost fits your current budget",
+        "You want the bonus implementation guides included"
+      ],
+      "skip_if": [
+        "You already have a working [competing workflow] you're happy with",
+        "You need [specific advanced feature] not included in the FE",
+        "You prefer a monthly subscription with dedicated support tiers"
+      ],
+      "strongest_reason": "The launch price makes the risk low. At $37 one-time, the break-even point is [specific outcome]. If the tool delivers even a fraction of what's demonstrated, it pays for itself quickly."
+    },
+
+    "cta_primary": "Get ProductName + DigitaltoolRadar Bonus Pack",
+    "cta_secondary": "Read full review first"
+  },
+
+  "review_article": "",
+  "video_script": "",
+  "script_url": "",
+
+  "landing": {
+    "headline": "Get [ProductName] With Exclusive Bonus",
+    "sub_headline": "Buy through our link and claim the DigitaltoolRadar bonus stack — implementation guides, templates, and resources at no extra cost.",
+    "bullets": [
+      "Bonus 1: Quick-Start Workflow Guide",
+      "Bonus 2: [Specific Resource]",
+      "Bonus 3: DigitaltoolRadar Swipe Kit"
+    ],
+    "cta_text": "Get ProductName + Bonus",
+    "bonuses": [],
+    "urgency_line": "Launch pricing available for a limited window."
+  },
+
+  "meta": {
+    "review_title": "ProductName Review 2026 — Is It Worth Buying? (Honest Take)",
+    "review_description": "Honest ProductName review: what it does, who it's for, real limitations, and whether the launch price is worth it. Includes exclusive bonus.",
+    "bonus_title": "ProductName Bonus — DigitaltoolRadar Exclusive Pack",
+    "bonus_description": "Get ProductName with the DigitaltoolRadar exclusive bonus stack. Implementation guides, templates, and resources included with your purchase."
+  }
+}
